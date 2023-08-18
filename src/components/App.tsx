@@ -1,14 +1,21 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from '../pages/Login/views/Login';
+import Main from '../pages/Main/views/Main';
 import '../styles/App.css';
 
 function App() {
+	const { innerHeight } = window;
+	document.documentElement.style.setProperty('--app-height', `${innerHeight}px`);
+
 	return (
-		<div className="App">
-			<header className="App-header">
-				<h1 className="text-3xl font-bold underline">Hello world!</h1>
-				<h1>Hello world!</h1>
-			</header>
-		</div>
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<Login />} />
+				<Route path="/main" element={<Main />} />
+				<Route path="*" element={<div>Not Found</div>} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
 
