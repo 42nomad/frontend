@@ -20,6 +20,6 @@
 body {
   margin: 0;
   width: 100%;
-  height: var(--app-height, 100vh);
+  height: var(--vh, 100vh);
   font-family: 'nexon';
 }
