@@ -23,3 +23,7 @@ body {
   height: var(--vh, 100vh);
   font-family: 'nexon';
 }
+
+html {
+  font-size: calc(min(calc(var(--vh, 100vh) * 0.6), 100vw) * 0.04);
+}
