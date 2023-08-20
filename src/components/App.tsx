@@ -6,7 +6,7 @@ import '../styles/App.css';
 
 function App() {
 	const { innerHeight } = window;
-	document.documentElement.style.setProperty('--vh', `${innerHeight}px`);
+	document.documentElement.style.setProperty('--app-height', `${innerHeight}px`);
 
 	return (
 		<BrowserRouter>

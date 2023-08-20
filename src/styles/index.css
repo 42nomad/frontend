@@ -2,24 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'nexon';
-  src: url('../assets/fonts/NEXONLv2Gothic.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'nexonLight';
-  src: url('../assets/fonts/NEXONLv2GothicLight.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'nexonBold';
-  src: url('../assets/fonts/NEXONLv2GothicBold.woff') format('woff');
-}
-
 body {
   margin: 0;
   width: 100%;
-  height: var(--vh, 100vh);
-  font-family: 'nexon';
+  height: var(--app-height, 100vh);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  text-align: center;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }

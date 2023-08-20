@@ -7,10 +7,6 @@ module.exports = {
         'nomad-green': '#20633F',
       }
     },
-    fontFamily: {
-      nexonBold: ["nexonBold"],
-      nexonLight: ["nexonLight"],
-    },
   },
   plugins: [],
 }
