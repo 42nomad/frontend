@@ -2,8 +2,11 @@ import React from 'react';
 
 function Login() {
 	return (
-        <div className='bg-nomad-green h-full font-nexonBold'>hello 이것은 넥슨 Lv2 고딕입니다.</div>
-    )
+		<div className='bg-nomad-green h-full flex flex-col justify-center items-center'>
+			<div className='font-nexonBold text-nomad-sand text-5xl mb-5'>42 NOMAD</div>
+			<button type='button' className='text-nomad-green bg-nomad-sand w-5/12 rounded-3xl h-11 text-2xl'>Login</button>
+		</div>
+	);
 }
 
 export default Login;
