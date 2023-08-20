@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         'nomad-green': '#20633F',
+        'nomad-sand': '#FFFAF2',
       }
     },
     fontFamily: {
