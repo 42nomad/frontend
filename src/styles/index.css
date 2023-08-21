@@ -17,6 +17,11 @@
   src: url('../assets/fonts/NEXONLv2GothicBold.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'fugazRegular';
+  src: url('../assets/fonts/FugazOneRegular.woff') format('woff');
+}
+
 body {
   margin: 0;
   width: 100%;
