@@ -5,7 +5,7 @@ interface SideBarProps {
 	setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SideBarContent = ({ setIsOpen }: SideBarProps) => (
+function SideBarContent({ setIsOpen }: SideBarProps) {
 	/*
     const side = useRef<HTMLDivElement>(null);
 
@@ -25,37 +25,43 @@ const SideBarContent = ({ setIsOpen }: SideBarProps) => (
 		};
 	});
     */
+	// const [isSeat, setIsSeat] = React.useState<boolean>(true);
 
-	<nav className="SideBar__content flex flex-col z-50 bg-nomad-green min-h-screen h-full w-full">
-		<button
-			type="button"
-			className=" z-50 mt-2 w-fit self-end transition-transform transform hover:scale-110"
-			onClick={() => {
-				setIsOpen(false);
-			}}
-		>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 24 24"
-				strokeWidth={1.5}
-				className="w-10 h-10 z-50 stroke-nomad-sand"
+	return (
+		<nav className="SideBar__content flex flex-col z-50 bg-nomad-green min-h-screen h-full w-full">
+			<button
+				type="button"
+				className=" z-50 mt-2 w-fit self-end transition-transform transform hover:scale-110"
+				onClick={() => {
+					setIsOpen(false);
+				}}
 			>
-				<path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-			</svg>
-		</button>
-		<ul className="z-50 w-full pr-5">
-			<Menu link="/checkSeat" name="자리 확인" />
-			<Menu link="/meetingRoom" name="회의실" />
-			<Menu link="/clusterMap" name="클러스터 맵" />
-			<Menu link="/lostItem" name="분실 게시판" />
-			<Menu link="/myPage" name="마이페이지" />
-			<Menu link="/quickSearch" name="빠른 자리 검색" />
-			{/* <li className="z-50 w-full h-10 flex items-center justify-end text-nomad-sand transition-transform transform hover:scale-105">
-				빠른 자리 검색
-			</li> */}
-		</ul>
-	</nav>
-);
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					strokeWidth={1.5}
+					className="w-10 h-10 z-50 stroke-nomad-sand"
+				>
+					<path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+				</svg>
+			</button>
+			<ul className="z-50 w-full pr-5">
+				<Menu link="/checkSeat" name="자리 확인" />
+				<Menu link="/meetingRoom" name="회의실" />
+				<Menu link="/clusterMap" name="클러스터 맵" />
+				<Menu link="/lostItem" name="분실 게시판" />
+				<Menu link="/myPage" name="마이페이지" />
+			</ul>
+			<ul className="z-50 w-full pr-5">
+				{/* <Menu link="/quickSearch" name="빠른 자리 검색" /> */}
+				<li className="z-50 w-full h-10 flex items-center justify-end text-nomad-sand transition-transform transform hover:scale-105">
+					빠른 자리 검색
+					{/* <SearchSeat /> */}
+				</li>
+			</ul>
+		</nav>
+	);
+}
 
 export default SideBarContent;
