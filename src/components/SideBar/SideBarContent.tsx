@@ -28,10 +28,11 @@ function SideBarContent({ setIsOpen }: SideBarProps) {
 	// const [isSeat, setIsSeat] = React.useState<boolean>(true);
 
 	return (
-		<nav className="SideBar__content flex flex-col z-50 bg-nomad-green min-h-screen h-full w-full">
+		<nav id="SideBar-Content" className="flex flex-col z-50 bg-nomad-green min-h-screen h-full w-full">
 			<button
 				type="button"
-				className=" z-50 mt-2 w-fit self-end transition-transform transform hover:scale-110"
+				id="CloseButton"
+				className="z-50 mt-2 mr-4 w-fit self-end transition-transform transform hover:scale-110"
 				onClick={() => {
 					setIsOpen(false);
 				}}
@@ -46,16 +47,16 @@ function SideBarContent({ setIsOpen }: SideBarProps) {
 					<path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
 				</svg>
 			</button>
-			<ul className="z-50 w-full pr-5">
+			<ul className="z-50 w-full pr-7 ">
 				<Menu link="/checkSeat" name="자리 확인" />
 				<Menu link="/meetingRoom" name="회의실" />
 				<Menu link="/clusterMap" name="클러스터 맵" />
 				<Menu link="/lostItem" name="분실 게시판" />
 				<Menu link="/myPage" name="마이페이지" />
 			</ul>
-			<ul className="z-50 w-full pr-5">
+			<ul className="z-50 w-full pr-7">
 				{/* <Menu link="/quickSearch" name="빠른 자리 검색" /> */}
-				<li className="z-50 w-full h-10 flex items-center justify-end text-nomad-sand transition-transform transform hover:scale-105">
+				<li className="z-50 w-full h-14 flex items-center justify-end text-nomad-sand text-xl transition-transform transform hover:scale-105">
 					빠른 자리 검색
 					{/* <SearchSeat /> */}
 				</li>
