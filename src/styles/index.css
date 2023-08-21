@@ -25,5 +25,6 @@ body {
 }
 
 html {
-  font-size: calc(min(calc(var(--vh, 100vh) * 0.6), 100vw) * 0.04);
+  --width: min(calc(var(--vh, 100vh) * 0.6), 100vw);
+  font-size: calc(var(--width) * 0.04);
 }
