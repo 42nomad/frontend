@@ -8,7 +8,7 @@ interface MenuProps {
 
 function Menu({ link, name }: MenuProps) {
 	return (
-		<li className="z-50 w-full h-10 flex items-center justify-end text-nomad-sand transition-transform transform hover:scale-105">
+		<li className="z-50 w-full h-14 flex items-center justify-end text-nomad-sand text-xl transition-transform transform hover:scale-105">
 			<Link to={`${link}`}>{name}</Link>
 		</li>
 	);
