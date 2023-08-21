@@ -1,17 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,tsx}"],
-  theme: {
-    extend: {
-      colors: {
-        'nomad-green': '#20633F',
-        'nomad-sand': '#FFFAF2',
-      }
-    },
-    fontFamily: {
-      nexonBold: ["nexonBold"],
-      nexonLight: ["nexonLight"],
-    },
-  },
-  plugins: [],
-}
+	content: ['./src/**/*.{html,tsx}'],
+	theme: {
+		extend: {
+			maxWidth: {
+				'max-wid': 'calc(var(--vh, 100vh) * 0.6)',
+			},
+			colors: {
+				'nomad-green': '#20633F',
+				'nomad-sand': '#FFFAF2',
+			},
+		},
+		fontFamily: {
+			nexonBold: ['nexonBold'],
+			nexonLight: ['nexonLight'],
+			fugazRegular: ['fugazRegular'],
+		},
+	},
+	plugins: [],
+};
