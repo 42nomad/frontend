@@ -9,6 +9,7 @@ module.exports = {
 			colors: {
 				'nomad-green': '#20633F',
 				'nomad-sand': '#FFFAF2',
+				'nomad-disable': '#F7E18D',
 			},
 		},
 		fontFamily: {
