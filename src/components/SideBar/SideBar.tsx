@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SideBarContent from './SideBarContent';
 
-const SideBar = () => {
+function SideBar() {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
@@ -36,6 +36,6 @@ const SideBar = () => {
 			</div>
 		</div>
 	);
-};
+}
 
 export default SideBar;
