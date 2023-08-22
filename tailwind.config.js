@@ -10,6 +10,9 @@ module.exports = {
 				'nomad-green': '#20633F',
 				'nomad-sand': '#FFFAF2',
 			},
+			boxShadow: {
+				'full': '0 0 3px 0 rgb(0 0 0 / 0.05)'
+			}
 		},
 		fontFamily: {
 			nexonBold: ['nexonBold'],
