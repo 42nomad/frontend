@@ -2,20 +2,20 @@ import React from 'react';
 
 interface SeatButtonProps {
 	buttonName: string;
-	isStar: boolean;
-	setIsStar: React.Dispatch<React.SetStateAction<boolean>>;
-	star: boolean;
+	isStarred: boolean;
+	setIsStarred: React.Dispatch<React.SetStateAction<boolean>>;
+	starred: boolean;
 }
 
-function SeatButton({ buttonName, isStar, star, setIsStar }: SeatButtonProps) {
+function SeatButton({ buttonName, isStarred, starred, setIsStarred }: SeatButtonProps) {
 	return (
 		<button
 			type="button"
 			onClick={() => {
-				setIsStar(star);
+				setIsStarred(starred);
 			}}
-			className={`border-collapse rounded-xl w-20 h-15 text-md 
-				${isStar === star ? 'bg-nomad-green text-nomad-sand' : 'bg-nomad-disable bg-opacity-50 text-gray-700 font-nexonLight'}`}
+			className={`border-collapse rounded-2xl w-20 h-8 text-md shadow-full shadow-zinc-900/10
+				${isStarred === starred ? 'bg-nomad-green text-nomad-sand' : 'bg-white text-gray-700 font-nexonLight'}`}
 		>
 			{buttonName}
 		</button>
