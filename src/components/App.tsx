@@ -2,8 +2,12 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from '../pages/Login/views/Login';
 import Main from '../pages/Main/views/Main';
-import '../styles/App.css';
+import Lost from '../pages/Lost/views/Lost';
+import LostForm from '../pages/Lost/views/LostForm';
+import Cluster from '../pages/Cluster/views/Cluster';
+import CheckSeat from '../pages/CheckSeat/views/CheckSeat';
 import MyPage from '../pages/MyPage/views/MyPage';
+import '../styles/App.css';
 
 function App() {
 	const { innerHeight } = window;
@@ -14,7 +18,11 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Login />} />
 				<Route path="/mypage" element={<MyPage />} />
+				<Route path="/checkseat" element={<CheckSeat />} />
 				<Route path="/main" element={<Main />} />
+				<Route path="/lost" element={<Lost />} />
+				<Route path="/lost/*" element={<LostForm />} />
+				<Route path="/cluster" element={<Cluster />} />
 				<Route path="*" element={<div>Not Found</div>} />
 			</Routes>
 		</BrowserRouter>
