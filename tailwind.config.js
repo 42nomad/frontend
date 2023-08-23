@@ -3,17 +3,24 @@ module.exports = {
 	content: ['./src/**/*.{html,tsx}'],
 	theme: {
 		extend: {
+			gridTemplateRows: {
+				'10': 'repeat(10, minmax(0, 1fr))',
+				'12': 'repeat(12, minmax(0, 1fr))',
+			},
+			gridRow: {
+				'span-7': 'span 7 / span 7',
+			},
 			maxWidth: {
 				'max-wid': 'calc(var(--vh, 100vh) * 0.6)',
 			},
 			colors: {
 				'nomad-green': '#20633F',
 				'nomad-sand': '#FFFAF2',
-				'nomad-disable': '#F7E18D',
+				'meeting-disable': '#818181',
 			},
 			boxShadow: {
-				'full': '0 0 3px 0 rgb(0 0 0 / 0.05)'
-			}
+				full: '0 0 3px 0 rgb(0 0 0 / 0.05)',
+			},
 		},
 		fontFamily: {
 			nexonBold: ['nexonBold'],
