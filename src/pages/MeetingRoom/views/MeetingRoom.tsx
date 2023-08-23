@@ -1,6 +1,6 @@
 import React from 'react';
 import MapNav from '../../../components/MapNav/views/MapNav';
-import SideBar from '../../../components/SideBar/SideBar';
+import SideBar from '../../../components/SideBar/views/SideBar';
 import C1Map from './C1Map';
 
 function MeetingRoom() {

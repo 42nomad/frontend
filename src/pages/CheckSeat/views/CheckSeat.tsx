@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SideBar from '../../../components/SideBar/SideBar';
+import SideBar from '../../../components/SideBar/views/SideBar';
 import SeatButton from './SeatButton';
 import Seat from './Seat';
 
