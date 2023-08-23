@@ -24,6 +24,7 @@
 
 body {
   margin: 0;
+  padding: 0 !important;
   width: 100%;
   height: var(--vh, 100vh);
   font-family: 'nexon';
@@ -32,4 +33,8 @@ body {
 html {
   --width: min(calc(var(--vh, 100vh) * 0.6), 100vw);
   font-size: calc(var(--width) * 0.04);
+}
+
+.swal2-popup {
+  max-width: calc(var(--vh, 100vh) * 0.5);
 }
