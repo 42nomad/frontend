@@ -11,6 +11,9 @@ module.exports = {
 				'nomad-sand': '#FFFAF2',
 				'nomad-disable': '#F7E18D',
 			},
+			boxShadow: {
+				'full': '0 0 3px 0 rgb(0 0 0 / 0.05)'
+			}
 		},
 		fontFamily: {
 			nexonBold: ['nexonBold'],
