@@ -1,6 +1,6 @@
 import React from 'react';
 import LostDoc from './LostDoc';
-import SideBar from '../../../components/SideBar/SideBar';
+import SideBar from '../../../components/SideBar/views/SideBar';
 
 function Lost() {
 	return (

@@ -7,6 +7,7 @@ import LostForm from '../pages/Lost/views/LostForm';
 import Cluster from '../pages/Cluster/views/Cluster';
 import CheckSeat from '../pages/CheckSeat/views/CheckSeat';
 import MyPage from '../pages/MyPage/views/MyPage';
+import MeetingRoom from '../pages/MeetingRoom/views/MeetingRoom';
 import '../styles/App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
 				<Route path="/" element={<Login />} />
 				<Route path="/mypage" element={<MyPage />} />
 				<Route path="/checkseat" element={<CheckSeat />} />
+				<Route path="/meetingroom" element={<MeetingRoom />} />
 				<Route path="/main" element={<Main />} />
 				<Route path="/lost" element={<Lost />} />
 				<Route path="/lost/*" element={<LostForm />} />
