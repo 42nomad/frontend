@@ -1,6 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { css } from '@emotion/react'
+import SideBar from '../../../components/SideBar/views/SideBar';
+import gridDiv from '../../../styles/gridDiv';
 
 const token = css`
   background-color: #20633F;
@@ -31,31 +33,34 @@ const uploadFile = (e:React.ChangeEvent<HTMLInputElement>) => {
 
 function LostForm() {
 	return (
-        <div className='bg-nomad-sand min-h-full flex flex-col justify-center items-center'>
-            <label htmlFor='file' 
-                className='block w-[60%] pb-[60%] bg-[url("../assets/images/AddLostDoc.svg")] bg-cover bg-center cursor-pointer border border-black mb-6'>
-                <input type='file' id='file' accept='image/*' className='hidden' onChange={(e)=>uploadFile(e)}/>
-            </label>
-            <input type='text' maxLength={10} placeholder='자리 입력' className='bg-transparent font-nexonBold text-3xl focus:outline-none w-[70%] text-center mb-1'/>
-            <p className='mb-3'>2023-08-20</p>
-            <div css={leftDiv}>
-                <div css={token} className='mr-3'>작성자</div>
-                <span className='text-xl'>sojoo</span>
+        <>
+            <SideBar />
+            <div className='bg-nomad-sand min-h-full flex flex-col justify-center items-center pt-12'>
+                <label htmlFor='file' 
+                    className='block w-[60%] pb-[60%] bg-[url("../assets/images/AddLostDoc.svg")] bg-cover bg-center bg-white cursor-pointer shadow-full mb-5'>
+                    <input type='file' id='file' accept='image/*' className='hidden' onChange={(e)=>uploadFile(e)}/>
+                </label>
+                <input type='text' maxLength={10} placeholder='습득 위치 입력' className='bg-transparent font-nexonBold text-2xl focus:outline-none w-[70%] text-center'/>
+                <p className='mb-2 font-xs'>2023-08-20</p>
+                <div css={leftDiv}>
+                    <div css={token} className='mr-3'>작성자</div>
+                    <span className='text-xl'>sojoo</span>
+                </div>
+                <div css={leftDiv}>
+                    <div css={token} className='mb-3'>보관 위치</div>
+                    <textarea css={gridDiv} placeholder='분실물 보관 장소를 적어주세요.' className='block w-full focus:outline-none bg-transparent h-24 mb-3 resize-none'/>
+                </div>
+                <button type='button' css={token}>목록</button> {/* 일반 글 상세 페이지 */}
+                {/* <div>
+                    <button type='button' css={token} className='mx-1'>수정</button>
+                    <button type='button' css={token} className='mx-1'>삭제</button>
+                </div> */} {/* 내 글 상세 페이지 */}
+                {/* <div>
+                    <button type='button' css={token} className='mx-1'>등록</button>
+                    <button type='button' css={token} className='mx-1'>취소</button>
+                </div> */} {/* 글 등록 시 */}
             </div>
-            <div css={leftDiv}>
-                <div css={token} className='mb-3'>보관 위치</div>
-                <textarea placeholder='분실물 보관 장소를 적어주세요.' className='block w-full text-xl focus:outline-none bg-transparent h-24 mb-3 resize-none'/>
-            </div>
-            <button type='button' css={token}>목록</button> {/* 일반 글 상세 페이지 */}
-            {/* <div>
-                <button type='button' css={token} className='mx-1'>수정</button>
-                <button type='button' css={token} className='mx-1'>삭제</button>
-            </div> */} {/* 내 글 상세 페이지 */}
-            {/* <div>
-                <button type='button' css={token} className='mx-1'>등록</button>
-                <button type='button' css={token} className='mx-1'>취소</button>
-            </div> */} {/* 글 등록 시 */}
-        </div>
+        </>
     )
 }
 
