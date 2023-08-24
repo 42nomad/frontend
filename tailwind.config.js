@@ -19,8 +19,8 @@ module.exports = {
 				'meeting-disable': '#818181',
 			},
 			boxShadow: {
-				full: '0 0 3px 0 rgb(0 0 0 / 0.05)',
-			},
+				'full': '0 0 3px 0 #d4d4d8'
+			}
 		},
 		fontFamily: {
 			nexonBold: ['nexonBold'],
