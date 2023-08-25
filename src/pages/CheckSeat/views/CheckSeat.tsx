@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import SideBar from '../../../components/SideBar/views/SideBar';
 import SeatButton from './SeatButton';
 import Seat from './Seat';
+import SearchSeat from '../../../components/SearchSeat/SearchSeat';
 
 function CheckSeat() {
 	const [isStarred, setIsStarred] = useState(true);
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const modal = useRef<HTMLDivElement>(null);
+
 	return (
 		<div>
 			<SideBar />
@@ -37,23 +42,21 @@ function CheckSeat() {
 							id="Seat"
 							className="bg-nomad-green text-nomad-sand  shadow-sm shadow-zinc-900/5 rounded-3xl text-md w-5/6 h-14 pt-3 pl-5 pr-5 pb-3 flex justify-center items-center"
 						>
-							<button type="button">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									strokeWidth={1.5}
-									stroke="currentColor"
-									className="w-10 h-10"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
-									/>
-								</svg>
-							</button>
+							<PlusCircleIcon
+								className="w-10 h-10"
+								onClick={() => {
+									setIsModalOpen(true);
+								}}
+							/>
 						</div>
+						{isModalOpen && (
+							<div
+								ref={modal}
+								className="fixed top-0 left-0 w-full h-full flex justify-center items-center backdrop-blur-sm"
+							>
+								<SearchSeat />
+							</div>
+						)}
 					</div>
 				)}
 			</div>
