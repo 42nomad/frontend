@@ -1,12 +1,14 @@
 import React from 'react';
 import { XMarkIcon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import Menu from './Menu';
+import SearchSeat from '../../SearchSeat/SearchSeat';
 
 interface SideBarProps {
 	setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 function SideBarContent({ setIsOpen }: SideBarProps) {
+	const [searchSeat, setSearchSet] = React.useState<boolean>(false);
 	/*
     const side = useRef<HTMLDivElement>(null);
 
@@ -44,13 +46,26 @@ function SideBarContent({ setIsOpen }: SideBarProps) {
 					<Menu link="/lost" name="📌 분실 게시판" />
 					<Menu link="/myPage" name="🏠 마이페이지" />
 				</ul>
-				<ul className="z-50 w-full pr-7">
+				<ul className="z-50 w-full pr-7 ">
 					{/* <Menu link="/quickSearch" name="빠른 자리 검색" /> */}
 					<li className="z-50 w-full h-14 flex items-center justify-end text-nomad-sand text-xl transition-transform transform hover:scale-105">
-						빠른 자리 검색
-						{/* <SearchSeat /> */}
+						<button
+							type="button"
+							onClick={() => {
+								setSearchSet(!searchSeat);
+							}}
+							className="flex flex-row items-center space-x-1"
+						>
+							{searchSeat ? <ChevronUpIcon className="w-6 h-6" /> : <ChevronDownIcon className="w-6 h-6" />}
+							<div>빠른 자리 검색</div>
+						</button>
 					</li>
 				</ul>
+				{searchSeat && (
+					<div className="flex justify-center">
+						<SearchSeat />
+					</div>
+				)}
 			</div>
 		</nav>
 	);
