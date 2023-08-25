@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 interface MenuProps {
 	link: string;
@@ -9,7 +9,9 @@ interface MenuProps {
 function Menu({ link, name }: MenuProps) {
 	return (
 		<li className="z-50 w-full h-14 flex items-center justify-end text-nomad-sand text-xl transition-transform transform hover:scale-105">
-			<Link to={`${link}`}>{name}</Link>
+			<NavLink to={`${link}`} className={({ isActive }) => ` ${isActive ? 'font-nexonBold' : ''}`}>
+				{name}
+			</NavLink>
 		</li>
 	);
 }
