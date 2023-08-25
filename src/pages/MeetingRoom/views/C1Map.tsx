@@ -2,8 +2,11 @@ import React from 'react';
 
 function C1Map() {
 	return (
-		<div id="MeetingMap" className="grid grid-cols-6 grid-rows-12 h-2/3 w-2/3 mt-5 divide-black divide-y-2 divide-x-2">
-			<div className="col-span-2 row-span-1 flex justify-center items-center bg-meeting-disable text-nomad-sand">
+		<div
+			id="MeetingMap"
+			className="grid grid-cols-6 grid-rows-12 h-2/3 w-2/3 mt-5 divide-black divide-y-2 divide-x-2 border-black border-r-2 border-b-2"
+		>
+			<div className="col-span-2 row-span-1 flex justify-center items-center bg-meeting-disable text-nomad-sand border-black border-t-2 border-l-2">
 				사물함
 			</div>
 			<div className="col-start-3 col-span-1 row-span-full flex justify-center items-center bg-meeting-disable text-nomad-sand">
