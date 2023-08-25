@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import SideBar from '../../../components/SideBar/views/SideBar';
 import SeatButton from './SeatButton';
 import Seat from './Seat';
+import SearchSeat from '../../../components/SearchSeat/SearchSeat';
 
 function CheckSeat() {
 	const [isStarred, setIsStarred] = useState(true);
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const modal = useRef<HTMLDivElement>(null);
+
 	return (
 		<div>
 			<SideBar />
@@ -37,7 +41,12 @@ function CheckSeat() {
 							id="Seat"
 							className="bg-nomad-green text-nomad-sand  shadow-sm shadow-zinc-900/5 rounded-3xl text-md w-5/6 h-14 pt-3 pl-5 pr-5 pb-3 flex justify-center items-center"
 						>
-							<button type="button">
+							<button
+								type="button"
+								onClick={() => {
+									setIsModalOpen(true);
+								}}
+							>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
@@ -54,6 +63,14 @@ function CheckSeat() {
 								</svg>
 							</button>
 						</div>
+						{isModalOpen && (
+							<div
+								ref={modal}
+								className="fixed top-0 left-0 w-full h-full flex justify-center items-center backdrop-blur-sm"
+							>
+								<SearchSeat />
+							</div>
+						)}
 					</div>
 				)}
 			</div>
