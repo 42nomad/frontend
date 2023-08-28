@@ -1,45 +1,43 @@
 import React from 'react';
 
 interface SeatProps {
-	seatLocation: string;
-	seatStatus: string;
-	seatUser?: string;
-	logoutTime?: number;
-	isStarred: boolean;
-	useDay?: number;
+	location: string;
+	isAvailable: boolean;
+	cadet: string | null;
+	elapsedTime: number;
+	usedTime?: string | null;
 }
 
-function Seat({ seatLocation, seatStatus, seatUser, logoutTime, isStarred, useDay }: SeatProps) {
-	let isAvailable = false;
-	if (seatStatus === '사용 가능' || seatStatus === '로그아웃') isAvailable = true;
-	let seatState = '';
-	if (!isAvailable) seatState = `${seatUser}님이 자리를 사용중입니다`;
-	else if (logoutTime !== -1) seatState = `${logoutTime}분 전 ${seatStatus}`;
-	else seatState = `${seatStatus}한 자리입니다`;
+function Seat({ location, isAvailable, cadet, elapsedTime, usedTime }: SeatProps) {
+	let seatinfo = '';
+	let background = '';
+	if (isAvailable === false) {
+		seatinfo = `${cadet}님 사용중`;
+		background = 'bg-zinc-200';
+	} else if (elapsedTime !== -1) {
+		seatinfo = `${elapsedTime}분 전 로그아웃`;
+		background = 'bg-zinc-100';
+	} else {
+		seatinfo = '사용 가능';
+		background = 'bg-white';
+	}
 
 	return (
 		<div
 			id="Seat"
-			className={`shadow-full shadow-zinc-900/10 rounded-3xl text-md w-5/6 pt-2.5 pl-5 pr-5 pb-2.5 text-black
-				${isAvailable ? 'bg-white' : 'bg-zinc-100 '}`}
+			className={`shadow-full shadow-zinc-900/10 rounded-3xl text-md w-5/6 pt-2.5 pl-5 pr-5 pb-2.5 text-black ${background}`}
 		>
-			{!isStarred ? (
-				<div className="grid grid-cols-4 items-center">
-					<div>{seatLocation}</div>
-					<div className="col-start-2 col-end-3 font-nexonLight text-xs text-gray-500">{useDay}일 전</div>
-				</div>
-			) : (
-				<div>{seatLocation}</div>
-			)}
-			<div className="font-nexonLight text-sm">{seatState}</div>
+			<div className="flex flex-row items-center space-x-3">
+				<div>{location}</div>
+				{usedTime === '' ? null : <div className="font-nexonLight text-xs text-gray-500">{usedTime} 전</div>}
+			</div>
+			<div className="font-nexonLight text-sm">{seatinfo}</div>
 		</div>
 	);
 }
 
 Seat.defaultProps = {
-	seatUser: '',
-	logoutTime: -1,
-	useDay: -1,
+	usedTime: '',
 };
 
 export default Seat;
