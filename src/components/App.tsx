@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from '../pages/Login/views/Login';
+import SetToken from '../pages/Login/logics/SetToken';
 import Main from '../pages/Main/views/Main';
 import Lost from '../pages/Lost/views/Lost';
 import LostForm from '../pages/Lost/views/LostForm';
@@ -18,6 +19,7 @@ function App() {
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<Login />} />
+				<Route path="/token" element={<SetToken />} />
 				<Route path="/mypage" element={<MyPage />} />
 				<Route path="/checkseat" element={<CheckSeat />} />
 				<Route path="/meetingroom" element={<MeetingRoom />} />
