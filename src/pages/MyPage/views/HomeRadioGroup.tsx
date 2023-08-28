@@ -20,7 +20,7 @@ function HomeRadioGroup() {
             <RadioGroup value={home} onChange={setHome} className='grid grid-cols-2 gap-y-3'>
                 <RadioGroup.Option value="checkseat">
                     {({ checked }) => (
-                    <span css={radioOption} className={checked ? 'bg-nomad-green/30' : ''}>즐겨찾기</span>
+                    <span css={radioOption} className={checked ? 'bg-nomad-green/30' : ''}>자리 확인</span>
                     )}
                 </RadioGroup.Option>
                 <RadioGroup.Option value="clustermap">
