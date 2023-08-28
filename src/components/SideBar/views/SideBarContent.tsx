@@ -40,11 +40,11 @@ function SideBarContent({ setIsOpen }: SideBarProps) {
 					}}
 				/>
 				<ul className="z-50 w-full pr-7 ">
-					<Menu link="/checkSeat" name="⭐️ 자리 확인" />
-					<Menu link="/meetingRoom" name="👨‍👩‍👧‍👦 회의실" />
-					<Menu link="/cluster" name="🖥️ 클러스터 맵" />
-					<Menu link="/lost" name="📌 분실 게시판" />
-					<Menu link="/myPage" name="🏠 마이페이지" />
+					<Menu link="/seat" name="자리 확인" />
+					<Menu link="/meeting" name="회의실" />
+					<Menu link="/cluster" name="클러스터 맵" />
+					<Menu link="/lost" name="분실 게시판" />
+					<Menu link="/myPage" name="마이페이지" />
 				</ul>
 				<ul className="z-50 w-full pr-7 ">
 					{/* <Menu link="/quickSearch" name="빠른 자리 검색" /> */}

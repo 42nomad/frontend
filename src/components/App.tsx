@@ -19,8 +19,8 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Login />} />
 				<Route path="/mypage" element={<MyPage />} />
-				<Route path="/checkseat" element={<CheckSeat />} />
-				<Route path="/meetingroom" element={<MeetingRoom />} />
+				<Route path="/seat" element={<CheckSeat />} />
+				<Route path="/meeting" element={<MeetingRoom />} />
 				<Route path="/main" element={<Main />} />
 				<Route path="/lost" element={<Lost />} />
 				<Route path="/lost/*" element={<LostForm />} />
