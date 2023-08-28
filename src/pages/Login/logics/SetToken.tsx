@@ -9,15 +9,14 @@ function SetToken() {
     localStorage.setItem('token', accessToken);
 
     getHome().then((res) => {
-        // path명 바꾸기
         if (res.data === 1)
             nav('/cluster');
         else if (res.data === 2)
-            nav('/meetingRoom');
+            nav('/meeting');
         else if (res.data === 3)
             nav('/lost');
         else
-            nav('/checkSeat');
+            nav('/seat');
     });
 
     return (
