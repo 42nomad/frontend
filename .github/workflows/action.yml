@@ -20,6 +20,10 @@ jobs:
             ${{ runner.OS }}-build-
             ${{ runner.OS }}-
 
+      - name: .env setting            # .env 환경변수들 등록
+        run: |
+          echo "REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL }}" >> .env
+          
       - name: Install Dependencies    # 의존 파일 설치
         run: npm install
 
