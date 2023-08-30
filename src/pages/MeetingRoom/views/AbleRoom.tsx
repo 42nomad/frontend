@@ -16,7 +16,7 @@ function AbleRoom({ roomName, isAvailable, noti }: AbleRoomProps) {
 			{isNoti ? (
 				<BellAlertIcon
 					css={bellIcon}
-					className={isAvailable ? 'fill-nomad-green/50' : 'text-yellow-400'}
+					className={isAvailable ? 'fill-yellow-400/50' : 'text-yellow-400'}
 					onClick={() => {
 						setIsNoti(false);
 					}}
