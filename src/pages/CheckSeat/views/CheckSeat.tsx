@@ -7,10 +7,11 @@ import SearchSeat from '../../../components/SearchSeat/SearchSeat';
 import { contentsCenter } from '../../MeetingRoom/views/MapStyle';
 
 function CheckSeat() {
-	const [tab, setTab] = useState(1);
+	const [currentTab, setCurrentTab] = useState(1);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const modal = useRef<HTMLDivElement>(null);
 
+	// 즐겨찾기가 있을 경우 즐겨찾기를 currentTab으로 설정
 	return (
 		<div>
 			<SideBar />
@@ -18,29 +19,25 @@ function CheckSeat() {
 				<div id="ButtonHeader" className="flex space-x-1.5 fixed w-full max-w-max-wid pt-20 pl-9 pb-2 bg-nomad-sand">
 					<div
 						className={`flex border-collapse rounded-2xl w-8 h-8 shadow-full shadow-zinc-900/10 items-center justify-center ${
-							tab === 1 ? 'bg-nomad-green' : 'bg-white'
+							currentTab === 1 ? 'bg-nomad-green' : 'bg-white'
 						}`}
 					>
 						<MagnifyingGlassIcon
-							className={`w-6 h-6 ${tab === 1 ? 'text-nomad-sand' : 'stroke-1 text-gray-700'}`}
+							className={`w-6 h-6 ${currentTab === 1 ? 'text-nomad-sand' : 'stroke-1 text-gray-700'}`}
 							onClick={() => {
-								setTab(1);
+								setCurrentTab(1);
 							}}
 						/>
 					</div>
-					<SeatButton buttonName="즐겨찾기" tabNumber={2} tab={tab} setTab={setTab} />
-					<SeatButton buttonName="히스토리" tabNumber={3} tab={tab} setTab={setTab} />
+					<SeatButton buttonName="즐겨찾기" tabNumber={2} currentTab={currentTab} setCurrentTab={setCurrentTab} />
+					<SeatButton buttonName="히스토리" tabNumber={3} currentTab={currentTab} setCurrentTab={setCurrentTab} />
 				</div>
-				{tab === 3 && (
-					<div className="flex-col mt-32 space-y-2 pb-10" css={contentsCenter}>
-						<Seat location="C1R1S1" isAvailable={false} cadet="heeskim" elapsedTime={-1} usedTime="0분" />
-						<Seat location="C1R1S2" isAvailable cadet={null} elapsedTime={1} usedTime="2시간" />
-						<Seat location="C1R1S3" isAvailable={false} cadet="heeskim" elapsedTime={-1} usedTime="1일" />
-						<Seat location="C1R1S4" isAvailable={false} cadet="sojoo" elapsedTime={-1} usedTime="3일" />
-						<Seat location="C1R1S5" isAvailable={false} cadet="hyunjcho" elapsedTime={-1} usedTime="5일" />
+				{currentTab === 1 && (
+					<div className="flex flex-col mt-32 justify-center items-center">
+						<SearchSeat />
 					</div>
 				)}
-				{tab === 2 && (
+				{currentTab === 2 && (
 					<div className="flex flex-col mt-32 justify-center items-center space-y-2 pb-10">
 						<Seat location="C1R1S1" isAvailable={false} cadet="heeskim" elapsedTime={-1} />
 						<Seat location="C1R1S2" isAvailable cadet={null} elapsedTime={1} />
@@ -70,9 +67,13 @@ function CheckSeat() {
 						)}
 					</div>
 				)}
-				{tab === 1 && (
-					<div className="flex flex-col mt-32 justify-center items-center">
-						<SearchSeat />
+				{currentTab === 3 && (
+					<div className="flex-col mt-32 space-y-2 pb-10" css={contentsCenter}>
+						<Seat location="C1R1S1" isAvailable={false} cadet="heeskim" elapsedTime={-1} usedTime="0분" />
+						<Seat location="C1R1S2" isAvailable cadet={null} elapsedTime={1} usedTime="2시간" />
+						<Seat location="C1R1S3" isAvailable={false} cadet="heeskim" elapsedTime={-1} usedTime="1일" />
+						<Seat location="C1R1S4" isAvailable={false} cadet="sojoo" elapsedTime={-1} usedTime="3일" />
+						<Seat location="C1R1S5" isAvailable={false} cadet="hyunjcho" elapsedTime={-1} usedTime="5일" />
 					</div>
 				)}
 			</div>
