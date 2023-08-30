@@ -10,7 +10,7 @@ function SideBar() {
 		<>
 			<div id="Header" className="z-40 w-full max-w-max-wid bg-nomad-sand fixed">
 				<div className="flex justify-between">
-					<Link to="/main" className="h-15 mt-4 ml-4">
+					<Link to="/" className="h-15 mt-4 ml-4">
 						<div id="Logo" className="font-fugazRegular text-2xl text-nomad-green cursor-pointer">
 							42NOMAD
 						</div>

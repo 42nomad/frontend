@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import React from "react";
 import gridDiv from '../../../styles/gridDiv';
 import HomeRadioGroup from "./HomeRadioGroup";

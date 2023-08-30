@@ -37,7 +37,7 @@ function SideBarContent({ setIsOpen }: SideBarProps) {
 						setIsOpen(false);
 					}}
 				/>
-				<ul className="z-50 mx-2 mt-3">
+				<ul className="z-50 w-full pr-7">
 					<Menu link="/seat" name="자리 확인" />
 					<Menu link="/meeting" name="회의실" />
 					<Menu link="/cluster" name="클러스터 맵" />
