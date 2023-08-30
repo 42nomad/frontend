@@ -38,7 +38,7 @@ function RowComboBox() {
 				<div className="relative">
 					<div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left">
 						<Combobox.Input
-							className="w-full border-none py-2 pl-2 pr-2 text-xl leading-5 text-black"
+							className="w-full border-none py-2 pl-2 pr-2 text-xl leading-5 text-black focus:outline-none"
 							displayValue={(row: RowProp) => row.name}
 							onChange={(event) => setQuery(event.target.value)}
 						/>
