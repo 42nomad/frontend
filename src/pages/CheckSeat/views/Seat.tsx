@@ -34,7 +34,7 @@ function Seat({ location, isAvailable, cadet, elapsedTime, usedTime }: SeatProps
 					<div>{location}</div>
 					{isNoti ? (
 						<BellAlertIcon
-							className="w-5 h-5 fill-nomad-green/50"
+							className="w-5 h-5 fill-yellow-400/50"
 							onClick={() => {
 								setIsNoti(false);
 							}}
@@ -47,12 +47,6 @@ function Seat({ location, isAvailable, cadet, elapsedTime, usedTime }: SeatProps
 							}}
 						/>
 					)}
-					{/* <BellIcon
-						className={`w-5 h-5  ${isNoti ? 'fill-nomad-green/50' : ''}`}
-						onClick={() => {
-							setIsNoti(!isNoti);
-						}}
-					/> */}
 				</div>
 			) : (
 				<div className="flex flex-row items-center space-x-3">
@@ -60,10 +54,6 @@ function Seat({ location, isAvailable, cadet, elapsedTime, usedTime }: SeatProps
 					<div className="font-nexonLight text-xs text-gray-500">{usedTime} 전</div>
 				</div>
 			)}
-			{/* <div className="flex flex-row items-center space-x-3">
-				<div>{location}</div>
-				{usedTime === '' ? null : <div className="font-nexonLight text-xs text-gray-500">{usedTime} 전</div>}
-			</div> */}
 			<div className="font-nexonLight text-sm">{seatinfo}</div>
 		</div>
 	);
