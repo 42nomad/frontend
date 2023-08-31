@@ -20,6 +20,7 @@ const meetingRightClick = (idx: number, setIdx: React.Dispatch<React.SetStateAct
 function MeetingRoom() {
 	const [idx, setIdx] = useState(0);
 	const clusters = ['C1', 'Cx2', 'C3', 'C5'];
+	const meetingMaps = [<C1Map />, <Cx2Map />, <C3Map />, <C5Map />];
 	return (
 		<>
 			<Header />
@@ -31,10 +32,7 @@ function MeetingRoom() {
 					leftButtonClick={meetingLeftClick}
 					rightButtonClick={meetingRightClick}
 				/>
-				{idx === 0 && <C1Map />}
-				{idx === 1 && <Cx2Map />}
-				{idx === 2 && <C3Map />}
-				{idx === 3 && <C5Map />}
+				{meetingMaps[idx]}
 			</div>
 		</>
 	);
