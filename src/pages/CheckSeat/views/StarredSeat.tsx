@@ -5,6 +5,7 @@ import StarredData from '../../../interfaces/StarredData';
 import postSeatNotifiaction from '../../../services/postSeatNotification';
 import SeatInfo from '../logics/SeatInfo';
 import deleteNotification from '../../../services/deleteNotification';
+import swalAlert from '../../../utils/swalAlert';
 
 function StarredSeat({ seat }: { seat: StarredData }) {
 	const { location, isAvailable, cadet, elapsedTime } = seat;
@@ -14,13 +15,17 @@ function StarredSeat({ seat }: { seat: StarredData }) {
 	const setNotification = () => {
 		if (isNoti) deleteNotification(notificationId);
 		else {
-			// 돌아왔을 때 notificationId가 새로 등록이 안되어서 오류가 남.
-			// 백엔드에게 res.data에 넣어달라고 요청함.
-			// 해주면 이대로 가면 되고,
-			// 안될거같다고 하면 부모단에서 변경을 감지하고 리프레시해줘야함.
-			postSeatNotifiaction(seat.location).then((res) => {
-				setNotificationId(res.data.notificationId);
-			});
+			postSeatNotifiaction(seat.location)
+				.then((res) => {
+					setNotificationId(res.data.notificationId);
+				})
+				.catch((error) => {
+					if (error.response.status === 409) {
+						swalAlert('이미 알림등록된 자리입니다');
+					} else if (error.response.status === 404) {
+						swalAlert('존재하지 않는 자리입니다');
+					}
+				});
 		}
 		setIsNoti(!isNoti);
 	};

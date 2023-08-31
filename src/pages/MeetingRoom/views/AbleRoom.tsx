@@ -5,6 +5,7 @@ import AbleRoomProps from '../../../interfaces/AbleRoomProps';
 import OccupyInfo from '../logics/OccupyInfo';
 import postMeetingNotification from '../../../services/postMeetingNotification';
 import deleteNotification from '../../../services/deleteNotification';
+import swalAlert from '../../../utils/swalAlert';
 
 function AbleRoom({ mapInfo, cluster, roomName }: AbleRoomProps) {
 	const roomInfo = mapInfo?.find((room) => room.location === roomName);
@@ -18,13 +19,13 @@ function AbleRoom({ mapInfo, cluster, roomName }: AbleRoomProps) {
 	const setNotification = () => {
 		if (isNoti) deleteNotification(notificationId);
 		else {
-			// 돌아왔을 때 notificationId가 새로 등록이 안되어서 오류가 남.
-			// 백엔드에게 res.data에 넣어달라고 요청함.
-			// 해주면 이대로 가면 되고,
-			// 안될거같다고 하면 부모단에서 변경을 감지하고 리프레시해줘야함.
-			postMeetingNotification(cluster, roomName).then((res) => {
-				setNotificationId(res.data.notificationId);
-			});
+			postMeetingNotification(cluster, roomName)
+				.then((res) => {
+					setNotificationId(res.data.notificationId);
+				})
+				.catch(() => {
+					swalAlert('이미 알림등록된 회의실입니다');
+				});
 		}
 		setIsNoti(!isNoti);
 	};
