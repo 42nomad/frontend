@@ -8,7 +8,7 @@ function C1Map() {
 	const mapInfo = GetMapInfo('C1');
 
 	return (
-		<div id="MeetingMap" className="grid grid-cols-6 grid-rows-12 h-2/3 w-2/3 mt-5" css={mapBorder}>
+		<div id="MeetingMap" className="grid grid-cols-6 grid-rows-12 h-2/3 w-3/4 mt-5" css={mapBorder}>
 			<div className="col-span-2 row-span-1" css={leftTopBorder}>
 				<DisableRoom roomName="사물함" />
 			</div>

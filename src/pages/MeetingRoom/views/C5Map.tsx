@@ -8,7 +8,7 @@ function C5Map() {
 	const mapInfo = GetMapInfo('C5');
 
 	return (
-		<div id="MeetingMap" className="grid grid-cols-3 grid-rows-10 h-2/3 w-2/3 mt-5" css={mapBorder}>
+		<div id="MeetingMap" className="grid grid-cols-3 grid-rows-10 h-2/3 w-3/4 mt-5" css={mapBorder}>
 			<div className="col-span-1 row-span-full" css={leftTopBorder}>
 				<DisableRoom roomName="C5 Cluster" />
 			</div>

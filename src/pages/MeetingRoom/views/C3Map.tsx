@@ -8,7 +8,7 @@ function C3Map() {
 	const mapInfo = GetMapInfo('C3');
 
 	return (
-		<div id="MeetingMap" className="grid grid-cols-5 grid-rows-12 h-2/3 w-2/3 mt-5" css={mapBorder}>
+		<div id="MeetingMap" className="grid grid-cols-5 grid-rows-12 h-2/3 w-3/4 mt-5" css={mapBorder}>
 			<div className="col-span-2 row-span-full" css={leftTopBorder}>
 				<DisableRoom roomName="C3 Cluster" />
 			</div>
