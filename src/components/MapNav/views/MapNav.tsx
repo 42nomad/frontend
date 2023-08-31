@@ -8,12 +8,22 @@ const arrow = css`
     background-size: cover;
 `
 
-function MapNav() {
+interface MapNavProps {
+    mapName: string,
+    idx: number,
+    setState: React.Dispatch<React.SetStateAction<number>>,
+    leftButtonClick: (idx: number, setState: React.Dispatch<React.SetStateAction<number>>) => void,
+    rightButtonClick: (idx: number, setState: React.Dispatch<React.SetStateAction<number>>) => void
+}
+
+function MapNav({mapName, idx, setState, leftButtonClick, rightButtonClick}: MapNavProps) {
 	return (
         <div className='flex justify-center items-center my-3'>
-            <button type='button' aria-label='left-button' css={arrow} className='bg-[url("../assets/images/ArrowLeft.svg")]'/>
-            <span className='font-nexonBold text-2xl'>클러스터 활성도</span>
-            <button type='button' aria-label='right-button' css={arrow} className='bg-[url("../assets/images/ArrowRight.svg")]'/>
+            <button type='button' aria-label='left-button' css={arrow} className='bg-[url("../assets/images/ArrowLeft.svg")]'
+                onClick={()=>leftButtonClick(idx, setState)}/>
+            <span className='font-nexonBold text-2xl'>{mapName}</span>
+            <button type='button' aria-label='right-button' css={arrow} className='bg-[url("../assets/images/ArrowRight.svg")]'
+                onClick={()=>rightButtonClick(idx, setState)}/>
         </div>
     )
 }
