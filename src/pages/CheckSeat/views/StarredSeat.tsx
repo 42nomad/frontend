@@ -17,7 +17,7 @@ function StarredSeat({ seat }: { seat: StarredData }) {
 		else {
 			postSeatNotifiaction(seat.location)
 				.then((res) => {
-					setNotificationId(res.data.notificationId);
+					setNotificationId(res.data);
 				})
 				.catch((error) => {
 					if (error.response.status === 409) {
