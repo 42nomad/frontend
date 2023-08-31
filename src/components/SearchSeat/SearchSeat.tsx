@@ -13,14 +13,7 @@ function SearchSeat() {
 
 	const addStarred = () => {
 		const location = 'c1r1s1';
-		nomadAxios
-			.post(`/member/favorite/${location}`)
-			.then((res) => {
-				console.log(res);
-			})
-			.catch((error) => {
-				console.log(error);
-			});
+		nomadAxios.post(`/member/favorite/${location}`);
 	};
 
 	return (
