@@ -1,44 +1,37 @@
 import React from 'react';
-import c1 from '../../../assets/images/c1_seoul.svg';
+import CX2Seoul from '../../../assets/images/maps/cx2_seoul';
+import C1Seoul from '../../../assets/images/maps/c1_seoul';
+import C2Seoul from '../../../assets/images/maps/c2_seoul';
+import CX1Seoul from '../../../assets/images/maps/cx1_seoul';
+import C3Seoul from '../../../assets/images/maps/c3_seoul';
+import C4Seoul from '../../../assets/images/maps/c4_seoul';
+import C5Seoul from '../../../assets/images/maps/c5_seoul';
+import C6Seoul from '../../../assets/images/maps/c6_seoul';
+import ClusterMapProps from '../../../interfaces/ClusterMapProps';
+import useClusterMap from '../logics/useClusterMap';
 
-// const click = () => {
-//     Swal.fire({
-//         title: 'C1R1S1',
-//         text: 'sojoo님이 사용중이에요.',
-//         showClass: {
-//             popup: ''
-//         },
-//           hideClass: {
-//             popup: ''
-//         },
-//         heightAuto: false,
-//         confirmButtonColor: '#20633F',
-//         confirmButtonText: '확인'
-//     });
-// }
-
-interface ClusterMapProps {
-	mapName: string;
-}
-
-function ClusterMap({ mapName }: ClusterMapProps) {
-	// useEffect(() => {
-	//     const obj = document.getElementById('cluster-map') as HTMLObjectElement;
-	//     obj.addEventListener('load', () => {
-	//         const seatRect = obj.contentDocument?.querySelector('rect#c1r1s1') as SVGRectElement;
-	//         const seatImg = obj.contentDocument?.querySelector('image#c1r1s1') as SVGRectElement;
-	//         seatRect.setAttribute('fill', '#20633F');
-	//         seatImg.style.cursor = 'pointer';
-	//         seatImg.onclick = click;
-	//     })
-	// }, []);
-
-	return (
-		<>
-			<object className="w-[80%] h-[80%]" id="cluster-map" aria-label="cluster-map" data={c1} />
-			<div>{mapName}</div>
-		</>
-	);
+function ClusterMap({cluster, mapName}: ClusterMapProps) {
+    useClusterMap(mapName);
+    switch(cluster) {
+        case 1:
+            return (<C1Seoul />)
+        case 2:
+            return (<C2Seoul />)
+        case 3:
+            return (<CX1Seoul />)
+        case 4:
+            return (<CX2Seoul />)
+        case 5:
+            return (<C3Seoul />)
+        case 6:
+            return (<C4Seoul />)
+        case 7:
+            return (<C5Seoul />)
+        case 8:
+            return (<C6Seoul />)
+        default:
+            return (<div>notfound</div>)
+    }
 }
 
 export default ClusterMap;
