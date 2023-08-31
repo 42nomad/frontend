@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import { contentsCenter } from '../../MeetingRoom/views/MapStyle';
 import Header from '../../../components/Header/Header';
@@ -16,8 +16,9 @@ function CheckSeat() {
 
 	const starredInfo = GetStarredData();
 	const historyInfo = GetHistoryData();
-	// if (starred.length) setCurrentTab(2);
-	// 즐겨찾기 된 자리가 있을 경우 즐겨찾기를 기본탭으로 설정
+	useEffect(() => {
+		if (starredInfo.length) setCurrentTab(2);
+	}, [starredInfo]);
 
 	return (
 		<div>
