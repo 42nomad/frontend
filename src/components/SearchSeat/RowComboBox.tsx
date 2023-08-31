@@ -21,8 +21,12 @@ const rows = [
 	{ id: 11, name: '11' },
 ];
 
-function RowComboBox() {
-	const [selectedRow, setSelectedRow] = useState(rows[0]);
+interface RowComboBoxProps {
+	selectedRow: RowProp;
+	setSelectedRow: React.Dispatch<React.SetStateAction<RowProp>>;
+}
+
+function RowComboBox({ selectedRow, setSelectedRow }: RowComboBoxProps) {
 	const [query, setQuery] = useState('');
 
 	const filteredrow =
