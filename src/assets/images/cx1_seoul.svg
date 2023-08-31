@@ -1,0 +1,149 @@
+	<svg viewBox="0 0 600 960" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g class="cx1r5">
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="400" y="435" fill="#b2b2b2">1</text>
+        <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="440" y="435" fill="#b2b2b2">2</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="455" y="435" fill="#b2b2b2">3</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="500" y="435" fill="#b2b2b2">4</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="400" y="375" fill="#b2b2b2">5</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="440" y="375" fill="#b2b2b2">6</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="455" y="375" fill="#b2b2b2">7</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="500" y="375" fill="#b2b2b2">8</text>
+        
+			<g class="r5 seats">
+				<line x1="400" y1="350" x2="500" y2="450" stroke="#7f7f7f" fill="#e5e5e5" stroke-width="1" />
+				<line x1="500" y1="350" x2="400" y2="450" stroke="#7f7f7f" fill="#e5e5e5" stroke-width="1" />
+				<rect id="cx1r5s1" height="20" width="16" transform='translate(401, 421) rotate(-45)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r5s2" height="20" width="16" transform='translate(440, 438) rotate(135)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r5s3" height="20" width="16" transform='translate(473, 451) rotate(-135)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r5s4" height="20" width="16" transform='translate(490, 411) rotate(45)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r5s5" height="20" width="16" transform='translate(413, 391) rotate(-135)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r5s6" height="20" width="16" transform='translate(430, 351) rotate(45)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r5s7" height="20" width="16" transform='translate(458, 363) rotate(-45)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r5s8" height="20" width="16" transform='translate(498, 380) rotate(135)' stroke="#7f7f7f" fill="#e5e5e5"/>
+
+
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r5s1" height="20" width="16" transform='translate(401, 421) rotate(-45)'  xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r5s2" height="20" width="16" transform='translate(440, 438) rotate(135)'  xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r5s3" height="20" width="16" transform='translate(473, 451) rotate(-135)'  xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r5s4" height="20" width="16" transform='translate(490, 411) rotate(45)'  xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r5s5" height="20" width="16" transform='translate(413, 391) rotate(-135)'  xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r5s6" height="20" width="16" transform='translate(430, 351) rotate(45)'   xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r5s7" height="20" width="16" transform='translate(458, 363) rotate(-45)' xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r5s8" height="20" width="16" transform='translate(498, 380) rotate(135)' xlink:href=""/>
+
+			</g>
+	</g>
+
+    <g class="cx1r4">
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="400" y="585" fill="#b2b2b2">1</text>
+        <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="440" y="585" fill="#b2b2b2">2</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="455" y="585" fill="#b2b2b2">3</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="500" y="585" fill="#b2b2b2">4</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="400" y="525" fill="#b2b2b2">5</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="440" y="525" fill="#b2b2b2">6</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="455" y="525" fill="#b2b2b2">7</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="500" y="525" fill="#b2b2b2">8</text>
+			<g class="r4 seats">
+				<line x1="400" y1="500" x2="500" y2="600" stroke="#7f7f7f" fill="#e5e5e5" stroke-width="1" />
+				<line x1="500" y1="500" x2="400" y2="600" stroke="#7f7f7f" fill="#e5e5e5" stroke-width="1" />
+				<rect id="cx1r4s1" height="20" width="16" transform='translate(401, 571) rotate(-45)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r4s2" height="20" width="16" transform='translate(440, 588) rotate(135)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r4s3" height="20" width="16" transform='translate(473, 601) rotate(-135)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r4s4" height="20" width="16" transform='translate(490, 561) rotate(45)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r4s5" height="20" width="16" transform='translate(413, 541) rotate(-135)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r4s6" height="20" width="16" transform='translate(430, 501) rotate(45)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r4s7" height="20" width="16" transform='translate(458, 513) rotate(-45)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r4s8" height="20" width="16" transform='translate(498, 530) rotate(135)' stroke="#7f7f7f" fill="#e5e5e5"/>
+
+
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r4s1" height="20" width="16" transform='translate(401, 571) rotate(-45)'  xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r4s2" height="20" width="16" transform='translate(440, 588) rotate(135)'  xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r4s3" height="20" width="16" transform='translate(473, 601) rotate(-135)'  xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r4s4" height="20" width="16" transform='translate(490, 561) rotate(45)'  xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r4s5" height="20" width="16" transform='translate(413, 541) rotate(-135)'  xlink:href=""/>				
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r4s6" height="20" width="16" transform='translate(430, 501) rotate(45)'   xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r4s7" height="20" width="16" transform='translate(458, 513) rotate(-45)' xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r4s8" height="20" width="16" transform='translate(498, 530) rotate(135)' xlink:href=""/>
+
+			</g>
+	</g>
+
+	<g class="cx1r3">
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="180" y="305" fill="#b2b2b2">1</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="180" y="260" fill="#b2b2b2">2</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="180" y="250" fill="#b2b2b2">3</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="180" y="205" fill="#b2b2b2">4</text>
+        
+			<g class="r3 seats">
+				<line x1="150" y1="250" x2="200" y2="300" stroke="#7f7f7f" fill="#e5e5e5" stroke-width="1" />
+				<line x1="200" y1="200" x2="150" y2="250" stroke="#7f7f7f" fill="#e5e5e5" stroke-width="1" />
+			
+				<rect id="cx1r3s1" height="20" width="16" transform='translate(173, 301) rotate(-135)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r3s2" height="20" width="16" transform='translate(190, 261) rotate(45)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r3s3" height="20" width="16" transform='translate(198, 230) rotate(135)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r3s4" height="20" width="16" transform='translate(158, 213) rotate(-45)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r3s1" height="20" width="16" transform='translate(173, 301) rotate(-135)'  xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r3s2" height="20" width="16" transform='translate(190, 261) rotate(45)'  xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r3s3" height="20" width="16" transform='translate(198, 230) rotate(135)' xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r3s4" height="20" width="16" transform='translate(158, 213) rotate(-45)' xlink:href=""/>
+
+			</g>
+	</g>
+
+    <g class="cx1r2">
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="180" y="455" fill="#b2b2b2">1</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="180" y="410" fill="#b2b2b2">2</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="180" y="400" fill="#b2b2b2">3</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="180" y="355" fill="#b2b2b2">4</text>
+        
+			<g class="r2 seats">
+				<line x1="150" y1="400" x2="200" y2="450" stroke="#7f7f7f" fill="#e5e5e5" stroke-width="1" />
+				<line x1="200" y1="350" x2="150" y2="400" stroke="#7f7f7f" fill="#e5e5e5" stroke-width="1" />
+				<rect id="cx1r2s1" height="20" width="16" transform='translate(173, 451) rotate(-135)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r2s2" height="20" width="16" transform='translate(190, 411) rotate(45)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r2s3" height="20" width="16" transform='translate(198, 380) rotate(135)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r2s4" height="20" width="16" transform='translate(158, 363) rotate(-45)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r2s1" height="20" width="16" transform='translate(173, 451) rotate(-135)'  xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r2s2" height="20" width="16" transform='translate(190, 411) rotate(45)'  xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r2s3" height="20" width="16" transform='translate(198, 380) rotate(135)' xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r2s4" height="20" width="16" transform='translate(158, 363) rotate(-45)' xlink:href=""/>
+
+			</g>
+	</g>
+
+	<g class="cx1r1">
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="180" y="605" fill="#b2b2b2">1</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="180" y="560" fill="#b2b2b2">2</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="180" y="550" fill="#b2b2b2">3</text>
+		<text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="10" x="180" y="505" fill="#b2b2b2">4</text>
+        
+			<g class="r1 seats">
+				<line x1="150" y1="550" x2="200" y2="600" stroke="#7f7f7f" fill="#e5e5e5" stroke-width="1" />
+				<line x1="200" y1="500" x2="150" y2="550" stroke="#7f7f7f" fill="#e5e5e5" stroke-width="1" />
+				
+				<rect id="cx1r1s1" height="20" width="16" transform='translate(173, 601) rotate(-135)' stroke="#7f7f7f" fill="#e5e5e5"/>				
+				<rect id="cx1r1s2" height="20" width="16" transform='translate(190, 561) rotate(45)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r1s3" height="20" width="16" transform='translate(198, 530) rotate(135)' stroke="#7f7f7f" fill="#e5e5e5"/>
+				<rect id="cx1r1s4" height="20" width="16" transform='translate(158, 513) rotate(-45)' stroke="#7f7f7f" fill="#e5e5e5"/>
+
+				
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r1s1" height="20" width="16" transform='translate(173, 601) rotate(-135)'  xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r1s2" height="20" width="16" transform='translate(190, 561) rotate(45)'  xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r1s3" height="20" width="16" transform='translate(198, 530) rotate(135)' xlink:href=""/>
+				<image preserveAspectRatio="xMidYMid slice"  id="cx1r1s4" height="20" width="16" transform='translate(158, 513) rotate(-45)' xlink:href=""/>
+
+			</g>
+	</g>
+
+	<text fill="#cccccc" x="330" y="400" font-size="20" font-family="Helvetica, Arial, sans-serif" xml:space="preserve" font-weight="bold">r5</text>
+	<text fill="#cccccc" x="330" y="550" font-size="20" font-family="Helvetica, Arial, sans-serif" xml:space="preserve" font-weight="bold">r4</text>
+
+
+	<text fill="#cccccc" x="240" y="250" font-size="20" font-family="Helvetica, Arial, sans-serif" xml:space="preserve" font-weight="bold">r3</text>
+	<text fill="#cccccc" x="240" y="400" font-size="20" font-family="Helvetica, Arial, sans-serif" xml:space="preserve" font-weight="bold">r2</text>
+	<text fill="#cccccc" x="240" y="550" font-size="20" font-family="Helvetica, Arial, sans-serif" xml:space="preserve" font-weight="bold">r1</text>
+	
+    <text fill="#cccccc" x="100" y="100" font-size="40" font-family="Helvetica, Arial, sans-serif" xml:space="preserve" font-weight="bold">cX-1</text>
+
+    </svg>
+
