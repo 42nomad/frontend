@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import React from 'react';
 import SideBar from '../../../components/SideBar/views/SideBar';
 import MyPageStarred from './MyPageStarred';

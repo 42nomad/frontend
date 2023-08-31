@@ -35,6 +35,11 @@ html {
   font-size: calc(var(--width) * 0.04);
 }
 
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
 .swal2-popup {
   max-width: calc(var(--vh, 100vh) * 0.5);
 }

@@ -30,7 +30,7 @@ nomadAxios.interceptors.response.use((response) => {
 }, (error) => {
     nomadAxiosSetToken(error.config);
     // errorHandler(error.response);
-    return (error);
+    return Promise.reject(error);
 });
 
 export default nomadAxios;

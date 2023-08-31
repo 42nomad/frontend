@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import React, { useState } from "react";
 import { RadioGroup } from "@headlessui/react";
 import { css } from "@emotion/react";
