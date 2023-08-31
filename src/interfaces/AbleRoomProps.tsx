@@ -1,9 +1,9 @@
 import RoomData from './RoomData';
 
-interface AbleRoomProp {
+interface AbleRoomProps {
 	mapInfo: RoomData[];
 	cluster: string;
 	roomName: string;
 }
 
-export default AbleRoomProp;
+export default AbleRoomProps;

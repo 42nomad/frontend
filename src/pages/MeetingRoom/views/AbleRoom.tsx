@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { BellAlertIcon, BellSlashIcon } from '@heroicons/react/24/outline';
 import { contentsCenter, ableRoom, occupiedRoom, bellIcon } from './MapStyle';
-import AbleRoomProp from '../../../interfaces/AbleRoomProp';
+import AbleRoomProps from '../../../interfaces/AbleRoomProps';
 import OccupyInfo from '../logics/OccupyInfo';
 import postMeetingNotification from '../../../services/postMeetingNotification';
 import deleteNotification from '../../../services/deleteNotification';
 
-function AbleRoom({ mapInfo, cluster, roomName }: AbleRoomProp) {
+function AbleRoom({ mapInfo, cluster, roomName }: AbleRoomProps) {
 	const roomInfo = mapInfo?.find((room) => room.location === roomName);
 	const [isNoti, setIsNoti] = useState<boolean>(false);
 	const [notificationId, setNotificationId] = useState<number>(0);

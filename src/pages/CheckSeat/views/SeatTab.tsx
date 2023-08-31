@@ -1,6 +1,6 @@
 import React from 'react';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
-import SeatTabProps from '../../../interfaces/SeatTabProp';
+import SeatTabProps from '../../../interfaces/SeatTabProps';
 
 function SeatTab({ buttonName, currentTab, tabNumber, setCurrentTab }: SeatTabProps) {
 	return buttonName === '자리검색' ? (
