@@ -3,20 +3,14 @@ import Header from '../../../components/Header/Header';
 import MapNav from '../../../components/MapNav/MapNav';
 import ClusterMap from './ClusterMap';
 import FloorMap from './FloorMap';
-
-const clusterLeftClick = (cluster: number, setCluster: React.Dispatch<React.SetStateAction<number>>) => {
-	if (cluster === 0) setCluster(8);
-	else setCluster(cluster - 1);
-};
-
-const clusterRightClick = (cluster: number, setCluster: React.Dispatch<React.SetStateAction<number>>) => {
-	if (cluster === 8) setCluster(0);
-	else setCluster(cluster + 1);
-};
+import useDensity from '../logics/useDensity';
+import clusterLeftClick from '../logics/clusterLeftClick';
+import clusterRightClick from '../logics/clusterRightClick';
 
 function Cluster() {
-	const [cluster, setCluster] = useState(0);
-	const clusterNames = ['클러스터 활성도', 'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'cx1', 'cx2'];
+	const [ cluster, setCluster ] = useState(0);
+	const clusterNames = ['클러스터 활성도', 'c1', 'c2', 'cx1', 'cx2', 'c3', 'c4', 'c5', 'c6'];
+    const density = useDensity();
 
 	return (
 		<>
@@ -29,7 +23,8 @@ function Cluster() {
 					leftButtonClick={clusterLeftClick}
 					rightButtonClick={clusterRightClick}
 				/>
-				{cluster ? <ClusterMap mapName={clusterNames[cluster]} /> : <FloorMap />}
+				{cluster ? <ClusterMap cluster={cluster} mapName={clusterNames[cluster]} /> 
+					: <FloorMap setCluster={setCluster} density={density} />}
 			</div>
 		</>
 	);
