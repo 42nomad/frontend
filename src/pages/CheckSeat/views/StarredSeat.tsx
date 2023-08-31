@@ -11,7 +11,7 @@ function StarredSeat({ seat }: { seat: StarredData }) {
 	const { location, isAvailable, cadet, elapsedTime } = seat;
 	const [isNoti, setIsNoti] = useState<boolean>(seat.isNoti);
 	const [notificationId, setNotificationId] = useState<number>(seat.notificationId);
-	// async await이 필요한지 테스트해봐야함
+
 	const setNotification = () => {
 		if (isNoti) deleteNotification(notificationId);
 		else {
