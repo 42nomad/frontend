@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { contentsCenter } from './MapStyle';
+import Header from '../../../components/Header/Header';
 import MapNav from '../../../components/MapNav/MapNav';
-import SideBar from '../../../components/SideBar/views/SideBar';
 import C3Map from './C3Map';
 import C1Map from './C1Map';
 import Cx2Map from './Cx2Map';
@@ -22,7 +22,7 @@ function MeetingRoom() {
 	const clusters = ['C1', 'Cx2', 'C3', 'C5'];
 	return (
 		<>
-			<SideBar />
+			<Header />
 			<div className="bg-nomad-sand h-full flex-col" css={contentsCenter}>
 				<MapNav
 					mapName={clusters[idx]}

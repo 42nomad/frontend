@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import { contentsCenter } from '../../MeetingRoom/views/MapStyle';
-import SideBar from '../../../components/SideBar/views/SideBar';
+import Header from '../../../components/Header/Header';
 import SeatTab from './SeatTab';
 import SearchSeat from '../../../components/SearchSeat/SearchSeat';
 import StarredSeat from './StarredSeat';
@@ -21,7 +21,7 @@ function CheckSeat() {
 
 	return (
 		<div>
-			<SideBar />
+			<Header />
 			<div id="CheckSeat" className="bg-nomad-sand flex flex-col min-h-screen">
 				<div id="TabHeader" className="flex space-x-1.5 fixed w-full max-w-max-wid pt-20 pl-9 pb-2 bg-nomad-sand">
 					<SeatTab buttonName="자리검색" tabNumber={1} currentTab={currentTab} setCurrentTab={setCurrentTab} />

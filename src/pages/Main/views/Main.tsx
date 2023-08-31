@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import SideBar from '../../../components/SideBar/views/SideBar';
 import getHome from '../../../services/getHome';
+import Header from '../../../components/Header/Header';
 
 function Main() {
 	const nav = useNavigate();
@@ -13,7 +13,7 @@ function Main() {
 	});
 	return (
 		<>
-			<SideBar />
+			<Header />
 			<div className="bg-nomad-sand h-full flex flex-col justify-center items-center" />
 		</>
 	);
