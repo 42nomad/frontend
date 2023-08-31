@@ -1,11 +1,7 @@
 import React from 'react';
 import { contentsCenter } from './MapStyle';
 
-interface DisableRoomProps {
-	roomName: string;
-}
-
-function DisableRoom({ roomName }: DisableRoomProps) {
+function DisableRoom({ roomName }: { roomName: string }) {
 	return (
 		<div className="text-sm w-full h-full bg-meeting-disable text-nomad-sand" css={[contentsCenter]}>
 			{roomName}
