@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BellAlertIcon, BellSlashIcon } from '@heroicons/react/24/outline';
 import { contentsCenter, ableRoom, occupiedRoom, bellIcon } from './MapStyle';
 import AbleRoomProps from '../../../interfaces/AbleRoomProps';
@@ -12,16 +12,20 @@ function AbleRoom({ mapInfo, cluster, roomName }: AbleRoomProps) {
 	const [isNoti, setIsNoti] = useState<boolean>(false);
 	const [notificationId, setNotificationId] = useState<number>(0);
 
+	useEffect(() => {
+		if (roomInfo) {
+			setIsNoti(roomInfo.isNoti);
+			setNotificationId(roomInfo.notificationId);
+		}
+	}, [roomInfo]);
 	if (!roomInfo) return null;
-	setIsNoti(roomInfo.isNoti);
-	setNotificationId(roomInfo.notificationId);
 	const { isAvailable, usageTime } = roomInfo;
 	const setNotification = () => {
 		if (isNoti) deleteNotification(notificationId);
 		else {
 			postMeetingNotification(cluster, roomName)
 				.then((res) => {
-					setNotificationId(res.data.notificationId);
+					setNotificationId(res.data);
 				})
 				.catch(() => {
 					swalAlert('이미 알림등록된 회의실입니다');
