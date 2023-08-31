@@ -1,6 +1,7 @@
 import React from 'react';
 import ClusterComboBox from './ClusterComboBox';
 import RowComboBox from './RowComboBox';
+import nomadAxios from '../../utils/nomadAxios';
 
 function SearchSeat() {
 	const [isStarred, setIsStarred] = React.useState<boolean>(false);
@@ -9,6 +10,12 @@ function SearchSeat() {
 	const handleSearchClick = () => {
 		setSearchResult('"heeskim" 님께서 사용중입니다');
 	};
+
+	const addStarred = () => {
+		const location = 'c1r1s1';
+		nomadAxios.post(`/member/favorite/${location}`);
+	};
+
 	return (
 		<div
 			className={`mt-2 shadow-full shadow-zinc-300 bg-white text-black rounded-3xl flex flex-col space-y-1 justify-center w-72 ${
@@ -40,6 +47,7 @@ function SearchSeat() {
 						}`}
 						onClick={() => {
 							setIsStarred(true);
+							addStarred();
 						}}
 					>
 						{isStarred ? '즐겨찾기 완료' : '즐겨찾기 추가'}

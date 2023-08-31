@@ -18,27 +18,27 @@ import c1 from '../../../assets/images/c1_seoul.svg';
 // }
 
 interface ClusterMapProps {
-    mapName: string
+	mapName: string;
 }
 
-function ClusterMap({mapName}: ClusterMapProps) {
-    // useEffect(() => {
-    //     const obj = document.getElementById('cluster-map') as HTMLObjectElement;
-    //     obj.addEventListener('load', () => {
-    //         const seatRect = obj.contentDocument?.querySelector('rect#c1r1s1') as SVGRectElement;
-    //         const seatImg = obj.contentDocument?.querySelector('image#c1r1s1') as SVGRectElement;
-    //         seatRect.setAttribute('fill', '#20633F');
-    //         seatImg.style.cursor = 'pointer';
-    //         seatImg.onclick = click;
-    //     })
-    // }, []);
+function ClusterMap({ mapName }: ClusterMapProps) {
+	// useEffect(() => {
+	//     const obj = document.getElementById('cluster-map') as HTMLObjectElement;
+	//     obj.addEventListener('load', () => {
+	//         const seatRect = obj.contentDocument?.querySelector('rect#c1r1s1') as SVGRectElement;
+	//         const seatImg = obj.contentDocument?.querySelector('image#c1r1s1') as SVGRectElement;
+	//         seatRect.setAttribute('fill', '#20633F');
+	//         seatImg.style.cursor = 'pointer';
+	//         seatImg.onclick = click;
+	//     })
+	// }, []);
 
 	return (
-        <>
-            <object className='w-[80%] h-[80%]' id='cluster-map' aria-label='cluster-map' data={c1}/>
-            <div>{mapName}</div>
-        </>
-    )
+		<>
+			<object className="w-[80%] h-[80%]" id="cluster-map" aria-label="cluster-map" data={c1} />
+			<div>{mapName}</div>
+		</>
+	);
 }
 
 export default ClusterMap;
