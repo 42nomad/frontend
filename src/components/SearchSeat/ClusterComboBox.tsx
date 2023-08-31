@@ -18,8 +18,12 @@ const clusters = [
 	{ id: 12, name: 'x2' },
 ];
 
-function ClusterComboBox() {
-	const [selectedCluster, setSelectedCluster] = useState(clusters[0]);
+interface ClusterComboBoxProps {
+	selectedCluster: ClusterProp;
+	setSelectedCluster: React.Dispatch<React.SetStateAction<ClusterProp>>;
+}
+
+function ClusterComboBox({ selectedCluster, setSelectedCluster }: ClusterComboBoxProps) {
 	const [query, setQuery] = useState('');
 
 	const filteredcluster =
