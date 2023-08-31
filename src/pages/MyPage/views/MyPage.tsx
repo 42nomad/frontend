@@ -1,5 +1,5 @@
 import React from 'react';
-import SideBar from '../../../components/SideBar/views/SideBar';
+import Header from '../../../components/Header/Header';
 import MyPageStarred from './MyPageStarred';
 import MyPageHome from './MyPageHome';
 import MyPageLost from './MyPageLost';
@@ -7,7 +7,7 @@ import MyPageLost from './MyPageLost';
 function MyPage() {
 	return (
 		<>
-			<SideBar />
+			<Header />
 			<div className="bg-nomad-sand min-h-full flex flex-col pt-20 pb-10 px-8">
 				<MyPageHome />
 				<MyPageStarred />

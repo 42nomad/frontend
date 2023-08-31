@@ -1,10 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
-interface MenuProps {
-	link: string;
-	name: string;
-}
+import MenuProps from '../../interfaces/MenuProps';
 
 function Menu({ link, name }: MenuProps) {
 	return (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import Header from '../../../components/Header/Header';
 import MapNav from '../../../components/MapNav/MapNav';
-import SideBar from '../../../components/SideBar/views/SideBar';
 import ClusterMap from './ClusterMap';
 import FloorMap from './FloorMap';
 
@@ -20,7 +20,7 @@ function Cluster() {
 
 	return (
 		<>
-			<SideBar />
+			<Header />
 			<div className="bg-nomad-sand h-full flex flex-col justify-center items-center pt-5">
 				<MapNav
 					mapName={clusterNames[cluster]}

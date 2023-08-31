@@ -1,6 +1,6 @@
 import React from 'react';
 import LostDoc from './LostDoc';
-import SideBar from '../../../components/SideBar/views/SideBar';
+import Header from '../../../components/Header/Header';
 import AddLostDoc from '../../../assets/images/AddLostDoc.svg';
 import useLostList from '../logics/useLostList';
 
@@ -10,7 +10,7 @@ function Lost() {
 
 	return (
 		<>
-			<SideBar />
+			<Header />
 			<div className="bg-nomad-sand min-h-full pt-12">
 				<div className="grid grid-cols-2 gap-5 p-8 box-border">
 					<LostDoc
