@@ -2,11 +2,10 @@ import axios, { AxiosResponse } from "axios";
 // import errorHandler from "./errorHandler";
 
 const nomadAxiosSetToken = (res: AxiosResponse) => {
-    if (res.headers.Autorization) {
-        const accessToken = res.headers.Authorization || '';
+    if (res.headers && res.headers.authorization) {
+        const accessToken = res.headers.authorization;
         localStorage.setItem('token', accessToken);
     }
-    // console.log(res);
 } // 진행 중
 
 const nomadAxios = axios.create({
@@ -28,7 +27,8 @@ nomadAxios.interceptors.response.use((response) => {
     nomadAxiosSetToken(response);
     return (response);
 }, (error) => {
-    nomadAxiosSetToken(error.config);
+    if (error.response)
+        nomadAxiosSetToken(error.response);
     // errorHandler(error.response);
     return Promise.reject(error);
 });
