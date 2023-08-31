@@ -8,7 +8,7 @@ function GetHistoryData() {
 		getHistory().then((res) => {
 			setHistory(res.data);
 		});
-	});
+	}, []);
 	return History;
 }
 

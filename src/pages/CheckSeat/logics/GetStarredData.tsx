@@ -8,7 +8,7 @@ function GetStarredData() {
 		getStarred().then((res) => {
 			setStarred(res.data);
 		});
-	});
+	}, []);
 	return starred;
 }
 
