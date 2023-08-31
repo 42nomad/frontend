@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import { contentsCenter } from '../../MeetingRoom/views/MapStyle';
 import Header from '../../../components/Header/Header';
@@ -12,7 +12,6 @@ import GetHistoryData from '../logics/GetHistoryData';
 function CheckSeat() {
 	const [currentTab, setCurrentTab] = useState(1);
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const modal = useRef<HTMLDivElement>(null);
 
 	const starredInfo = GetStarredData();
 	const historyInfo = GetHistoryData();
@@ -50,7 +49,15 @@ function CheckSeat() {
 							/>
 						</div>
 						{isModalOpen && (
-							<div ref={modal} className="fixed top-0 left-0 w-full h-full backdrop-blur-sm" css={contentsCenter}>
+							<div
+								className="fixed top-0 left-0 w-full h-full backdrop-blur-sm"
+								css={contentsCenter}
+								aria-hidden="true"
+								onClick={(e) => {
+									if (e.target !== e.currentTarget) return;
+									setIsModalOpen(false);
+								}}
+							>
 								<SearchSeat />
 							</div>
 						)}
