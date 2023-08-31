@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosResponse } from 'axios';
 // import errorHandler from "./errorHandler";
 
 const nomadAxiosSetToken = (res: AxiosResponse) => {
@@ -9,11 +9,11 @@ const nomadAxiosSetToken = (res: AxiosResponse) => {
 } // 진행 중
 
 const nomadAxios = axios.create({
-    withCredentials: true,
-    baseURL: process.env.REACT_APP_API_URL,
-    headers: {
-        'Content-Type': 'application/json',
-    }
+	withCredentials: true,
+	baseURL: process.env.REACT_APP_API_URL,
+	headers: {
+		'Content-Type': 'application/json',
+	},
 });
 
 nomadAxios.interceptors.request.use((config) => {
@@ -32,5 +32,3 @@ nomadAxios.interceptors.response.use((response) => {
     // errorHandler(error.response);
     return Promise.reject(error);
 });
-
-export default nomadAxios;

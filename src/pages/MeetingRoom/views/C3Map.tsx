@@ -1,29 +1,34 @@
 import React from 'react';
-import { contentsCenter, mapBorder, leftTopBorder, disableRoom, ableRoom, occupiedRoom } from './MapStyle';
+import { mapBorder, leftTopBorder } from './MapStyle';
+import DisableRoom from './DisableRoom';
+import AbleRoom from './AbleRoom';
+import GetMapInfo from '../logics/GetMapInfo';
 
 function C3Map() {
+	const mapInfo = GetMapInfo('C3');
+
 	return (
-		<div id="MeetingMap" className="grid grid-cols-5 grid-rows-12 h-2/3 w-2/3 mt-5" css={mapBorder}>
-			<div className="col-span-2 row-span-full" css={[contentsCenter, disableRoom, leftTopBorder]}>
-				C3 Cluster
+		<div id="MeetingMap" className="grid grid-cols-5 grid-rows-12 h-2/3 w-3/4 mt-5" css={mapBorder}>
+			<div className="col-span-2 row-span-full" css={leftTopBorder}>
+				<DisableRoom roomName="C3 Cluster" />
 			</div>
-			<div className="col-span-3" css={[contentsCenter, disableRoom]}>
-				사물함
+			<div className="col-span-3">
+				<DisableRoom roomName="사물함" />
 			</div>
-			<div className="col-span-3 row-span-2" css={[contentsCenter, ableRoom]}>
-				TABLE
+			<div className="col-span-3 row-span-2">
+				<AbleRoom mapInfo={mapInfo} cluster="C3" roomName="TABLE A" />
 			</div>
-			<div className="col-span-3 row-span-3" css={[contentsCenter, occupiedRoom]}>
-				Room A<div className="text-sm">2시간 45분 사용중</div>
+			<div className="col-span-3 row-span-3">
+				<AbleRoom mapInfo={mapInfo} cluster="C3" roomName="회의실 A" />
 			</div>
-			<div className="col-span-3 row-span-3" css={[contentsCenter, ableRoom]}>
-				Room B
+			<div className="col-span-3 row-span-3">
+				<AbleRoom mapInfo={mapInfo} cluster="C3" roomName="회의실 A" />
 			</div>
-			<div className="col-span-3 row-span-2" css={[contentsCenter, ableRoom]}>
-				TABLE
+			<div className="col-span-3 row-span-2">
+				<AbleRoom mapInfo={mapInfo} cluster="C3" roomName="TABLE B" />
 			</div>
-			<div className="col-span-3" css={[contentsCenter, disableRoom]}>
-				사물함
+			<div className="col-span-3">
+				<DisableRoom roomName="사물함" />
 			</div>
 		</div>
 	);

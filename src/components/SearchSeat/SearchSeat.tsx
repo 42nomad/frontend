@@ -1,13 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ClusterComboBox from './ClusterComboBox';
 import RowComboBox from './RowComboBox';
+import nomadAxios from '../../utils/nomadAxios';
+import seatInfo from '../../pages/CheckSeat/logics/SeatInfo';
+
+const clusters = [
+	{ id: 1, name: '1' },
+	{ id: 2, name: '2' },
+	{ id: 3, name: '3' },
+	{ id: 4, name: '4' },
+	{ id: 5, name: '5' },
+	{ id: 6, name: '6' },
+	{ id: 11, name: 'x1' },
+	{ id: 12, name: 'x2' },
+];
+
+const rows = [
+	{ id: 1, name: '1' },
+	{ id: 2, name: '2' },
+	{ id: 3, name: '3' },
+	{ id: 4, name: '4' },
+	{ id: 5, name: '5' },
+	{ id: 6, name: '6' },
+	{ id: 7, name: '7' },
+	{ id: 8, name: '8' },
+	{ id: 9, name: '9' },
+	{ id: 10, name: '10' },
+	{ id: 11, name: '11' },
+];
 
 function SearchSeat() {
-	const [isStarred, setIsStarred] = React.useState<boolean>(false);
-	const [searchResult, setSearchResult] = React.useState<string>('');
+	const [isStarred, setIsStarred] = useState<boolean>(false);
+	const [searchResult, setSearchResult] = useState<string>('');
+	const [cluster, setCluster] = useState(clusters[0]);
+	const [row, setRow] = useState(rows[0]);
+	const [seat, setSeat] = useState(rows[0]);
+
+	const location = `C${cluster.name}R${row.name}S${seat.name}`;
 
 	const handleSearchClick = () => {
-		setSearchResult('"heeskim" 님께서 사용중입니다');
+		nomadAxios.get(`/member/search/${location}`).then((res) => {
+			const info = res.data;
+			setSearchResult(seatInfo(info.isAvailable, info.cadet, info.elapsedTime));
+			setIsStarred(info.isStarred);
+		});
+	};
+
+	const addStarred = () => {
+		if (isStarred) return;
+		nomadAxios.post(`/member/favorite/${location}`);
 	};
 	return (
 		<div
@@ -17,11 +58,11 @@ function SearchSeat() {
 		>
 			<div className="flex flex-row justify-center items-center space-x-1">
 				<div className="text-xl">C</div>
-				<ClusterComboBox />
+				<ClusterComboBox selectedCluster={cluster} setSelectedCluster={setCluster} />
 				<div className="text-xl">R</div>
-				<RowComboBox />
+				<RowComboBox selectedRow={row} setSelectedRow={setRow} />
 				<div className="text-xl">S</div>
-				<RowComboBox />
+				<RowComboBox selectedRow={seat} setSelectedRow={setSeat} />
 				<button
 					type="button"
 					className="rounded-3xl bg-nomad-green text-nomad-sand w-12 h-6"
@@ -39,6 +80,7 @@ function SearchSeat() {
 							isStarred ? 'bg-meeting-disable' : 'bg-nomad-green'
 						}`}
 						onClick={() => {
+							addStarred();
 							setIsStarred(true);
 						}}
 					>

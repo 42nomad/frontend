@@ -18,8 +18,12 @@ const clusters = [
 	{ id: 12, name: 'x2' },
 ];
 
-function ClusterComboBox() {
-	const [selectedCluster, setSelectedCluster] = useState(clusters[0]);
+interface ClusterComboBoxProps {
+	selectedCluster: ClusterProp;
+	setSelectedCluster: React.Dispatch<React.SetStateAction<ClusterProp>>;
+}
+
+function ClusterComboBox({ selectedCluster, setSelectedCluster }: ClusterComboBoxProps) {
 	const [query, setQuery] = useState('');
 
 	const filteredcluster =
@@ -35,7 +39,7 @@ function ClusterComboBox() {
 				<div className="relative">
 					<div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left">
 						<Combobox.Input
-							className="w-full border-none py-2 pl-2 pr-2 text-xl leading-5 text-black"
+							className="w-full border-none py-2 pl-2 pr-2 text-xl leading-5 text-black focus:outline-none"
 							displayValue={(cluster: ClusterProp) => cluster.name}
 							onChange={(event) => setQuery(event.target.value)}
 						/>
