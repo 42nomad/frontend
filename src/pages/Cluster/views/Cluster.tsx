@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MapNav from '../../../components/MapNav/views/MapNav';
+import MapNav from '../../../components/MapNav/MapNav';
 import SideBar from '../../../components/SideBar/views/SideBar';
 import ClusterMap from './ClusterMap';
 import FloorMap from './FloorMap';
@@ -33,7 +33,7 @@ function Cluster() {
 					leftButtonClick={clusterLeftClick}
 					rightButtonClick={clusterRightClick}
 				/>
-				{cluster ? <ClusterMap /> : <FloorMap />}
+				{cluster ? <ClusterMap mapName={clusterNames[cluster]}/> : <FloorMap />}
 			</div>
 		</>
 	);

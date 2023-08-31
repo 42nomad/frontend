@@ -34,7 +34,10 @@ function ClusterMap({mapName}: ClusterMapProps) {
     // }, []);
 
 	return (
-        <object className='w-[80%] h-[80%]' id='cluster-map' aria-label='cluster-map' data={c1}/>
+        <>
+            <object className='w-[80%] h-[80%]' id='cluster-map' aria-label='cluster-map' data={c1}/>
+            <div>{mapName}</div>
+        </>
     )
 }
 
