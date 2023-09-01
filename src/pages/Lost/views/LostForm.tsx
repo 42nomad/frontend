@@ -71,13 +71,13 @@ function LostForm() {
 					/>
 					<p className="mb-2 font-xs">{date}</p>
 					<div css={leftDiv}>
-						<div css={token} className="mr-3">
+						<div css={token} className="mr-3 w-[6rem]">
 							작성자
 						</div>
 						<span className="text-xl">{writer}</span>
 					</div>
 					<div css={leftDiv}>
-						<div css={token} className="mb-3">
+						<div css={token} className="mb-3 w-[6rem]">
 							보관 위치
 						</div>
 						<textarea
@@ -94,30 +94,30 @@ function LostForm() {
 							<button
 								type="button"
 								css={token}
-								className="mx-1"
+								className="mx-1 w-[4.8rem]"
 								onClick={() => registButtonClick(params, setState, nav)}
 							>
 								등록
 							</button>
-							<button type="button" css={token} className="mx-1" onClick={() => (state ? setState(1) : nav('/lost'))}>
+							<button type="button" css={token} className="mx-1 w-[4.8rem]" onClick={() => (state ? setState(1) : nav('/lost'))}>
 								취소
 							</button>
 						</div> /* 글 등록 시 */
 					)}
-					{state === 1 && mine === true && (
+					{state === 1 && (
 						<div>
-							<button type="button" css={token} className="mx-1" onClick={() => setState(2)}>
-								수정
-							</button>
-							<button type="button" css={token} className="mx-1" onClick={() => deleteButtonClick(postId, imgKey, false, nav)}>
-								삭제
+							{mine === true && (
+								<><button type="button" css={token} className="mx-1 w-[4.8rem]" onClick={() => setState(2)}>
+									수정
+								</button>
+								<button type="button" css={token} className="mx-1 w-[4.8rem]" onClick={() => deleteButtonClick(postId, imgKey, false, nav)}>
+									삭제
+								</button></>
+							)}
+							<button type="button" css={token} className="mx-1 w-[4.8rem]" onClick={() => nav('/lost')}>
+								목록
 							</button>
 						</div> /* 내 글 상세 페이지 */
-					)}
-					{state === 1 && mine === false && (
-						<button type="button" css={token} onClick={() => nav('/lost')}>
-							목록
-						</button> /* 일반 글 상세 페이지 */
 					)}
 				</div>
 			) : (
