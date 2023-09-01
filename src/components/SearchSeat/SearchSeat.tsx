@@ -60,13 +60,12 @@ function SearchSeat() {
 		});
 	};
 
-	const handleAddStarred = () => {
+	const handleAddStarred = async () => {
 		if (isStarred) return;
-		nomadAxios.post(`/member/favorite/${location}`);
-		// post의 결과로 starredId를 받아야함
-		// 현재 map할 때 key prop오류 발생
+
+		const res = await nomadAxios.post(`/member/favorite/${location}`);
 		setIsStarred(true);
-		dispatch(addStarred({ ...info, isNoti: false, notificationId: 0 }));
+		dispatch(addStarred({ ...info, isNoti: false, notificationId: 0, starredId: res.data }));
 	};
 	return (
 		<div
