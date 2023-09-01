@@ -1,15 +1,8 @@
 import { css } from "@emotion/react";
+import tw from "twin.macro";
 
 const token = css`
-  background-color: #20633F;
-  color: #FFFAF2;
-  display: inline-block;
-  font-size: 1rem;
-  text-align: center;
-  width: 6rem;
-  height: 1.8rem;
-  line-height: 1.8rem;
-  border-radius: 1rem;
+  ${tw`bg-nomad-green text-nomad-sand inline-block text-base text-center h-[1.8rem] leading-[1.8rem] rounded-2xl`}
 `
 
 export default token;

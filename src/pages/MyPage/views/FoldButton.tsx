@@ -1,9 +1,5 @@
 import React from "react";
-
-interface FoldButtonProps {
-    open: boolean,
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>
-}
+import FoldButtonProps from "../../../interfaces/FoldButtonProps";
 
 function FoldButton({open, setOpen}: FoldButtonProps) {
     return (
