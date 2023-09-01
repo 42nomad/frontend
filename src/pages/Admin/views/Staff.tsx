@@ -49,8 +49,21 @@ function Staff() {
 		// 	console.log(res.data);
 		// 	if (res.data === 0) window.location.href = '/';
 		// });
+		let data = [];
+		if (currentTab === 1)
+			data = [
+				{ location: 'C1R1S1', count: 1 },
+				{ location: 'C1R2S2', count: 2 },
+				{ location: 'C1R3S3', count: 3 },
+			];
+		else
+			data = [
+				{ cluster: 'C1', location: 'TABLE A', count: 111, time: 100 },
+				{ cluster: 'Cx2', location: 'TABLE B', count: 2, time: 200 },
+				{ cluster: 'C3', location: '다각형 책상', count: 3, time: 340 },
+			];
 		document.title = '42nomad Staff';
-		setExcelData([]);
+		setExcelData(data);
 	}, [currentTab]);
 
 	const getExcelData = () => {
