@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BellAlertIcon, BellSlashIcon } from '@heroicons/react/24/outline';
-import { contentsCenter, ableRoom, occupiedRoom, bellIcon } from './MapStyle';
+import { contentsCenter, bellIcon } from './MapStyle';
 import AbleRoomProps from '../../../interfaces/AbleRoomProps';
 import OccupyInfo from '../logics/OccupyInfo';
 import postMeetingNotification from '../../../services/postMeetingNotification';
@@ -38,7 +38,12 @@ function AbleRoom({ mapInfo, cluster, roomName }: AbleRoomProps) {
 	};
 
 	return (
-		<div className="relative w-full h-full" css={[contentsCenter, isAvailable ? ableRoom : occupiedRoom]}>
+		<div
+			className={`relative w-full h-full ${
+				isAvailable ? 'bg-white text-black' : 'flex-col bg-nomad-green text-nomad-sand'
+			}`}
+			css={[contentsCenter]}
+		>
 			{isNoti ? (
 				<BellAlertIcon
 					css={bellIcon}
