@@ -15,13 +15,10 @@ function SetToken() {
     localStorage.setItem('token', accessToken);
 
     useEffect(() => {
-        if (accessToken && accessToken !== '') {
-            getHome().then((res) => {
-                dispatch(setHome(home));
-                switchHome(res.data, nav);
-            });
-        } else
-            switchHome(home, nav);
+        getHome().then((res) => {
+            dispatch(setHome(home));
+            switchHome(res.data, nav);
+        });
     }, [accessToken, home, nav, dispatch]);
 
     return (
