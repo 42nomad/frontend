@@ -10,6 +10,7 @@ import CheckSeat from '../pages/CheckSeat/views/CheckSeat';
 import MyPage from '../pages/MyPage/views/MyPage';
 import MeetingRoom from '../pages/MeetingRoom/views/MeetingRoom';
 import '../styles/App.css';
+import NotFound from './NotFound/NotFound';
 
 function App() {
 	const { innerHeight } = window;
@@ -27,7 +28,7 @@ function App() {
 				<Route path="/lost" element={<Lost />} />
 				<Route path="/lost/*" element={<LostForm />} />
 				<Route path="/cluster" element={<Cluster />} />
-				<Route path="*" element={<div>Not Found</div>} />
+				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</BrowserRouter>
 	);
