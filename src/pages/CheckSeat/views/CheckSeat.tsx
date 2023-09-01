@@ -16,7 +16,7 @@ function CheckSeat() {
 	const starredInfo = GetStarredData();
 	const historyInfo = GetHistoryData();
 	useEffect(() => {
-		if (starredInfo.length) setCurrentTab(2);
+		if (starredInfo && starredInfo.length) setCurrentTab(2);
 	}, [starredInfo]);
 
 	return (
