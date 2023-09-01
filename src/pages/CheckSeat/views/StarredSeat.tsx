@@ -23,7 +23,9 @@ function StarredSeat({ seat }: { seat: StarredData }) {
 					if (error.response.status === 409) {
 						swalAlert('이미 알림등록된 자리입니다');
 					} else if (error.response.status === 404) {
-						swalAlert('존재하지 않는 자리입니다');
+						if (error.response.data.message === '슬랙 가입 정보 없음')
+							swalAlert('알림을 받으시려면 슬랙 가입이 필요합니다. 42intra에 연결된 이메일을 확인해주세요.');
+						else swalAlert('존재하지 않는 자리입니다');
 					}
 				});
 		}

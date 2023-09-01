@@ -27,8 +27,11 @@ function AbleRoom({ mapInfo, cluster, roomName }: AbleRoomProps) {
 				.then((res) => {
 					setNotificationId(res.data);
 				})
-				.catch(() => {
-					swalAlert('이미 알림등록된 회의실입니다');
+				.catch((error) => {
+					if (error.response.status === 404) {
+						if (error.response.data.message === '슬랙 가입 정보 없음')
+							swalAlert('알림을 받으시려면 슬랙 가입이 필요합니다. 42intra에 연결된 이메일을 확인해주세요.');
+					} else if (error.response.status === 409) swalAlert('이미 알림등록된 회의실입니다');
 				});
 		}
 		setIsNoti(!isNoti);
