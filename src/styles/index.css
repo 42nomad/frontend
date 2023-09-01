@@ -45,7 +45,7 @@ img {
 }
 
 .swal2-actions {
-  margin-top: 1rem;
+  margin-top: 0.8rem;
 }
 
 #swalConfirmTitle {
@@ -56,4 +56,10 @@ img {
 #swalConfirmText {
   font-size: 1rem;
   word-break: keep-all;
+}
+
+#swalConfirmLine {
+  font-size: 1.3rem;
+  word-break: keep-all;
+  padding-top: 0.5rem;
 }

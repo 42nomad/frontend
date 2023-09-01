@@ -6,7 +6,7 @@ import deleteS3 from "./deleteS3";
 
 const deleteButtonClick = (postId: number, imgKey: string, isMyPage: boolean, nav: NavigateFunction) => {
     Swal.fire({
-        text: '글을 삭제하시겠습니까?',
+        html: '<p id="swalConfirmLine">글을 삭제하시겠습니까?</p>',
         showCancelButton: true,
         confirmButtonText: '삭제',
         cancelButtonText: '취소',
