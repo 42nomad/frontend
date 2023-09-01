@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { BellAlertIcon, BellSlashIcon } from '@heroicons/react/24/outline';
-import seatBackground from '../logics/SeatBackground';
+import seatBackground from '../logics/seatBackground';
 import StarredData from '../../../interfaces/StarredData';
 import postSeatNotifiaction from '../../../services/postSeatNotification';
-import SeatInfo from '../logics/SeatInfo';
+import seatInfo from '../logics/seatInfo';
 import deleteNotification from '../../../services/deleteNotification';
 import swalAlert from '../../../utils/swalAlert';
 
@@ -48,7 +48,7 @@ function StarredSeat({ seat }: { seat: StarredData }) {
 					{isNoti ? <BellAlertIcon className=" fill-yellow-400/50" /> : <BellSlashIcon />}
 				</button>
 			</div>
-			<div className="font-nexonLight text-sm">{SeatInfo(isAvailable, cadet, elapsedTime)}</div>
+			<div className="font-nexonLight text-sm">{seatInfo(isAvailable, cadet, elapsedTime)}</div>
 		</div>
 	);
 }

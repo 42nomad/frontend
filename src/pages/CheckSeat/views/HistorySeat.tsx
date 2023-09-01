@@ -1,7 +1,7 @@
 import React from 'react';
-import seatBackground from '../logics/SeatBackground';
+import seatBackground from '../logics/seatBackground';
 import HistoryData from '../../../interfaces/HistoryData';
-import SeatInfo from '../logics/SeatInfo';
+import seatInfo from '../logics/seatInfo';
 
 function HistorySeat({ seat }: { seat: HistoryData }) {
 	const { location, isAvailable, cadet, elapsedTime, usedTime } = seat;
@@ -16,7 +16,7 @@ function HistorySeat({ seat }: { seat: HistoryData }) {
 				<div>{location}</div>
 				<div className="font-nexonLight text-xs text-gray-500">{usedTime} 전</div>
 			</div>
-			<div className="font-nexonLight text-sm">{SeatInfo(isAvailable, cadet, elapsedTime)}</div>
+			<div className="font-nexonLight text-sm">{seatInfo(isAvailable, cadet, elapsedTime)}</div>
 		</div>
 	);
 }
