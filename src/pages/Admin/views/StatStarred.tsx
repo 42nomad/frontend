@@ -3,8 +3,9 @@ import { ko } from 'date-fns/esm/locale';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import ComboBox from '../../../components/SearchSeat/ComboBox';
+import StatProps from '../../../interfaces/StatProps';
 
-function StaticStarred({
+function StatStarred({
 	startDate,
 	endDate,
 	sortingOption,
@@ -14,17 +15,7 @@ function StaticStarred({
 	setStartDate,
 	setEndDate,
 	setSortingOption,
-}: {
-	startDate: Date;
-	endDate: Date;
-	sortingOption: number;
-	cluster: { id: number; name: string };
-	clusters: { id: number; name: string }[];
-	setCluster: any;
-	setSortingOption: any;
-	setStartDate: any;
-	setEndDate: any;
-}) {
+}: StatProps) {
 	return (
 		<>
 			<div id="staticDateHeader" className="flex items-center">
@@ -102,7 +93,9 @@ function StaticStarred({
 				<div id="cluster" className="flex flex-row items-center space-x-2">
 					<div className="font-nexonLight">cluster</div>
 					<div className="shadow-lg rounded-xl shadow-zinc-300">
-						<ComboBox inputTextSize="text-sm" options={clusters} selectedOne={cluster} setSelected={setCluster} />
+						{clusters && cluster && setCluster && (
+							<ComboBox inputTextSize="text-sm" options={clusters} selectedOne={cluster} setSelected={setCluster} />
+						)}
 					</div>
 				</div>
 			</div>
@@ -110,4 +103,4 @@ function StaticStarred({
 	);
 }
 
-export default StaticStarred;
+export default StatStarred;

@@ -2,22 +2,9 @@ import React from 'react';
 import { ko } from 'date-fns/esm/locale';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import StatProps from '../../../interfaces/StatProps';
 
-function StaticMeeting({
-	startDate,
-	endDate,
-	sortingOption,
-	setStartDate,
-	setEndDate,
-	setSortingOption,
-}: {
-	startDate: Date;
-	endDate: Date;
-	sortingOption: number;
-	setSortingOption: any;
-	setStartDate: any;
-	setEndDate: any;
-}) {
+function StatMeeting({ startDate, endDate, sortingOption, setStartDate, setEndDate, setSortingOption }: StatProps) {
 	return (
 		<>
 			<div id="staticDateHeader" className="flex items-center">
@@ -110,4 +97,4 @@ function StaticMeeting({
 	);
 }
 
-export default StaticMeeting;
+export default StatMeeting;

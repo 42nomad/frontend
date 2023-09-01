@@ -1,18 +1,8 @@
 import React, { useState } from 'react';
 import { Combobox } from '@headlessui/react';
 import { ChevronUpDownIcon } from '@heroicons/react/24/outline';
-
-interface SelectedProp {
-	id: number;
-	name: string;
-}
-
-interface ComboBoxProps {
-	inputTextSize: string;
-	options: SelectedProp[];
-	selectedOne: SelectedProp;
-	setSelected: React.Dispatch<React.SetStateAction<SelectedProp>>;
-}
+import OptionProps from '../../interfaces/OptionProps';
+import ComboBoxProps from '../../interfaces/ComboBoxProps';
 
 function ComboBox({ inputTextSize, options, selectedOne, setSelected }: ComboBoxProps) {
 	const [query, setQuery] = useState('');
@@ -32,7 +22,7 @@ function ComboBox({ inputTextSize, options, selectedOne, setSelected }: ComboBox
 						<Combobox.Input
 							id="combobox-input"
 							className={`w-full border-none py-2 pl-2 pr-2 leading-5 text-black focus:outline-none ${inputTextSize}`}
-							displayValue={(option: SelectedProp) => option.name}
+							displayValue={(option: OptionProps) => option.name}
 							onChange={(event) => setQuery(event.target.value)}
 						/>
 						<Combobox.Button className="absolute inset-y-0 right-0 flex items-center">

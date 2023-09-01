@@ -3,21 +3,10 @@ import { CSVLink } from 'react-csv';
 import { Link } from 'react-router-dom';
 import SeatTab from '../../CheckSeat/views/SeatTab';
 import 'react-datepicker/dist/react-datepicker.css';
-import StaticStarred from './StaticStarred';
-import StaticMeeting from './StaticMeeting';
-// import nomadAxios from '../../../utils/nomadAxios';
-
-interface ExcelData {
-	location: string;
-	count: number;
-	cluster?: string;
-	time?: string;
-}
-
-interface Header {
-	label: string;
-	key: string;
-}
+import StatStarred from './StatStarred';
+import StatMeeting from './StatMeeting';
+import ExcelHeader from '../../../interfaces/ExcelHeader';
+import ExcelData from '../../../interfaces/ExcelData';
 
 const clusters = [
 	{ id: 0, name: '전체' },
@@ -38,19 +27,7 @@ function Staff() {
 	const [sortingOption, setSortingOption] = useState(0);
 	const [cluster, setCluster] = useState(clusters[0]);
 
-	function formatDate(date: Date) {
-		let month = `${date.getMonth() + 1}`;
-		let day = `${date.getDate()}`;
-		const year = date.getFullYear();
-
-		if (month.length < 2) month = `0${month}`;
-		if (day.length < 2) day = `0${day}`;
-
-		return [year, month, day].join('-');
-	}
-	console.log(formatDate(startDate));
-	console.log(formatDate(endDate));
-	let headers: Header[] = [];
+	let headers: ExcelHeader[] = [];
 	if (currentTab === 1)
 		headers = [
 			{ label: 'index', key: 'index' },
@@ -68,39 +45,28 @@ function Staff() {
 
 	const [excelData, setExcelData] = useState<ExcelData[]>([]);
 	useEffect(() => {
-		// admin page로 이동 해야함
-		// nomadAxios.post('admin/role', null, { params: { intra: 'heeskim', role: 1 } });
-		// nomadAxios.get('admin/role').then((res) => {
+		// getAdminRole().then((res) => {
 		// 	console.log(res.data);
 		// 	if (res.data === 0) window.location.href = '/';
 		// });
-		const data = [
-			{ location: 'C1R1S1', count: 1 },
-			{ location: 'C1R2S2', count: 2 },
-			{ location: 'C1R3S3', count: 3 },
-		];
 		document.title = '42nomad Staff';
-		setExcelData(data);
-	}, []);
+		setExcelData([]);
+	}, [currentTab]);
 
 	const getExcelData = () => {
 		// api조회
 		// if (currentTab === 1) {
-		// 	nomadAxios
-		// 		.get('static/meetingRoom', {
-		// 			params: { startDate: formatDate(startDate), endDate: formatDate(endDate), sortingOption },
-		// 		})
+		// 	getStatMeeting(startDate, endDate, sortingOption)
 		// 		.then((res) => {
 		// 			setExcelData(res.data);
 		// 			console.log(excelData);
 		// 		});
 		// }
 		// else {
-		// 	nomadAxios.get('stat/cluster', {
-		// 		params: { startDate: formatDate(startDate), endDate: formatDate(endDate), cluster, sortingOption },
-		// 	});
+		// 	getStatCluster(startDate, endDate, cluster.id, sortingOption).then((res)=>{
+		// 		setExcelData(res.data);
+		// })
 		// }
-		console.log(excelData);
 	};
 
 	return (
@@ -120,7 +86,7 @@ function Staff() {
 				</div>
 				<div className="bg-white shadow-full shadow-nomad-green/ rounded-xl ml-12 w-fit p-4">
 					{currentTab === 1 ? (
-						<StaticStarred
+						<StatStarred
 							startDate={startDate}
 							endDate={endDate}
 							cluster={cluster}
@@ -132,7 +98,7 @@ function Staff() {
 							setSortingOption={setSortingOption}
 						/>
 					) : (
-						<StaticMeeting
+						<StatMeeting
 							startDate={startDate}
 							endDate={endDate}
 							sortingOption={sortingOption}

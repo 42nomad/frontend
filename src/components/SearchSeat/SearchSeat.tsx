@@ -4,6 +4,7 @@ import nomadAxios from '../../utils/nomadAxios';
 import seatInfo from '../../pages/CheckSeat/logics/SeatInfo';
 import { useAppDispatch } from '../../store/hooks';
 import { addStarred } from '../../store/starredReducer';
+import SearchSeatData from '../../interfaces/SearchSeatData';
 
 const clusters = [
 	{ id: 1, name: '1' },
@@ -29,14 +30,6 @@ const rows = [
 	{ id: 10, name: '10' },
 	{ id: 11, name: '11' },
 ];
-
-interface SearchSeatData {
-	location: string;
-	cadet: string;
-	elapsedTime: number;
-	isStarred: boolean;
-	isAvailable: boolean;
-}
 
 function SearchSeat() {
 	const [isStarred, setIsStarred] = useState<boolean>(false);
