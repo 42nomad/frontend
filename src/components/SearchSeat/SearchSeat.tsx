@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import ComboBox from './ComboBox';
 import nomadAxios from '../../utils/nomadAxios';
-import seatInfo from '../../pages/CheckSeat/logics/SeatInfo';
+import seatInfo from '../../pages/CheckSeat/logics/seatInfo';
 import { useAppDispatch } from '../../store/hooks';
 import { addStarred } from '../../store/starredReducer';
 import SearchSeatData from '../../interfaces/SearchSeatData';
+import getSearchSeatData from '../../services/getSearchSeatData';
 
 const clusters = [
 	{ id: 1, name: '1' },
@@ -43,7 +44,7 @@ function SearchSeat() {
 	const location = `C${cluster.name}R${row.name}S${seat.name}`;
 
 	const handleSearchClick = () => {
-		nomadAxios.get(`/member/search/${location}`).then((res) => {
+		getSearchSeatData(location).then((res) => {
 			setInfo(res.data);
 			if (info) {
 				setSearchResult(seatInfo(info.isAvailable, info.cadet, info.elapsedTime));
