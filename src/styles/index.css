@@ -43,3 +43,17 @@ img {
 .swal2-popup {
   max-width: calc(var(--vh, 100vh) * 0.5);
 }
+
+.swal2-actions {
+  margin-top: 1rem;
+}
+
+#swalConfirmTitle {
+  font-family: 'nexonBold';
+  font-size: 1.3rem;
+}
+
+#swalConfirmText {
+  font-size: 1rem;
+  word-break: keep-all;
+}

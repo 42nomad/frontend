@@ -7,7 +7,7 @@ function FloorMap({setCluster, density}: FloorMapProps) {
     const rightCluster = [{name: 'c5', idx: 7}, {name: 'c3', idx: 5}, {name: 'cx1', idx: 3}, {name: 'c1', idx: 1}];
 
 	return (
-        <div className='border-[#7f7f7f] border-2 w-[75%] h-[70%] my-5 flex justify-between bg-white'>
+        <div className='border-[#7f7f7f] border-2 w-[75%] h-[80%] flex justify-between bg-white'>
             <div className='h-full w-[43%]'>
                 {leftCluster.map((cluster) => (
                     <FloorMapBox cluster={cluster} density={Object.values(density)[Object.keys(density).indexOf(cluster.name)]} setCluster={setCluster} key={cluster.idx}/>

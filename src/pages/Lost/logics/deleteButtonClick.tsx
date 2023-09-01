@@ -24,16 +24,7 @@ const deleteButtonClick = (postId: number, imgKey: string, nav: NavigateFunction
                         if (response.isConfirmed)
                             nav('/lost');
                     });
-                })
-                .catch((err) => {
-                    if (err.response.status === 404) {
-                        swalAlert('존재하지 않는 게시물입니다.')
-                        .then((response) => {
-                            if (response.isConfirmed)
-                                nav('/lost');
-                        });
-                    }
-                })
+                });
             })
             .catch(() => swalAlert('이미지 삭제 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.'))
         }

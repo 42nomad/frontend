@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import gridDiv from '../../../styles/gridDiv';
 import StarredLine from './StarredLine';
 import FoldButton from './FoldButton';
+import useMyPageStarred from '../logics/useMyPageStarred';
 
 function MyPageStarred() {
 	const [open, setOpen] = useState(false);
+	const starredData = useMyPageStarred();
 
 	return (
 		<div css={gridDiv}>
@@ -14,19 +17,9 @@ function MyPageStarred() {
 			<div className={`grid grid-cols-2 gap-y-2 gap-x-5 mt-3 ${open ? '' : 'hidden'}`}>
 				<button type="button" className="flex justify-center">
 					<span className="mr-3">자리 추가</span>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						strokeWidth={1.5}
-						stroke="currentColor"
-						className="w-6 h-6 fill-nomad-green stroke-nomad-sand"
-					>
-						<path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-					</svg>
+					<PlusCircleIcon className='w-6 h-6 fill-nomad-green stroke-nomad-sand'/>
 				</button>
-				<StarredLine />
-				<StarredLine />
+				{starredData.map((seat) => (<StarredLine id={seat.id} location={seat.location} key={seat.id}/>))}
 			</div>
 		</div>
 	);
