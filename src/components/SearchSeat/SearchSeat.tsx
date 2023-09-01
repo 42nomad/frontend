@@ -3,6 +3,8 @@ import ClusterComboBox from './ClusterComboBox';
 import RowComboBox from './RowComboBox';
 import nomadAxios from '../../utils/nomadAxios';
 import seatInfo from '../../pages/CheckSeat/logics/SeatInfo';
+import { useAppDispatch } from '../../store/hooks';
+import { addStarred } from '../../store/starredReducer';
 
 const clusters = [
 	{ id: 1, name: '1' },
@@ -29,26 +31,42 @@ const rows = [
 	{ id: 11, name: '11' },
 ];
 
+interface SearchSeatData {
+	location: string;
+	cadet: string;
+	elapsedTime: number;
+	isStarred: boolean;
+	isAvailable: boolean;
+}
+
 function SearchSeat() {
 	const [isStarred, setIsStarred] = useState<boolean>(false);
 	const [searchResult, setSearchResult] = useState<string>('');
 	const [cluster, setCluster] = useState(clusters[0]);
 	const [row, setRow] = useState(rows[0]);
 	const [seat, setSeat] = useState(rows[0]);
+	const dispatch = useAppDispatch();
+	const [info, setInfo] = useState<SearchSeatData>();
 
 	const location = `C${cluster.name}R${row.name}S${seat.name}`;
 
 	const handleSearchClick = () => {
 		nomadAxios.get(`/member/search/${location}`).then((res) => {
-			const info = res.data;
-			setSearchResult(seatInfo(info.isAvailable, info.cadet, info.elapsedTime));
-			setIsStarred(info.isStarred);
+			setInfo(res.data);
+			if (info) {
+				setSearchResult(seatInfo(info.isAvailable, info.cadet, info.elapsedTime));
+				setIsStarred(info.isStarred);
+			}
 		});
 	};
 
-	const addStarred = () => {
+	const handleAddStarred = () => {
 		if (isStarred) return;
 		nomadAxios.post(`/member/favorite/${location}`);
+		// post의 결과로 starredId를 받아야함
+		// 현재 map할 때 key prop오류 발생
+		setIsStarred(true);
+		dispatch(addStarred({ ...info, isNoti: false, notificationId: 0 }));
 	};
 	return (
 		<div
@@ -80,8 +98,7 @@ function SearchSeat() {
 							isStarred ? 'bg-meeting-disable' : 'bg-nomad-green'
 						}`}
 						onClick={() => {
-							addStarred();
-							setIsStarred(true);
+							handleAddStarred();
 						}}
 					>
 						{isStarred ? '즐겨찾기 완료' : '즐겨찾기 추가'}
