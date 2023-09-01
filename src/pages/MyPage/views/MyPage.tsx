@@ -3,6 +3,7 @@ import Header from '../../../components/Header/Header';
 import MyPageStarred from './MyPageStarred';
 import MyPageHome from './MyPageHome';
 import MyPageLost from './MyPageLost';
+import logoutButtonClick from '../logics/logoutButtonClick';
 
 function MyPage() {
 	return (
@@ -12,7 +13,8 @@ function MyPage() {
 				<MyPageHome />
 				<MyPageStarred />
 				<MyPageLost />
-				<div className="bg-nomad-green rounded-xl shadow-full text-nomad-sand text-lg text-center h-[3rem] leading-[3rem]">
+				<div className="bg-nomad-green rounded-xl shadow-full text-nomad-sand text-lg text-center h-[3rem] leading-[3rem] cursor-pointer"
+					onClick={()=>logoutButtonClick()} aria-hidden>
 					로그아웃
 				</div>
 			</div>

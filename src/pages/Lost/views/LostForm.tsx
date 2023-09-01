@@ -109,7 +109,7 @@ function LostForm() {
 							<button type="button" css={token} className="mx-1" onClick={() => setState(2)}>
 								수정
 							</button>
-							<button type="button" css={token} className="mx-1" onClick={() => deleteButtonClick(postId, imgKey, nav)}>
+							<button type="button" css={token} className="mx-1" onClick={() => deleteButtonClick(postId, imgKey, false, nav)}>
 								삭제
 							</button>
 						</div> /* 내 글 상세 페이지 */
