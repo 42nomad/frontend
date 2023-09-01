@@ -3,7 +3,7 @@ import StarredData from "../../../interfaces/StarredData";
 import MyPageStarredData from "../../../interfaces/MyPageStarredData";
 import getStarred from "../../../services/getStarred";
 
-function useMyPageStarred() {
+function useMyPageStarred(modal: boolean) {
     const [data, setData] = useState<Array<MyPageStarredData>>([]);
 
     useEffect(() => {
@@ -15,7 +15,7 @@ function useMyPageStarred() {
             });
             setData(newData);
         });
-    }, []);
+    }, [modal]);
 
     return data;
 }

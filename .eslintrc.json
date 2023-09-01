@@ -24,5 +24,11 @@
     ],
     "rules": {
         "react/no-unknown-property": ["error", { "ignore": ["css"] }]
-    }
+    },
+    "overrides": [
+        {
+          "files": ["src/store/*Reducer.tsx"],
+          "rules": { "no-param-reassign": "off" }
+        }
+    ]
 }

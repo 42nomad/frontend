@@ -10,11 +10,9 @@ const starredReducer = createSlice({
 	initialState,
 	reducers: {
 		setStarred: (state, action) => {
-			// eslint-disable-next-line no-param-reassign
 			state.starredInfo = action.payload;
 		},
 		addStarred: (state, action) => {
-			// eslint-disable-next-line no-param-reassign
 			state.starredInfo = [...state.starredInfo, action.payload];
 		},
 	},
