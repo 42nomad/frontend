@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import ClusterComboBox from './ClusterComboBox';
-import RowComboBox from './RowComboBox';
+import ComboBox from './ComboBox';
 import nomadAxios from '../../utils/nomadAxios';
 import seatInfo from '../../pages/CheckSeat/logics/SeatInfo';
 import { useAppDispatch } from '../../store/hooks';
@@ -75,11 +74,11 @@ function SearchSeat() {
 		>
 			<div className="flex flex-row justify-center items-center space-x-1">
 				<div className="text-xl">C</div>
-				<ClusterComboBox selectedCluster={cluster} setSelectedCluster={setCluster} />
+				<ComboBox inputTextSize="text-xl" options={clusters} selectedOne={cluster} setSelected={setCluster} />
 				<div className="text-xl">R</div>
-				<RowComboBox selectedRow={row} setSelectedRow={setRow} />
+				<ComboBox inputTextSize="text-xl" options={rows} selectedOne={row} setSelected={setRow} />
 				<div className="text-xl">S</div>
-				<RowComboBox selectedRow={seat} setSelectedRow={setSeat} />
+				<ComboBox inputTextSize="text-xl" options={rows} selectedOne={seat} setSelected={setSeat} />
 				<button
 					type="button"
 					className="rounded-3xl bg-nomad-green text-nomad-sand w-12 h-6"

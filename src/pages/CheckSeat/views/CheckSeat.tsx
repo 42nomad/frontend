@@ -50,7 +50,7 @@ function CheckSeat() {
 						</div>
 						{isModalOpen && (
 							<div
-								className="fixed top-0 left-0 w-full h-full backdrop-blur-sm"
+								className={`${isModalOpen ? 'z-50' : ''} fixed top-0 left-0 w-full h-full backdrop-blur-sm`}
 								css={contentsCenter}
 								aria-hidden="true"
 								onClick={(e) => {
