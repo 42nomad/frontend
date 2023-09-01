@@ -16,7 +16,7 @@ const colorSeat = (seat: string, state: number, nameOrTime: string) => {
     const seatRect = document.querySelector(`rect#${seat}`) as SVGRectElement;
     const seatImg = document.querySelector(`image#${seat}`) as SVGImageElement;
     if (seatRect && seatImg) {
-        seatRect.setAttribute('fill', `${state === 1 ? '#20633F' : '#20633f4d'}`);
+        seatRect.setAttribute('fill', `${state === 1 ? '#20633F' : '#20633f7d'}`);
         seatImg.style.cursor = 'pointer';
         seatImg.addEventListener('click', () => {
             seatClick(seat, state, nameOrTime);
