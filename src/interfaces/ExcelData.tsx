@@ -1,8 +1,8 @@
 interface ExcelData {
+	cluster?: string;
 	location: string;
 	count: number;
-	cluster?: string;
-	time?: string;
+	time?: number;
 }
 
 export default ExcelData;
