@@ -1,12 +1,12 @@
 import axios, { AxiosResponse } from 'axios';
-// import errorHandler from "./errorHandler";
+import errorHandler from "./errorHandler";
 
 const nomadAxiosSetToken = (res: AxiosResponse) => {
 	if (res.headers && res.headers.authorization) {
 		const accessToken = res.headers.authorization;
 		localStorage.setItem('token', accessToken);
 	}
-}; // 진행 중
+};
 
 const nomadAxios = axios.create({
 	withCredentials: true,
@@ -30,7 +30,7 @@ nomadAxios.interceptors.response.use(
 	},
 	(error) => {
 		if (error.response) nomadAxiosSetToken(error.response);
-		// errorHandler(error.response);
+		errorHandler(error.response);
 		return Promise.reject(error);
 	},
 );
