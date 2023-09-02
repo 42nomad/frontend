@@ -11,7 +11,7 @@ const switchHome = (home: number, nav: NavigateFunction) => {
         case 3:
             return nav('/lost');
         default:
-            return nav('/notfound');
+            return nav('/seat');
     }
 }
 
