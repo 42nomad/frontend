@@ -46,7 +46,10 @@ jobs:
             --delete
 
       - name: Cloudfront invalidation
+        env: 
+          AWS_EC2_METADATA_DISABLED: true
+          AWS_DISTRIBUTION_ID: ${{ secrets.AWS_DISTRIBUTION_ID }}
         run: |
           aws cloudfront create-invalidation \
-            --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} \
+            --distribution-id $AWS_DISTRIBUTION_ID \
             --paths "/*"
