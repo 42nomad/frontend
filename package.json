@@ -16,7 +16,6 @@
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "@types/react-redux": "^7.1.25",
-    "@types/redux-persist": "^4.3.1",
     "aws-sdk": "^2.1447.0",
     "axios": "^1.5.0",
     "react": "^18.2.0",
