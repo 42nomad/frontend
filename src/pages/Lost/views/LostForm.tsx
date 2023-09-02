@@ -9,6 +9,7 @@ import registButtonClick from '../logics/registButtonClick';
 import useLostData from '../logics/useLostData';
 import LostFormSkeleton from './LostFormSkeleton';
 import deleteButtonClick from '../logics/deleteButtonClick';
+import NotFound from '../../../components/NotFound/NotFound';
 
 function LostForm() {
 	const nav = useNavigate();
@@ -38,7 +39,7 @@ function LostForm() {
 	return (
 		<>
 			<Header />
-			{writer !== '' ? (
+			{postId !== -1 && writer !== '' && (
 				<div className="bg-nomad-sand min-h-full flex flex-col justify-center items-center pt-12">
 					<label
 						htmlFor="file"
@@ -120,9 +121,8 @@ function LostForm() {
 						</div> /* 내 글 상세 페이지 */
 					)}
 				</div>
-			) : (
-				<LostFormSkeleton />
 			)}
+			{postId === -1 ? <NotFound /> : <LostFormSkeleton />}
 		</>
 	);
 }
