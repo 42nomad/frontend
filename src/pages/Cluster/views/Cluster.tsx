@@ -9,7 +9,7 @@ import clusterRightClick from '../logics/clusterRightClick';
 
 function Cluster() {
 	const [ cluster, setCluster ] = useState(0);
-	const clusterNames = ['클러스터 활성도', 'c1', 'c2', 'cx1', 'cx2', 'c3', 'c4', 'c5', 'c6'];
+	const clusterNames = ['클러스터 활성도', 'C1', 'C2', 'CX1', 'CX2', 'C3', 'C4', 'C5', 'C6'];
     const density = useDensity();
 
 	return (
