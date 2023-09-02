@@ -9,6 +9,7 @@ import CheckSeat from '../pages/CheckSeat/views/CheckSeat';
 import MyPage from '../pages/MyPage/views/MyPage';
 import MeetingRoom from '../pages/MeetingRoom/views/MeetingRoom';
 import '../styles/App.css';
+import Staff from '../pages/Admin/views/Staff';
 import NotFound from './NotFound/NotFound';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
 				<Route path="/lost" element={<Lost />} />
 				<Route path="/lost/*" element={<LostForm />} />
 				<Route path="/cluster" element={<Cluster />} />
+				<Route path="/staff" element={<Staff />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</BrowserRouter>

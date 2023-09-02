@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BellAlertIcon, BellSlashIcon } from '@heroicons/react/24/outline';
-import { contentsCenter, ableRoom, occupiedRoom, bellIcon } from './MapStyle';
+import { contentsCenter, bellIcon } from './MapStyle';
 import AbleRoomProps from '../../../interfaces/AbleRoomProps';
 import OccupyInfo from '../logics/OccupyInfo';
 import postMeetingNotification from '../../../services/postMeetingNotification';
@@ -27,15 +27,23 @@ function AbleRoom({ mapInfo, cluster, roomName }: AbleRoomProps) {
 				.then((res) => {
 					setNotificationId(res.data);
 				})
-				.catch(() => {
-					swalAlert('이미 알림등록된 회의실입니다');
+				.catch((error) => {
+					if (error.response.status === 404) {
+						if (error.response.data.message === '슬랙 가입 정보 없음')
+							swalAlert('알림을 받으시려면 슬랙 가입이 필요합니다. 42intra에 연결된 이메일을 확인해주세요.');
+					} else if (error.response.status === 409) swalAlert('이미 알림등록된 회의실입니다');
 				});
 		}
 		setIsNoti(!isNoti);
 	};
 
 	return (
-		<div className="relative w-full h-full" css={[contentsCenter, isAvailable ? ableRoom : occupiedRoom]}>
+		<div
+			className={`relative w-full h-full ${
+				isAvailable ? 'bg-white text-black' : 'flex-col bg-nomad-green text-nomad-sand'
+			}`}
+			css={[contentsCenter]}
+		>
 			{isNoti ? (
 				<BellAlertIcon
 					css={bellIcon}
