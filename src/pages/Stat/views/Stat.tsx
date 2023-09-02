@@ -10,6 +10,8 @@ import getStatCluster from '../../../services/getStatCluster';
 import ExcelHeader from '../../../interfaces/ExcelHeader';
 import ExcelData from '../../../interfaces/ExcelData';
 import getAdminRole from '../../../services/getAdminRole';
+import getStatClusterAll from '../../../services/getStatClusterAll';
+import swalAlert from '../../../utils/swalAlert';
 
 const clusters = [
 	{ id: 0, name: '전체' },
@@ -23,9 +25,9 @@ const clusters = [
 	{ id: 12, name: 'x2' },
 ];
 
-function Staff() {
+function Stat() {
 	const [currentTab, setCurrentTab] = useState(1);
-	const [startDate, setStartDate] = useState(new Date());
+	const [startDate, setStartDate] = useState(new Date('2023-09-01'));
 	const [endDate, setEndDate] = useState(new Date());
 	const [sortingOption, setSortingOption] = useState(0);
 	const [cluster, setCluster] = useState(clusters[0]);
@@ -59,14 +61,20 @@ function Staff() {
 	const getExcelData = () => {
 		// api조회
 		if (currentTab === 1) {
-			getStatCluster(startDate, endDate, cluster.id, sortingOption).then((res) => {
-				setExcelData(res.data);
-			});
+			if (cluster.id === 0)
+				getStatClusterAll(startDate, endDate, sortingOption).then((res) => {
+					setExcelData(res.data);
+				});
+			else
+				getStatCluster(startDate, endDate, `c${cluster.name}`, sortingOption).then((res) => {
+					setExcelData(res.data);
+				});
 		} else {
 			getStatMeeting(startDate, endDate, sortingOption).then((res) => {
 				setExcelData(res.data);
 			});
 		}
+		if (excelData.length === 0) swalAlert('해당 기간 내에 출력할 통계정보가 없습니다.');
 	};
 
 	return (
@@ -156,4 +164,4 @@ function Staff() {
 	);
 }
 
-export default Staff;
+export default Stat;
