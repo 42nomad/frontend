@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Swal from 'sweetalert2';
 import { BellAlertIcon, BellSlashIcon } from '@heroicons/react/24/outline';
 import { contentsCenter, bellIcon } from './MapStyle';
 import AbleRoomProps from '../../../interfaces/AbleRoomProps';
@@ -31,8 +32,15 @@ function AbleRoom({ mapInfo, cluster, roomName }: AbleRoomProps) {
 				})
 				.catch((error) => {
 					if (error.response.status === 404) {
-						if (error.response.data.message === '슬랙 가입 정보 없음')
-							swalAlert('알림을 받으시려면 슬랙 가입이 필요합니다. 42intra에 연결된 이메일을 확인해주세요.');
+						// notificationId업데이트해줘야함
+						if (error.response.data.responseMsg === '슬랙 가입 정보 없음')
+							Swal.fire({
+								title: "<div style='font-size:30px'>슬랙 가입을 위해 <br>42intra에 연결된 이메일을 확인해주세요.</div>",
+								heightAuto: false,
+								confirmButtonColor: '#20633F',
+								confirmButtonText: '확인',
+							});
+						else swalAlert('존재하지 않는 회의실입니다');
 					} else if (error.response.status === 409) swalAlert('이미 알림등록된 회의실입니다');
 				});
 		}
