@@ -2,7 +2,7 @@ import React from "react"
 
 function CX1Seoul() {
 	return (
-		<svg viewBox="0 0 310 400" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" className='w-[80%] h-[80%]'>
+		<svg viewBox="0 0 310 420" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" className='w-[80%] h-[80%]'>
 			<g className="cx1r5">
 				<text xmlSpace="preserve" textAnchor="start" fontFamily="Helvetica, Arial, sans-serif" fontSize="10" x="150" y="240" fill="#b2b2b2">1</text>
 				<text xmlSpace="preserve" textAnchor="start" fontFamily="Helvetica, Arial, sans-serif" fontSize="10" x="190" y="230" fill="#b2b2b2">2</text>
