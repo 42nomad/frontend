@@ -13,11 +13,15 @@ function StarredSeat({ seat }: { seat: StarredData }) {
 	const [notificationId, setNotificationId] = useState<number>(seat.notificationId);
 
 	const setNotification = () => {
-		if (isNoti) deleteNotification(notificationId);
-		else {
+		if (isNoti) {
+			deleteNotification(notificationId);
+			setNotificationId(0);
+			// dispatch(updateStarred({ ...seat, isNoti: false, notificationId: 0 }));
+		} else {
 			postSeatNotifiaction(seat.location)
 				.then((res) => {
 					setNotificationId(res.data);
+					// dispatch(updateStarred({ ...seat, isNoti: true, notificationId: res.data }));
 				})
 				.catch((error) => {
 					if (error.response.status === 409) {
