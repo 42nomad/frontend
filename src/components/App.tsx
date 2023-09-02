@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from '../pages/Login/views/Login';
 import SetToken from '../pages/Login/logics/SetToken';
@@ -10,7 +10,18 @@ import MyPage from '../pages/MyPage/views/MyPage';
 import MeetingRoom from '../pages/MeetingRoom/views/MeetingRoom';
 import '../styles/App.css';
 
+const handleResize = () => {
+	document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
+}
+
 function App() {
+	useEffect(() => {
+		window.addEventListener('resize', handleResize);
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		}
+	}, []);
+
 	return (
 		<BrowserRouter>
 			<Routes>
