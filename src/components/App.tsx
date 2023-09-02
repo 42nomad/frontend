@@ -9,8 +9,10 @@ import CheckSeat from '../pages/CheckSeat/views/CheckSeat';
 import MyPage from '../pages/MyPage/views/MyPage';
 import MeetingRoom from '../pages/MeetingRoom/views/MeetingRoom';
 import '../styles/App.css';
-import Staff from '../pages/Admin/views/Staff';
+import Staff from '../pages/Staff/views/Staff';
 import NotFound from './NotFound/NotFound';
+import Admin from '../pages/Admin/views/Admin';
+import AdminOauth from '../pages/Admin/views/AdminOauth';
 
 function App() {
 	const { innerHeight } = window;
@@ -28,6 +30,8 @@ function App() {
 				<Route path="/lost/*" element={<LostForm />} />
 				<Route path="/cluster" element={<Cluster />} />
 				<Route path="/staff" element={<Staff />} />
+				<Route path="/admin" element={<Admin />} />
+				<Route path="/admin/callback" element={<AdminOauth />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</BrowserRouter>
