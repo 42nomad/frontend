@@ -11,9 +11,6 @@ import MeetingRoom from '../pages/MeetingRoom/views/MeetingRoom';
 import '../styles/App.css';
 
 function App() {
-	const { innerHeight } = window;
-	document.documentElement.style.setProperty('--vh', `${innerHeight}px`);
-
 	return (
 		<BrowserRouter>
 			<Routes>
