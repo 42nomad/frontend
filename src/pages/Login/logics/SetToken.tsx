@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { setHome } from "../../../store/homeReducer";
 import getHome from "../../../services/getHome";
 import switchHome from "./switchHome";
+import Loading from "../../../components/Loading/Loading";
 
 function SetToken() {
     const nav = useNavigate();
@@ -20,7 +21,7 @@ function SetToken() {
     }, [accessToken, nav, dispatch]);
 
     return (
-        <div>로딩중</div>
+        <Loading />
     )
 }
 

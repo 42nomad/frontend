@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom';
 import { css } from '@emotion/react';
 import tw from 'twin.macro';
 import getAdminRole from '../../../services/getAdminRole';
-import postAdminRole from '../../../services/postAdminRole';
-import nomadAxios from '../../../utils/nomadAxios';
-import swalAlert from '../../../utils/swalAlert';
+import handleSecretUpdate from '../logics/handleSecretUpdate';
+import handleUserRole from '../logics/handleUserRole';
+import handleMemberDelete from '../logics/handleMemberDelete';
+import handleInCluster from '../logics/handleInCluster';
+import handleAmdinToken from '../logics/handleAdminToken';
+import handleSlackAddress from '../logics/handleSlackAddress';
 
 const input = css`
-	${tw`px-2 m-1 rounded-xl border-2 border-nomad-green focus:outline-none`}
+	${tw`px-4 m-1 rounded-xl border-2 border-nomad-green focus:outline-none`}
 `;
 
 const button = css`
@@ -17,28 +20,15 @@ const button = css`
 
 function Admin() {
 	useEffect(() => {
-		getAdminRole().then(() => {
-			// console.log(res);
-			// if (res.data !== 2) window.location.href = '/';
+		getAdminRole().then((res) => {
+			if (res.data !== 2) window.location.href = '/';
 		});
 	}, []);
 	const [secret, setSecret] = useState('');
-	const handleSecretUpdate = () => {
-		nomadAxios.post('admin/secret', { secret }).then(() => {
-			swalAlert('secret update');
-		});
-	};
 	const [user, setUser] = useState('');
-	const handleUserRole = () => {
-		postAdminRole(user, 1).then(() => {
-			swalAlert('user role change');
-		});
-	};
-	const handleAmdinToken = () => {
-		nomadAxios.get('admin/loginUrl').then((res) => {
-			window.location.href = res.data;
-		});
-	};
+	const [role, setRole] = useState(0);
+	const [member, setMember] = useState('');
+	const [slackAddress, setSlackAddress] = useState('');
 
 	return (
 		<div className="flex flex-col items-center text-xl w-full h-full bg-nomad-sand space-y-10">
@@ -57,7 +47,7 @@ function Admin() {
 						setSecret(e.target.value);
 					}}
 				/>
-				<button type="button" css={button} onClick={handleSecretUpdate}>
+				<button type="button" css={button} onClick={() => handleSecretUpdate(secret)}>
 					secret update
 				</button>
 			</div>
@@ -70,19 +60,39 @@ function Admin() {
 						setUser(e.target.value);
 					}}
 				/>
-				<input type="number" placeholder="role" css={input} />
-				<button type="button" css={button} onClick={handleUserRole}>
+				<div className="flex flex-row items-center">
+					<input
+						type="number"
+						placeholder="role"
+						css={input}
+						min={0}
+						max={2}
+						onChange={(e) => {
+							setRole(Number(e.target.value));
+						}}
+						className="w-20"
+					/>
+					<div className="text-sm">role: 0 - user, 1 - staff, 2 - admin</div>
+				</div>
+				<button type="button" css={button} onClick={() => handleUserRole(user, role)}>
 					change user role
 				</button>
 			</div>
 			<div className="w-80">
-				<input type="text" placeholder="member delete" css={input} />
-				<button type="button" css={button}>
+				<input
+					type="text"
+					placeholder="member delete"
+					css={input}
+					onChange={(e) => {
+						setMember(e.target.value);
+					}}
+				/>
+				<button type="button" css={button} onClick={() => handleMemberDelete(member)}>
 					member delete
 				</button>
 			</div>
 			<div className="w-80">
-				<button type="button" css={button}>
+				<button type="button" css={button} onClick={handleInCluster}>
 					incluster
 				</button>
 			</div>
@@ -92,8 +102,15 @@ function Admin() {
 				</button>
 			</div>
 			<div className="w-80">
-				<input type="text" placeholder="slack address" css={input} />
-				<button type="button" css={button}>
+				<input
+					type="text"
+					placeholder="slack address"
+					css={input}
+					onChange={() => {
+						setSlackAddress(slackAddress);
+					}}
+				/>
+				<button type="button" css={button} onClick={() => handleSlackAddress(slackAddress)}>
 					change slack address
 				</button>
 			</div>
