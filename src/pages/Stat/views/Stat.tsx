@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CSVLink } from 'react-csv';
 import { Link } from 'react-router-dom';
-import SeatTab from '../../CheckSeat/views/SeatTab';
 import 'react-datepicker/dist/react-datepicker.css';
 import StatStarred from './StatStarred';
 import StatMeeting from './StatMeeting';
@@ -50,14 +49,6 @@ function Stat() {
 		});
 	}, []);
 
-	// useEffect(() => {
-	// 	if (currentTab === 1 && excelData && excelData[0]?.cluster) {
-	// 		setExcelData([]);
-	// 	} else if (currentTab === 2 && excelData && !excelData[0]?.cluster) {
-	// 		setExcelData([]);
-	// 	}
-	// }, [currentTab, excelData]);
-
 	const getExcelData = async () => {
 		// api조회
 		let res;
@@ -81,8 +72,28 @@ function Stat() {
 					<div className="flex items-center text-3xl mr-2">ㄴ통계</div>
 				</div>
 				<div className="flex items-center space-x-2 mb-2 ml-16">
-					<SeatTab buttonName="즐겨찾기" currentTab={currentTab} tabNumber={1} setCurrentTab={setCurrentTab} />
-					<SeatTab buttonName="회의실" currentTab={currentTab} tabNumber={2} setCurrentTab={setCurrentTab} />
+					<button
+						type="button"
+						onClick={() => {
+							setCurrentTab(1);
+							setExcelData([]);
+						}}
+						className={`border-collapse rounded-2xl w-20 h-8 text-md shadow-full shadow-zinc-900/10
+								${currentTab === 1 ? 'bg-nomad-green text-nomad-sand' : 'bg-white text-gray-700 font-nexonLight'}`}
+					>
+						즐겨찾기
+					</button>
+					<button
+						type="button"
+						onClick={() => {
+							setCurrentTab(2);
+							setExcelData([]);
+						}}
+						className={`border-collapse rounded-2xl w-20 h-8 text-md shadow-full shadow-zinc-900/10
+								${currentTab === 2 ? 'bg-nomad-green text-nomad-sand' : 'bg-white text-gray-700 font-nexonLight'}`}
+					>
+						회의실
+					</button>
 				</div>
 				<div className="bg-white shadow-full shadow-nomad-green/ rounded-xl ml-12 w-fit p-4">
 					{currentTab === 1 ? (
