@@ -122,7 +122,8 @@ function LostForm() {
 					)}
 				</div>
 			)}
-			{postId === -1 ? <NotFound /> : <LostFormSkeleton />}
+			{postId !== -1 && writer === '' && <LostFormSkeleton />}
+			{postId === -1 && <NotFound />}
 		</>
 	);
 }
