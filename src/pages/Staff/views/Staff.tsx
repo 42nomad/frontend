@@ -45,10 +45,13 @@ function Staff() {
 		getAdminRole().then((res) => {
 			if (res.data === 0) window.location.href = '/';
 		});
+	}, []);
+
+	useEffect(() => {
 		document.title = '42nomad Staff';
-		if (currentTab === 1 && excelData[0]?.cluster) {
+		if (currentTab === 1 && excelData && excelData[0]?.cluster) {
 			setExcelData([]);
-		} else if (currentTab === 2 && !excelData[0]?.cluster) {
+		} else if (currentTab === 2 && excelData && !excelData[0]?.cluster) {
 			setExcelData([]);
 		}
 	}, [currentTab, excelData]);
@@ -56,11 +59,11 @@ function Staff() {
 	const getExcelData = () => {
 		// api조회
 		if (currentTab === 1) {
-			getStatMeeting(startDate, endDate, sortingOption).then((res) => {
+			getStatCluster(startDate, endDate, cluster.id, sortingOption).then((res) => {
 				setExcelData(res.data);
 			});
 		} else {
-			getStatCluster(startDate, endDate, cluster.id, sortingOption).then((res) => {
+			getStatMeeting(startDate, endDate, sortingOption).then((res) => {
 				setExcelData(res.data);
 			});
 		}
