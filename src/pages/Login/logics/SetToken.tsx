@@ -9,17 +9,16 @@ import switchHome from "./switchHome";
 function SetToken() {
     const nav = useNavigate();
     const dispatch = useDispatch();
-    const home = useSelector((state: RootState) => state.home.home)
     const url = new URLSearchParams(window.location.search);
     const accessToken = url.get('token') || '';
     localStorage.setItem('token', accessToken);
 
     useEffect(() => {
         getHome().then((res) => {
-            dispatch(setHome(home));
+            dispatch(setHome(res.data));
             switchHome(res.data, nav);
         });
-    }, [accessToken, home, nav, dispatch]);
+    }, [accessToken, nav, dispatch]);
 
     return (
         <div>로딩중</div>

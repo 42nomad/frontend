@@ -9,6 +9,9 @@ import './styles/index.css';
 
 const persistor = persistStore(store);
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+const { innerHeight } = window;
+document.documentElement.style.setProperty('--vh', `${innerHeight}px`);
+
 root.render(
 	<Provider store={store}>
 		<PersistGate loading={null} persistor={persistor}>

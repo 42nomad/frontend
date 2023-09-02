@@ -13,9 +13,6 @@ import Staff from '../pages/Admin/views/Staff';
 import NotFound from './NotFound/NotFound';
 
 function App() {
-	const { innerHeight } = window;
-	document.documentElement.style.setProperty('--vh', `${innerHeight}px`);
-
 	return (
 		<BrowserRouter>
 			<Routes>
