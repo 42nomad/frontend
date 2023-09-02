@@ -44,37 +44,29 @@ function Stat() {
 
 	const [excelData, setExcelData] = useState<ExcelData[]>([]);
 	useEffect(() => {
+		document.title = '42nomad Stat';
 		getAdminRole().then((res) => {
 			if (res.data === 0) window.location.href = '/';
 		});
 	}, []);
 
-	useEffect(() => {
-		document.title = '42nomad Staff';
-		if (currentTab === 1 && excelData && excelData[0]?.cluster) {
-			setExcelData([]);
-		} else if (currentTab === 2 && excelData && !excelData[0]?.cluster) {
-			setExcelData([]);
-		}
-	}, [currentTab, excelData]);
+	// useEffect(() => {
+	// 	if (currentTab === 1 && excelData && excelData[0]?.cluster) {
+	// 		setExcelData([]);
+	// 	} else if (currentTab === 2 && excelData && !excelData[0]?.cluster) {
+	// 		setExcelData([]);
+	// 	}
+	// }, [currentTab, excelData]);
 
-	const getExcelData = () => {
+	const getExcelData = async () => {
 		// api조회
+		let res;
 		if (currentTab === 1) {
-			if (cluster.id === 0)
-				getStatClusterAll(startDate, endDate, sortingOption).then((res) => {
-					setExcelData(res.data);
-				});
-			else
-				getStatCluster(startDate, endDate, `c${cluster.name}`, sortingOption).then((res) => {
-					setExcelData(res.data);
-				});
-		} else {
-			getStatMeeting(startDate, endDate, sortingOption).then((res) => {
-				setExcelData(res.data);
-			});
-		}
-		if (excelData.length === 0) swalAlert('해당 기간 내에 출력할 통계정보가 없습니다.');
+			if (cluster.id === 0) res = await getStatClusterAll(startDate, endDate, sortingOption);
+			else res = await getStatCluster(startDate, endDate, `c${cluster.name}`, sortingOption);
+		} else res = await getStatMeeting(startDate, endDate, sortingOption);
+		setExcelData(res.data);
+		if (res.data.length === 0) swalAlert('해당 기간 내에 출력할 통계정보가 없습니다.');
 	};
 
 	return (
@@ -152,7 +144,7 @@ function Stat() {
 										<td className="border-2 px-2">{data.location}</td>
 										<td className="border-2 px-2">{data.count}</td>
 										{currentTab === 2 && <td className="border-2 px-2">{data.cluster}</td>}
-										{currentTab === 2 && <td className="border-2 px-2">{data.time}</td>}
+										{currentTab === 2 && <td className="border-2 px-2">{data.totalUsageTime}</td>}
 									</tr>
 								))}
 							</tbody>
