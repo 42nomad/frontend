@@ -1,4 +1,5 @@
 import { NavigateFunction } from "react-router-dom";
+import Swal from "sweetalert2";
 import LostFormParams from "../../../interfaces/LostFormParams";
 import patchLost from "../../../services/patchLost";
 import swalAlert from "../../../utils/swalAlert";
@@ -24,12 +25,26 @@ const editRegist = (params: LostFormParams, setState: React.Dispatch<React.SetSt
     const { title, descript, imgKey } = params;
     const file = document.getElementById('file') as HTMLInputElement;
 
-    if (file.files && file.files[0]) {
-        uploadS3(imgKey, file.files[0])
-        .then(() => patchAndHandle(params, setState, nav))
-        .catch(() => swalAlert('이미지 업로드 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.'));
-    } else if (inputCheck(title, descript))
-        patchAndHandle(params, setState, nav);
+    if (inputCheck(title, descript)) {
+        Swal.fire({
+            text: '글을 등록하시겠습니까?',
+            showCancelButton: true,
+            confirmButtonText: '등록',
+            cancelButtonText: '취소',
+            confirmButtonColor: '#20633F',
+            cancelButtonColor: '#767676',
+            heightAuto: false
+        }).then((res) => {
+            if (res.isConfirmed) {
+                if (file.files && file.files[0]) {
+                    uploadS3(imgKey, file.files[0])
+                    .then(() => patchAndHandle(params, setState, nav))
+                    .catch(() => swalAlert('이미지 업로드 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.'));
+                } else
+                    patchAndHandle(params, setState, nav);
+            }
+        })
+    }
 }
 
 export default editRegist;
