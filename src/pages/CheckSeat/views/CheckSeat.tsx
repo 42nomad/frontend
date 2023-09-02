@@ -15,14 +15,15 @@ function CheckSeat() {
 
 	const starredInfo = GetStarredData();
 	const historyInfo = GetHistoryData();
+
 	useEffect(() => {
 		if (starredInfo && starredInfo.length) setCurrentTab(2);
 	}, [starredInfo]);
 
 	return (
-		<div>
+		<>
 			<Header />
-			<div id="CheckSeat" className="bg-nomad-sand flex flex-col min-h-screen">
+			<div id="CheckSeat" className="bg-nomad-sand flex flex-col min-h-full">
 				<div id="TabHeader" className="flex space-x-1.5 fixed w-full max-w-max-wid pt-20 pl-9 pb-2 bg-nomad-sand">
 					<SeatTab buttonName="자리검색" tabNumber={1} currentTab={currentTab} setCurrentTab={setCurrentTab} />
 					<SeatTab buttonName="즐겨찾기" tabNumber={2} currentTab={currentTab} setCurrentTab={setCurrentTab} />
@@ -71,7 +72,7 @@ function CheckSeat() {
 					</div>
 				)}
 			</div>
-		</div>
+		</>
 	);
 }
 

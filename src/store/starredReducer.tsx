@@ -15,8 +15,16 @@ const starredReducer = createSlice({
 		addStarred: (state, action) => {
 			state.starredInfo = [...state.starredInfo, action.payload];
 		},
+		updateStarred: (state, action) => {
+			state.starredInfo = state.starredInfo.map((starred) => {
+				if (starred.starredId === action.payload.starredId) {
+					return action.payload;
+				}
+				return starred;
+			});
+		},
 	},
 });
 
-export const { setStarred, addStarred } = starredReducer.actions;
+export const { setStarred, addStarred, updateStarred } = starredReducer.actions;
 export default starredReducer.reducer;
