@@ -9,6 +9,7 @@ import C5Seoul from '../../../assets/images/maps/c5_seoul';
 import C6Seoul from '../../../assets/images/maps/c6_seoul';
 import ClusterMapProps from '../../../interfaces/ClusterMapProps';
 import useClusterMap from '../logics/useClusterMap';
+import NotFound from '../../../components/NotFound/NotFound';
 
 function ClusterMap({cluster, mapName}: ClusterMapProps) {
     useClusterMap(mapName);
@@ -30,7 +31,7 @@ function ClusterMap({cluster, mapName}: ClusterMapProps) {
         case 8:
             return (<C6Seoul />)
         default:
-            return (<div>notfound</div>)
+            return (<NotFound />)
     }
 }
 
