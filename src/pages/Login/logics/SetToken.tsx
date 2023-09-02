@@ -1,23 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setHome } from "../../../store/homeReducer";
 import getHome from "../../../services/getHome";
+import switchHome from "./switchHome";
 
 function SetToken() {
     const nav = useNavigate();
+    const dispatch = useDispatch();
     const url = new URLSearchParams(window.location.search);
     const accessToken = url.get('token') || '';
     localStorage.setItem('token', accessToken);
 
-    getHome().then((res) => {
-        if (res.data === 1)
-            nav('/cluster');
-        else if (res.data === 2)
-            nav('/meeting');
-        else if (res.data === 3)
-            nav('/lost');
-        else
-            nav('/seat');
-    });
+    useEffect(() => {
+        getHome().then((res) => {
+            dispatch(setHome(res.data));
+            switchHome(res.data, nav);
+        });
+    }, [accessToken, nav, dispatch]);
 
     return (
         <div>로딩중</div>
