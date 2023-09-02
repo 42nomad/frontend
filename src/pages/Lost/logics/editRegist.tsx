@@ -22,7 +22,7 @@ const patchAndHandle = (params: LostFormParams, setState: React.Dispatch<React.S
 }
 
 const editRegist = (params: LostFormParams, setState: React.Dispatch<React.SetStateAction<number>>, nav: NavigateFunction) => {
-    const { title, descript, imgKey } = params;
+    const { title, descript, writer, imgKey } = params;
     const file = document.getElementById('file') as HTMLInputElement;
 
     if (inputCheck(title, descript)) {
@@ -37,8 +37,10 @@ const editRegist = (params: LostFormParams, setState: React.Dispatch<React.SetSt
         }).then((res) => {
             if (res.isConfirmed) {
                 if (file.files && file.files[0]) {
-                    uploadS3(imgKey, file.files[0])
-                    .then(() => patchAndHandle(params, setState, nav))
+                    const newKey = (imgKey === 'default-img.png') ? `${Date.now()}_${writer}` : imgKey;
+                    const newParams = {...params, imgKey: newKey};
+                    uploadS3(newKey, file.files[0])
+                    .then(() => patchAndHandle(newParams, setState, nav))
                     .catch(() => swalAlert('이미지 업로드 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.'));
                 } else
                     patchAndHandle(params, setState, nav);
