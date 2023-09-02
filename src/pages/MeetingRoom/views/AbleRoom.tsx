@@ -21,8 +21,10 @@ function AbleRoom({ mapInfo, cluster, roomName }: AbleRoomProps) {
 	if (!roomInfo) return null;
 	const { isAvailable, usageTime } = roomInfo;
 	const setNotification = () => {
-		if (isNoti) deleteNotification(notificationId);
-		else {
+		if (isNoti) {
+			deleteNotification(notificationId);
+			setNotificationId(0);
+		} else {
 			postMeetingNotification(cluster, roomName)
 				.then((res) => {
 					setNotificationId(res.data);

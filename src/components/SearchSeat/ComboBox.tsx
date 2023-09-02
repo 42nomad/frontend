@@ -20,7 +20,6 @@ function ComboBox({ inputTextSize, options, selectedOne, setSelected }: ComboBox
 				<div className="relative">
 					<div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left">
 						<Combobox.Input
-							id="combobox-input"
 							className={`w-full border-none py-2 pl-2 pr-2 leading-5 text-black focus:outline-none ${inputTextSize}`}
 							displayValue={(option: OptionProps) => option.name}
 							onChange={(event) => setQuery(event.target.value)}

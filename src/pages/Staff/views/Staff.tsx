@@ -5,8 +5,11 @@ import SeatTab from '../../CheckSeat/views/SeatTab';
 import 'react-datepicker/dist/react-datepicker.css';
 import StatStarred from './StatStarred';
 import StatMeeting from './StatMeeting';
+import getStatMeeting from '../../../services/getStatMeeting';
+import getStatCluster from '../../../services/getStatCluster';
 import ExcelHeader from '../../../interfaces/ExcelHeader';
 import ExcelData from '../../../interfaces/ExcelData';
+import getAdminRole from '../../../services/getAdminRole';
 
 const clusters = [
 	{ id: 0, name: '전체' },
@@ -27,59 +30,40 @@ function Staff() {
 	const [sortingOption, setSortingOption] = useState(0);
 	const [cluster, setCluster] = useState(clusters[0]);
 
-	let headers: ExcelHeader[] = [];
-	if (currentTab === 1)
-		headers = [
-			{ label: 'index', key: 'index' },
-			{ label: 'location', key: 'location' },
-			{ label: 'count', key: 'count' },
-		];
-	else
-		headers = [
-			{ label: 'index', key: 'index' },
-			{ label: 'cluster', key: 'cluster' },
-			{ label: 'location', key: 'location' },
-			{ label: 'count', key: 'count' },
-			{ label: 'time', key: 'time' },
-		];
+	const headers: ExcelHeader[] = [
+		{ label: 'index', key: 'index' },
+		{ label: 'location', key: 'location' },
+		{ label: 'count', key: 'count' },
+	];
+	if (currentTab === 2) {
+		headers.push({ label: 'cluster', key: 'cluster' });
+		headers.push({ label: 'time', key: 'time' });
+	}
 
 	const [excelData, setExcelData] = useState<ExcelData[]>([]);
 	useEffect(() => {
-		// getAdminRole().then((res) => {
-		// 	console.log(res.data);
-		// 	if (res.data === 0) window.location.href = '/';
-		// });
-		let data = [];
-		if (currentTab === 1)
-			data = [
-				{ location: 'C1R1S1', count: 1 },
-				{ location: 'C1R2S2', count: 2 },
-				{ location: 'C1R3S3', count: 3 },
-			];
-		else
-			data = [
-				{ cluster: 'C1', location: 'TABLE A', count: 111, time: 100 },
-				{ cluster: 'Cx2', location: 'TABLE B', count: 2, time: 200 },
-				{ cluster: 'C3', location: '다각형 책상', count: 3, time: 340 },
-			];
+		getAdminRole().then((res) => {
+			if (res.data === 0) window.location.href = '/';
+		});
 		document.title = '42nomad Staff';
-		setExcelData(data);
-	}, [currentTab]);
+		if (currentTab === 1 && excelData[0]?.cluster) {
+			setExcelData([]);
+		} else if (currentTab === 2 && !excelData[0]?.cluster) {
+			setExcelData([]);
+		}
+	}, [currentTab, excelData]);
 
 	const getExcelData = () => {
 		// api조회
-		// if (currentTab === 1) {
-		// 	getStatMeeting(startDate, endDate, sortingOption)
-		// 		.then((res) => {
-		// 			setExcelData(res.data);
-		// 			console.log(excelData);
-		// 		});
-		// }
-		// else {
-		// 	getStatCluster(startDate, endDate, cluster.id, sortingOption).then((res)=>{
-		// 		setExcelData(res.data);
-		// })
-		// }
+		if (currentTab === 1) {
+			getStatMeeting(startDate, endDate, sortingOption).then((res) => {
+				setExcelData(res.data);
+			});
+		} else {
+			getStatCluster(startDate, endDate, cluster.id, sortingOption).then((res) => {
+				setExcelData(res.data);
+			});
+		}
 	};
 
 	return (

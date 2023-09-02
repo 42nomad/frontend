@@ -1,5 +1,5 @@
 import nomadAxios from '../utils/nomadAxios';
-import formatDate from '../pages/Admin/logics/formatDate';
+import formatDate from '../pages/Staff/logics/formatDate';
 
 const getStatMeeting = (startDate: Date, endDate: Date, sortingOption: number) =>
 	nomadAxios.get('static/meetingRoom', {

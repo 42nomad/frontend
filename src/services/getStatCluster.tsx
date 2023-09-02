@@ -1,5 +1,5 @@
 import nomadAxios from '../utils/nomadAxios';
-import formatDate from '../pages/Admin/logics/formatDate';
+import formatDate from '../pages/Staff/logics/formatDate';
 
 const getStatCluster = (startDate: Date, endDate: Date, cluster: number, sortingOption: number) =>
 	nomadAxios.get('stat/cluster', {
