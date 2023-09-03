@@ -20,7 +20,7 @@ const colorSeat = (seat: string, state: number, nameOrTime: string) => {
         seatImg.style.cursor = 'pointer';
         seatImg.addEventListener('click', () => {
             seatClick(seat, state, nameOrTime);
-        })
+        });
     }
 }
 

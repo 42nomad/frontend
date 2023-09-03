@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import { RootState } from '../../store/store';
-import switchHome from '../../pages/Login/logics/switchHome';
+import switchHome from '../../utils/switchHome';
 import SideBar from './SideBar';
 
 function Header() {

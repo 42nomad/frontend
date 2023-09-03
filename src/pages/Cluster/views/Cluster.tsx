@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Header from '../../../components/Header/Header';
 import MapNav from '../../../components/MapNav/MapNav';
 import ClusterMap from './ClusterMap';
 import FloorMap from './FloorMap';
@@ -14,20 +13,17 @@ function Cluster() {
     const density = useDensity();
 
 	return (
-		<>
-			<Header />
-			<div className="bg-nomad-sand h-full flex flex-col justify-center items-center pt-5 relative">
-				<MapNav
-					mapName={clusterNames[cluster]}
-					idx={cluster}
-					setState={setCluster}
-					leftButtonClick={clusterLeftClick}
-					rightButtonClick={clusterRightClick}
-				/>
-				{cluster ? <><ClusterMap cluster={cluster} mapName={clusterNames[cluster]} /><FixedButton setCluster={setCluster}/></>
-					: <FloorMap setCluster={setCluster} density={density} />}
-			</div>
-		</>
+		<div className="bg-nomad-sand h-full flex flex-col justify-center items-center pt-5 relative">
+			<MapNav
+				mapName={clusterNames[cluster]}
+				idx={cluster}
+				setState={setCluster}
+				leftButtonClick={clusterLeftClick}
+				rightButtonClick={clusterRightClick}
+			/>
+			{cluster ? <><ClusterMap cluster={cluster} mapName={clusterNames[cluster]} /><FixedButton setCluster={setCluster}/></>
+				: <FloorMap setCluster={setCluster} density={density} />}
+		</div>
 	);
 }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import MenuProps from '../../interfaces/MenuProps';
 
-function Menu({ link, name }: MenuProps) {
+function Menu({ link, name, setIsOpen }: MenuProps) {
 	return (
 		<NavLink
 			to={`${link}`}
@@ -11,6 +11,7 @@ function Menu({ link, name }: MenuProps) {
 					z-50 w-full h-14 flex items-center justify-end text-nomad-sand text-xl transition-colors duration-50 ${
 						isActive ? 'bg-nomad-sand/30 outline-none' : ''
 					}`}
+			onClick={()=>setIsOpen(false)}
 		>
 			{name}
 		</NavLink>
