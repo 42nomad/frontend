@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Combobox } from '@headlessui/react';
 import { ChevronUpDownIcon } from '@heroicons/react/24/outline';
-import OptionProps from '../../interfaces/OptionProps';
-import ComboBoxProps from '../../interfaces/ComboBoxProps';
+import OptionProps from '../../../interfaces/OptionProps';
+import ComboBoxProps from '../../../interfaces/ComboBoxProps';
 
 function ComboBox({ inputTextSize, options, selectedOne, setSelected }: ComboBoxProps) {
 	const [query, setQuery] = useState('');

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import { contentsCenter } from '../../MeetingRoom/views/MapStyle';
 import SeatTab from './SeatTab';
-import SearchSeat from '../../../components/SearchSeat/SearchSeat';
+import SearchSeat from '../../../components/SearchSeat/views/SearchSeat';
 import StarredSeat from './StarredSeat';
 import HistorySeat from './HistorySeat';
 import useStarredData from '../logics/useStarredData';
