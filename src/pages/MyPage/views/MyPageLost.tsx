@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import gridDiv from '../../../styles/gridDiv';
 import FoldButton from './FoldButton';
-import useMyPageDocs from '../logics/useMyPageDocs';
 import LostDoc from '../../Lost/views/LostDoc';
+import MyPageLostProps from '../../../interfaces/MyPageLostProps';
 
-function MyPageLost() {
+function MyPageLost({myDocs}: MyPageLostProps) {
 	const [open, setOpen] = useState(false);
-	const myDocs = useMyPageDocs();
 
 	return (
 		<div css={gridDiv}>

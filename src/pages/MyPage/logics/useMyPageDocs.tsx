@@ -3,7 +3,7 @@ import LostDocData from "../../../interfaces/LostDocData";
 import getMyDocs from "../../../services/getMyDocs";
 
 function useMyPageDocs() {
-    const [data, setData] = useState<Array<LostDocData>>([]);
+    const [data, setData] = useState<Array<LostDocData> | null>(null);
 
     useEffect(() => {
         getMyDocs()

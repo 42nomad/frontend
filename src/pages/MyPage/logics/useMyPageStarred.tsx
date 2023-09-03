@@ -4,7 +4,7 @@ import MyPageStarredData from "../../../interfaces/MyPageStarredData";
 import getStarred from "../../../services/getStarred";
 
 function useMyPageStarred(modal: boolean) {
-    const [data, setData] = useState<Array<MyPageStarredData>>([]);
+    const [data, setData] = useState<Array<MyPageStarredData> | null>(null);
 
     useEffect(() => {
         getStarred()
