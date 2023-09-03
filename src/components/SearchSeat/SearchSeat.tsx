@@ -6,6 +6,7 @@ import { useAppDispatch } from '../../store/hooks';
 import { addStarred } from '../../store/starredReducer';
 import SearchSeatData from '../../interfaces/SearchSeatData';
 import getSearchSeatData from '../../services/getSearchSeatData';
+import swalAlert from '../../utils/swalAlert';
 
 const clusters = [
 	{ id: 1, name: '1' },
@@ -44,21 +45,32 @@ function SearchSeat() {
 	const location = `C${cluster.name}R${row.name}S${seat.name}`;
 
 	const handleSearchClick = () => {
-		getSearchSeatData(location).then((res) => {
-			setInfo(res.data);
-			if (info) {
-				setSearchResult(seatInfo(info.isAvailable, info.cadet, info.elapsedTime));
-				setIsStarred(info.isStarred);
-			}
-		});
+		getSearchSeatData(location)
+			.then((res) => {
+				setInfo(res.data);
+				if (info) {
+					setSearchResult(seatInfo(info.isAvailable, info.cadet, info.elapsedTime));
+					setIsStarred(info.isStarred);
+				}
+			})
+			.catch(() => {
+				swalAlert('존재하지 않는 좌석입니다');
+			});
 	};
 
-	const handleAddStarred = async () => {
+	const handleAddStarred = () => {
 		if (isStarred) return;
 
-		const res = await nomadAxios.post(`/member/favorite/${location}`);
-		setIsStarred(true);
-		dispatch(addStarred({ ...info, isNoti: false, notificationId: 0, starredId: res.data }));
+		nomadAxios
+			.post(`/member/favorite/${location}`)
+			.then((res) => {
+				setIsStarred(true);
+				dispatch(addStarred({ ...info, isNoti: false, notificationId: 0, starredId: res.data }));
+			})
+			.catch(({ response }) => {
+				if (response.status === 404) swalAlert('존재하지 않는 좌석입니다');
+				else if (response.status === 409) swalAlert('이미 즐겨찾기에 추가된 좌석입니다');
+			});
 	};
 	return (
 		<div

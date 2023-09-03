@@ -52,12 +52,16 @@ function Stat() {
 	const getExcelData = async () => {
 		// api조회
 		let res;
-		if (currentTab === 1) {
-			if (cluster.id === 0) res = await getStatClusterAll(startDate, endDate, sortingOption);
-			else res = await getStatCluster(startDate, endDate, `c${cluster.name}`, sortingOption);
-		} else res = await getStatMeeting(startDate, endDate, sortingOption);
-		setExcelData(res.data);
-		if (res.data.length === 0) swalAlert('해당 기간 내에 출력할 통계정보가 없습니다.');
+		try {
+			if (currentTab === 1) {
+				if (cluster.id === 0) res = await getStatClusterAll(startDate, endDate, sortingOption);
+				else res = await getStatCluster(startDate, endDate, `c${cluster.name}`, sortingOption);
+			} else res = await getStatMeeting(startDate, endDate, sortingOption);
+			setExcelData(res.data);
+			if (res.data.length === 0) swalAlert('해당 기간 내에 출력할 통계정보가 없습니다.');
+		} catch (e) {
+			swalAlert('변환할 수 없는 날짜입니다. 정보를 다시 입력해주세요.');
+		}
 	};
 
 	return (
