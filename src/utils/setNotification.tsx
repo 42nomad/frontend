@@ -22,6 +22,7 @@ const setNotification = ({
 		postNotification(location)
 			.then((res) => {
 				updateNotificationId(dispatch, seat, res.data as number, setNotificationId, isDispatch);
+				setIsNoti(!isNoti);
 			})
 			.catch(({ response }) => {
 				if (response.status === 409) {
@@ -35,11 +36,11 @@ const setNotification = ({
 							confirmButtonText: '확인',
 						});
 						updateNotificationId(dispatch, seat, response.data.responseData, setNotificationId, isDispatch);
+						setIsNoti(!isNoti);
 					} else swalAlert('존재하지 않는 자리입니다');
 				}
 			});
 	}
-	setIsNoti(!isNoti);
 };
 
 export default setNotification;
