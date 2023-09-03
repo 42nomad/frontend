@@ -7,7 +7,7 @@ import handleSecretUpdate from '../logics/handleSecretUpdate';
 import handleUserRole from '../logics/handleUserRole';
 import handleMemberDelete from '../logics/handleMemberDelete';
 import handleInCluster from '../logics/handleInCluster';
-import handleAmdinToken from '../logics/handleAdminToken';
+import handleAmdinLogin from '../logics/handleAdminLogin';
 import handleSlackAddress from '../logics/handleSlackAddress';
 
 const input = css`
@@ -20,6 +20,7 @@ const button = css`
 
 function Admin() {
 	useEffect(() => {
+		document.title = '42nomad Admin';
 		getAdminRole().then((res) => {
 			if (res.data !== 2) window.location.href = '/';
 		});
@@ -97,8 +98,8 @@ function Admin() {
 				</button>
 			</div>
 			<div className="w-80">
-				<button type="button" css={button} onClick={handleAmdinToken}>
-					admin token
+				<button type="button" css={button} onClick={handleAmdinLogin}>
+					admin Token 발급
 				</button>
 			</div>
 			<div className="w-80">
