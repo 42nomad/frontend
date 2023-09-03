@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import ComboBox from './ComboBox';
-import { useAppDispatch } from '../../store/hooks';
-import SearchSeatData from '../../interfaces/SearchSeatData';
-import seatInfo from '../../pages/CheckSeat/logics/seatInfo';
-import handleSearchClick from './logics/handleSearchClick';
-import handleAddStarred from './logics/handleAddStarred';
+import { useAppDispatch } from '../../../store/hooks';
+import SearchSeatData from '../../../interfaces/SearchSeatData';
+import seatInfo from '../../../pages/CheckSeat/logics/seatInfo';
+import handleSearchClick from '../logics/handleSearchClick';
+import handleAddStarred from '../logics/handleAddStarred';
 
 const clusters = [
 	{ id: 1, name: '1' },

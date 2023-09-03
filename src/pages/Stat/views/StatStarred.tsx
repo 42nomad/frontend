@@ -2,7 +2,7 @@ import React from 'react';
 import { ko } from 'date-fns/esm/locale';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import ComboBox from '../../../components/SearchSeat/ComboBox';
+import ComboBox from '../../../components/SearchSeat/views/ComboBox';
 import StatProps from '../../../interfaces/StatProps';
 
 function StatStarred({
