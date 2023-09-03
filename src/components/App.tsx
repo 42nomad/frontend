@@ -13,6 +13,7 @@ import Staff from '../pages/Staff/views/Staff';
 import NotFound from './NotFound/NotFound';
 import Admin from '../pages/Admin/views/Admin';
 import AdminOauth from '../pages/Admin/views/AdminOauth';
+import Layout from './Layout';
 
 const handleResize = () => {
 	document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
@@ -31,16 +32,18 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Login />} />
 				<Route path="/token" element={<SetToken />} />
-				<Route path="/mypage" element={<MyPage />} />
-				<Route path="/seat" element={<CheckSeat />} />
-				<Route path="/meeting" element={<MeetingRoom />} />
-				<Route path="/lost" element={<Lost />} />
-				<Route path="/lost/*" element={<LostForm />} />
-				<Route path="/cluster" element={<Cluster />} />
+				<Route element={<Layout />}>
+					<Route path="/seat" element={<CheckSeat />} />
+					<Route path="/meeting" element={<MeetingRoom />} />
+					<Route path="/cluster" element={<Cluster />} />
+					<Route path="/lost" element={<Lost />} />
+					<Route path="/lost/*" element={<LostForm />} />
+					<Route path="/mypage" element={<MyPage />} />
+					<Route path="*" element={<NotFound />} />
+				</Route>
 				<Route path="/staff" element={<Staff />} />
 				<Route path="/admin" element={<Admin />} />
 				<Route path="/admin/callback" element={<AdminOauth />} />
-				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</BrowserRouter>
 	);

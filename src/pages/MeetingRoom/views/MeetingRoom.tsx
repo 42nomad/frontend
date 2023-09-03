@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { contentsCenter } from './MapStyle';
-import Header from '../../../components/Header/Header';
 import MapNav from '../../../components/MapNav/MapNav';
 import C3Map from './C3Map';
 import C1Map from './C1Map';
@@ -22,19 +21,16 @@ function MeetingRoom() {
 	const clusters = ['C1', 'CX2', 'C3', 'C5'];
 	const meetingMaps = [<C1Map />, <Cx2Map />, <C3Map />, <C5Map />];
 	return (
-		<>
-			<Header />
-			<div className="bg-nomad-sand h-full flex-col" css={contentsCenter}>
-				<MapNav
-					mapName={clusters[idx]}
-					idx={idx}
-					setState={setIdx}
-					leftButtonClick={meetingLeftClick}
-					rightButtonClick={meetingRightClick}
-				/>
-				{meetingMaps[idx]}
-			</div>
-		</>
+		<div className="bg-nomad-sand h-full flex-col" css={contentsCenter}>
+			<MapNav
+				mapName={clusters[idx]}
+				idx={idx}
+				setState={setIdx}
+				leftButtonClick={meetingLeftClick}
+				rightButtonClick={meetingRightClick}
+			/>
+			{meetingMaps[idx]}
+		</div>
 	);
 }
 
