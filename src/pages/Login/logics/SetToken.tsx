@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setHome } from "../../../store/homeReducer";
 import getHome from "../../../services/getHome";
-import switchHome from "./switchHome";
+import switchHome from "../../../utils/switchHome";
 import Loading from "../../../components/Loading/Loading";
 
 function SetToken() {
