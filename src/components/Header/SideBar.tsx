@@ -26,11 +26,11 @@ function SideBar({ setIsOpen }: SideBarProps) {
 							}}
 						/>
 						<ul className="z-50 mx-2 mt-3">
-							<Menu link="/seat" name="자리 확인" />
-							<Menu link="/meeting" name="회의실" />
-							<Menu link="/cluster" name="클러스터 맵" />
-							<Menu link="/lost" name="분실 게시판" />
-							<Menu link="/myPage" name="마이페이지" />
+							<Menu link="/seat" name="자리 확인" setIsOpen={setIsOpen}/>
+							<Menu link="/meeting" name="회의실" setIsOpen={setIsOpen}/>
+							<Menu link="/cluster" name="클러스터 맵" setIsOpen={setIsOpen}/>
+							<Menu link="/lost" name="분실 게시판" setIsOpen={setIsOpen}/>
+							<Menu link="/myPage" name="마이페이지" setIsOpen={setIsOpen}/>
 						</ul>
 					</div>
 				</nav>
