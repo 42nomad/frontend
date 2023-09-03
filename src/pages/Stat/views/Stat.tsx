@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { CSVLink } from 'react-csv';
 import { Link } from 'react-router-dom';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -6,8 +6,8 @@ import StatStarred from './StatStarred';
 import StatMeeting from './StatMeeting';
 import ExcelHeader from '../../../interfaces/ExcelHeader';
 import ExcelData from '../../../interfaces/ExcelData';
-import getAdminRole from '../../../services/getAdminRole';
 import getExcelData from '../logics/getExcelData';
+import useCheckRole from '../../Admin/logics/useCheckRole';
 
 const clusters = [
 	{ id: 0, name: '전체' },
@@ -22,11 +22,14 @@ const clusters = [
 ];
 
 function Stat() {
+	useCheckRole('Stat', 1);
+
 	const [currentTab, setCurrentTab] = useState(1);
 	const [startDate, setStartDate] = useState(new Date('2023-09-01'));
 	const [endDate, setEndDate] = useState(new Date());
 	const [sortingOption, setSortingOption] = useState(0);
 	const [cluster, setCluster] = useState(clusters[0]);
+	const [excelData, setExcelData] = useState<ExcelData[]>([]);
 
 	const headers: ExcelHeader[] = [
 		{ label: 'index', key: 'index' },
@@ -37,14 +40,6 @@ function Stat() {
 		headers.push({ label: 'cluster', key: 'cluster' });
 		headers.push({ label: 'time', key: 'time' });
 	}
-
-	const [excelData, setExcelData] = useState<ExcelData[]>([]);
-	useEffect(() => {
-		document.title = '42nomad Stat';
-		getAdminRole().then((res) => {
-			if (res.data === 0) window.location.href = '/';
-		});
-	}, []);
 
 	return (
 		<>

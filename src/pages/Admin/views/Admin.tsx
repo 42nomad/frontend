@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { css } from '@emotion/react';
 import tw from 'twin.macro';
-import getAdminRole from '../../../services/getAdminRole';
 import handleSecretUpdate from '../logics/handleSecretUpdate';
 import handleUserRole from '../logics/handleUserRole';
 import handleMemberDelete from '../logics/handleMemberDelete';
 import handleInCluster from '../logics/handleInCluster';
 import handleAmdinLogin from '../logics/handleAdminLogin';
 import handleSlackAddress from '../logics/handleSlackAddress';
+import useCheckRole from '../logics/useCheckRole';
 
 const input = css`
 	${tw`px-4 m-1 rounded-xl border-2 border-nomad-green focus:outline-none`}
@@ -19,12 +19,8 @@ const button = css`
 `;
 
 function Admin() {
-	useEffect(() => {
-		document.title = '42nomad Admin';
-		getAdminRole().then((res) => {
-			if (res.data !== 2) window.location.href = '/';
-		});
-	}, []);
+	useCheckRole('Admin', 2);
+
 	const [secret, setSecret] = useState('');
 	const [user, setUser] = useState('');
 	const [role, setRole] = useState(0);
