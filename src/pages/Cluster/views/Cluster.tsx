@@ -4,6 +4,7 @@ import ClusterMap from './ClusterMap';
 import FloorMap from './FloorMap';
 import useDensity from '../logics/useDensity';
 import FixedButton from './FixedButton';
+import Loading from '../../../components/Loading/Loading';
 
 function Cluster() {
 	const [cluster, setCluster] = useState(0);
@@ -11,18 +12,23 @@ function Cluster() {
 	const density = useDensity();
 
 	return (
-		<div className="bg-nomad-sand h-full flex flex-col justify-center items-center pt-5 relative">
-			<MapNav mapName={clusterNames[cluster]} idx={cluster} setIdx={setCluster} maxIdx={8} />
-			{cluster ? (
-				<>
-					<ClusterMap cluster={cluster} mapName={clusterNames[cluster]} />
-					<FixedButton setCluster={setCluster} />
-				</>
-			) : (
-				<FloorMap setCluster={setCluster} density={density} />
+		<>
+			{density.c1 === -1 && <Loading />}
+			{density.c1 !== -1 && (
+				<div className="bg-nomad-sand h-full flex flex-col justify-center items-center pt-5 relative">
+					<MapNav mapName={clusterNames[cluster]} idx={cluster} setIdx={setCluster} maxIdx={8} />
+					{cluster ? (
+						<>
+							<ClusterMap cluster={cluster} mapName={clusterNames[cluster]} />
+							<FixedButton setCluster={setCluster} />
+						</>
+					) : (
+						<FloorMap setCluster={setCluster} density={density} />
+					)}
+				</div>
 			)}
-		</div>
-	);
+		</>
+	)
 }
 
 export default Cluster;
