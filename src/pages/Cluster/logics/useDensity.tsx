@@ -3,7 +3,7 @@ import nomadAxios from "../../../utils/nomadAxios";
 import ClusterDensity from "../../../interfaces/ClusterDensity";
 
 function useDensity() {
-    const [ density, setDensity ] = useState<ClusterDensity>({c1: 0, c2: 0, c3: 0, c4: 0, c5: 0, c6: 0, cx1: 0, cx2: 0});
+    const [ density, setDensity ] = useState<ClusterDensity>({c1: -1, c2: -1, c3: -1, c4: -1, c5: -1, c6: -1, cx1: -1, cx2: -1});
 
     useEffect(() => {
         nomadAxios.get('cluster/density').then((res) => setDensity(res.data));

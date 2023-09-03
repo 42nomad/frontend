@@ -3,12 +3,10 @@ import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import gridDiv from '../../../styles/gridDiv';
 import StarredLine from './StarredLine';
 import FoldButton from './FoldButton';
-import useMyPageStarred from '../logics/useMyPageStarred';
 import MyPageStarredProps from '../../../interfaces/MyPageStarredProps';
 
-function MyPageStarred({modal, setModal}: MyPageStarredProps) {
+function MyPageStarred({setModal, starredData}: MyPageStarredProps) {
 	const [open, setOpen] = useState(false);
-	const starredData = useMyPageStarred(modal);
 
 	return (
 		<div css={gridDiv}>

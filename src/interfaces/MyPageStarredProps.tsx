@@ -1,6 +1,8 @@
+import MyPageStarredData from "./MyPageStarredData";
+
 interface MyPageStarredProps {
-	modal: boolean,
-	setModal: React.Dispatch<React.SetStateAction<boolean>>
+	setModal: React.Dispatch<React.SetStateAction<boolean>>,
+	starredData: MyPageStarredData[]
 }
 
 export default MyPageStarredProps;

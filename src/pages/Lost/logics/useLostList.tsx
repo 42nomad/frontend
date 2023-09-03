@@ -3,7 +3,7 @@ import LostDocData from "../../../interfaces/LostDocData";
 import getLostList from "../../../services/getLostList";
 
 function useLostList() {
-    const [docList, setDocList] = useState<LostDocData[]>([]);
+    const [docList, setDocList] = useState<LostDocData[] | null>(null);
 
     useEffect(() => {
         getLostList().then((res) => {
