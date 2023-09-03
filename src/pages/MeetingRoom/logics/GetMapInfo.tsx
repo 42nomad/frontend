@@ -11,8 +11,8 @@ function GetMapInfo(cluster: string) {
 			.then((res) => {
 				setMapInfo(res.data);
 			})
-			.catch(() => {
-				swalAlert('회의실이 존재하지 않는 클러스터입니다');
+			.catch((err) => {
+				if (err.response.status === 404) swalAlert('회의실이 존재하지 않는 클러스터입니다');
 			});
 	}, [cluster]);
 	return mapInfo;
