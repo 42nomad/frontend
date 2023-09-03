@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CSVLink } from 'react-csv';
 import { Link } from 'react-router-dom';
-import SeatTab from '../../CheckSeat/views/SeatTab';
 import 'react-datepicker/dist/react-datepicker.css';
 import StatStarred from './StatStarred';
 import StatMeeting from './StatMeeting';
@@ -10,6 +9,8 @@ import getStatCluster from '../../../services/getStatCluster';
 import ExcelHeader from '../../../interfaces/ExcelHeader';
 import ExcelData from '../../../interfaces/ExcelData';
 import getAdminRole from '../../../services/getAdminRole';
+import getStatClusterAll from '../../../services/getStatClusterAll';
+import swalAlert from '../../../utils/swalAlert';
 
 const clusters = [
 	{ id: 0, name: '전체' },
@@ -23,9 +24,9 @@ const clusters = [
 	{ id: 12, name: 'x2' },
 ];
 
-function Staff() {
+function Stat() {
 	const [currentTab, setCurrentTab] = useState(1);
-	const [startDate, setStartDate] = useState(new Date());
+	const [startDate, setStartDate] = useState(new Date('2023-09-01'));
 	const [endDate, setEndDate] = useState(new Date());
 	const [sortingOption, setSortingOption] = useState(0);
 	const [cluster, setCluster] = useState(clusters[0]);
@@ -42,31 +43,21 @@ function Staff() {
 
 	const [excelData, setExcelData] = useState<ExcelData[]>([]);
 	useEffect(() => {
+		document.title = '42nomad Stat';
 		getAdminRole().then((res) => {
 			if (res.data === 0) window.location.href = '/';
 		});
 	}, []);
 
-	useEffect(() => {
-		document.title = '42nomad Staff';
-		if (currentTab === 1 && excelData && excelData[0]?.cluster) {
-			setExcelData([]);
-		} else if (currentTab === 2 && excelData && !excelData[0]?.cluster) {
-			setExcelData([]);
-		}
-	}, [currentTab, excelData]);
-
-	const getExcelData = () => {
+	const getExcelData = async () => {
 		// api조회
+		let res;
 		if (currentTab === 1) {
-			getStatCluster(startDate, endDate, cluster.id, sortingOption).then((res) => {
-				setExcelData(res.data);
-			});
-		} else {
-			getStatMeeting(startDate, endDate, sortingOption).then((res) => {
-				setExcelData(res.data);
-			});
-		}
+			if (cluster.id === 0) res = await getStatClusterAll(startDate, endDate, sortingOption);
+			else res = await getStatCluster(startDate, endDate, `c${cluster.name}`, sortingOption);
+		} else res = await getStatMeeting(startDate, endDate, sortingOption);
+		setExcelData(res.data);
+		if (res.data.length === 0) swalAlert('해당 기간 내에 출력할 통계정보가 없습니다.');
 	};
 
 	return (
@@ -81,8 +72,28 @@ function Staff() {
 					<div className="flex items-center text-3xl mr-2">ㄴ통계</div>
 				</div>
 				<div className="flex items-center space-x-2 mb-2 ml-16">
-					<SeatTab buttonName="즐겨찾기" currentTab={currentTab} tabNumber={1} setCurrentTab={setCurrentTab} />
-					<SeatTab buttonName="회의실" currentTab={currentTab} tabNumber={2} setCurrentTab={setCurrentTab} />
+					<button
+						type="button"
+						onClick={() => {
+							setCurrentTab(1);
+							setExcelData([]);
+						}}
+						className={`border-collapse rounded-2xl w-20 h-8 text-md shadow-full shadow-zinc-900/10
+								${currentTab === 1 ? 'bg-nomad-green text-nomad-sand' : 'bg-white text-gray-700 font-nexonLight'}`}
+					>
+						즐겨찾기
+					</button>
+					<button
+						type="button"
+						onClick={() => {
+							setCurrentTab(2);
+							setExcelData([]);
+						}}
+						className={`border-collapse rounded-2xl w-20 h-8 text-md shadow-full shadow-zinc-900/10
+								${currentTab === 2 ? 'bg-nomad-green text-nomad-sand' : 'bg-white text-gray-700 font-nexonLight'}`}
+					>
+						회의실
+					</button>
 				</div>
 				<div className="bg-white shadow-full shadow-nomad-green/ rounded-xl ml-12 w-fit p-4">
 					{currentTab === 1 ? (
@@ -144,7 +155,7 @@ function Staff() {
 										<td className="border-2 px-2">{data.location}</td>
 										<td className="border-2 px-2">{data.count}</td>
 										{currentTab === 2 && <td className="border-2 px-2">{data.cluster}</td>}
-										{currentTab === 2 && <td className="border-2 px-2">{data.time}</td>}
+										{currentTab === 2 && <td className="border-2 px-2">{data.totalUsageTime}</td>}
 									</tr>
 								))}
 							</tbody>
@@ -156,4 +167,4 @@ function Staff() {
 	);
 }
 
-export default Staff;
+export default Stat;

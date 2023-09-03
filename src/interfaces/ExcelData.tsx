@@ -2,7 +2,7 @@ interface ExcelData {
 	cluster?: string;
 	location: string;
 	count: number;
-	time?: number;
+	totalUsageTime?: number;
 }
 
 export default ExcelData;

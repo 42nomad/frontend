@@ -5,15 +5,15 @@ import SeatTab from './SeatTab';
 import SearchSeat from '../../../components/SearchSeat/SearchSeat';
 import StarredSeat from './StarredSeat';
 import HistorySeat from './HistorySeat';
-import GetStarredData from '../logics/GetStarredData';
-import GetHistoryData from '../logics/GetHistoryData';
+import useStarredData from '../logics/useStarredData';
+import useHistoryData from '../logics/useHistoryData';
 
 function CheckSeat() {
 	const [currentTab, setCurrentTab] = useState(1);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
-	const starredInfo = GetStarredData();
-	const historyInfo = GetHistoryData();
+	const starredInfo = useStarredData();
+	const historyInfo = useHistoryData();
 
 	useEffect(() => {
 		if (starredInfo && starredInfo.length) setCurrentTab(2);

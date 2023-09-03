@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import HistoryData from '../../../interfaces/HistoryData';
 import getHistory from '../../../services/getHistory';
 
-function GetHistoryData() {
+function useHistoryData() {
 	const [History, setHistory] = useState<HistoryData[]>([]);
 	useEffect(() => {
 		getHistory().then((res) => {
@@ -12,4 +12,4 @@ function GetHistoryData() {
 	return History;
 }
 
-export default GetHistoryData;
+export default useHistoryData;

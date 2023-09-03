@@ -5,7 +5,7 @@ import { setStarred } from '../../../store/starredReducer';
 import { RootState } from '../../../store/store';
 import { useAppDispatch } from '../../../store/hooks';
 
-function GetStarredData() {
+function useStarredData() {
 	const starredInfo = useSelector((state: RootState) => state.starred.starredInfo);
 	const dispatch = useAppDispatch();
 
@@ -17,4 +17,4 @@ function GetStarredData() {
 	return starredInfo;
 }
 
-export default GetStarredData;
+export default useStarredData;
