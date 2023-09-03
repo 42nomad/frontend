@@ -9,6 +9,7 @@ import handleInCluster from '../logics/handleInCluster';
 import handleAmdinLogin from '../logics/handleAdminLogin';
 import handleSlackAddress from '../logics/handleSlackAddress';
 import useCheckRole from '../logics/useCheckRole';
+import Loading from '../../../components/Loading/Loading';
 
 const input = css`
 	${tw`px-4 m-1 rounded-xl border-2 border-nomad-green focus:outline-none`}
@@ -24,6 +25,7 @@ function Admin() {
 	const [secret, setSecret] = useState('');
 	const [user, setUser] = useState('');
 	const [role, setRole] = useState(0);
+	const [isLoading, setIsLoading] = useState(false);
 	const [member, setMember] = useState('');
 	const [slackAddress, setSlackAddress] = useState('');
 
@@ -35,6 +37,7 @@ function Admin() {
 				</div>
 			</Link>
 			<div className="mt-32 font-nexonBold">Admin Page</div>
+			{isLoading ? <Loading /> : null}
 			<div className="w-80">
 				<input
 					type="text"
@@ -89,7 +92,11 @@ function Admin() {
 				</button>
 			</div>
 			<div className="w-80">
-				<button type="button" css={button} onClick={handleInCluster}>
+				<button
+					type="button"
+					css={button}
+					onClick={() => handleInCluster({ isLoading: { state: isLoading, setState: setIsLoading } })}
+				>
 					incluster
 				</button>
 			</div>

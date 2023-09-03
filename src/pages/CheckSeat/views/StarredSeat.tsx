@@ -11,6 +11,7 @@ function StarredSeat({ seat }: { seat: StarredData }) {
 	const { location, isAvailable, cadet, elapsedTime } = seat;
 	const [isNoti, setIsNoti] = useState<boolean>(seat.isNoti);
 	const [notificationId, setNotificationId] = useState<number>(seat.notificationId);
+	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const dispatch = useAppDispatch();
 
 	return (
@@ -21,25 +22,29 @@ function StarredSeat({ seat }: { seat: StarredData }) {
 		>
 			<div className="flex justify-between items-center">
 				<div>{location.toUpperCase()}</div>
-				<button
-					type="button"
-					className="w-5 h-5"
-					onClick={() => {
-						setNotification({
-							isNoti,
-							setIsNoti,
-							notificationId,
-							setNotificationId,
-							postNotification: postSeatNotification,
-							location: seat.location,
-							seat,
-							dispatch,
-							isDispatch: true,
-						});
-					}}
-				>
-					{isNoti ? <BellAlertIcon className=" fill-yellow-400/50" /> : <BellSlashIcon />}
-				</button>
+				{isLoading && (
+					<div className="w-5 h-5 rounded-full animate-spin border-[12px] border-solid border-nomad-green border-t-transparent bg-transparent" />
+				)}
+				{!isLoading && (
+					<button
+						type="button"
+						className="w-5 h-5"
+						onClick={() => {
+							setNotification({
+								isNoti: { state: isNoti, setState: setIsNoti },
+								notificationId: { state: notificationId, setState: setNotificationId },
+								isLoading: { state: isLoading, setState: setIsLoading },
+								postNotification: postSeatNotification,
+								location: seat.location,
+								seat,
+								dispatch,
+								isDispatch: true,
+							});
+						}}
+					>
+						{isNoti ? <BellAlertIcon className=" fill-yellow-400/50" /> : <BellSlashIcon />}
+					</button>
+				)}
 			</div>
 			<div className="font-nexonLight text-sm">{seatInfo(isAvailable, cadet, elapsedTime)}</div>
 		</div>

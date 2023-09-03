@@ -10,6 +10,7 @@ function AbleRoom({ mapInfo, cluster, roomName }: AbleRoomProps) {
 	const roomInfo = mapInfo?.find((room) => room.location === roomName);
 	const [isNoti, setIsNoti] = useState<boolean>(false);
 	const [notificationId, setNotificationId] = useState<number>(0);
+	const [isLoading, setIsLoading] = useState<boolean>(false);
 
 	useEffect(() => {
 		if (roomInfo) {
@@ -26,35 +27,40 @@ function AbleRoom({ mapInfo, cluster, roomName }: AbleRoomProps) {
 				isAvailable ? 'bg-white text-black' : 'flex-col bg-nomad-green text-nomad-sand'
 			}`}
 		>
-			{isNoti ? (
+			{isLoading && (
+				<div
+					className="rounded-full animate-spin border-[12px] border-solid border-nomad-green border-t-transparent bg-transparent"
+					css={bellIcon}
+				/>
+			)}
+			{!isLoading && isNoti && (
 				<BellAlertIcon
 					css={bellIcon}
 					className={isAvailable ? 'fill-yellow-400/50' : 'text-yellow-400'}
 					onClick={() => {
 						setNotification({
-							isNoti,
-							setIsNoti,
-							notificationId,
-							setNotificationId,
+							isNoti: { state: isNoti, setState: setIsNoti },
+							notificationId: { state: notificationId, setState: setNotificationId },
+							isLoading: { state: isLoading, setState: setIsLoading },
 							postNotification: postMeetingNotification,
-							location: `${cluster} ${roomName}`,
+							location: `${cluster}/${roomName}`,
 							seat: null,
 							dispatch: null,
 							isDispatch: false,
 						});
 					}}
 				/>
-			) : (
+			)}
+			{!isLoading && !isNoti && (
 				<BellSlashIcon
 					css={bellIcon}
 					onClick={() => {
 						setNotification({
-							isNoti,
-							setIsNoti,
-							notificationId,
-							setNotificationId,
+							isNoti: { state: isNoti, setState: setIsNoti },
+							notificationId: { state: notificationId, setState: setNotificationId },
+							isLoading: { state: isLoading, setState: setIsLoading },
 							postNotification: postMeetingNotification,
-							location: `${cluster} ${roomName}`,
+							location: `${cluster}/${roomName}`,
 							seat: null,
 							dispatch: null,
 							isDispatch: false,
