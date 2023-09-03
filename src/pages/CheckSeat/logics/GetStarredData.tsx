@@ -10,14 +10,10 @@ function GetStarredData() {
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
-		const fetchData = async () => {
-			if (starredInfo && starredInfo.length === 0) {
-				const res = await getStarred();
-				dispatch(setStarred(res.data));
-			}
-		};
-		fetchData();
-	}, [starredInfo, dispatch]);
+		getStarred().then((res) => {
+			dispatch(setStarred(res.data));
+		});
+	}, [dispatch]);
 	return starredInfo;
 }
 
