@@ -34,7 +34,7 @@ function Cx2Map() {
 				<DisableRoom roomName="좌석" />
 			</div>
 			<div className="col-span-3">
-				<AbleRoom mapInfo={mapInfo} cluster="CX2" roomName="다각형 책상 A" />
+				<AbleRoom mapInfo={mapInfo} cluster="CX2" roomName="다각형 책상 B" />
 			</div>
 			<div className="col-span-1 row-span-1">
 				<DisableRoom roomName="좌석" />
