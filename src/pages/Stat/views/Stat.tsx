@@ -7,7 +7,7 @@ import StatMeeting from './StatMeeting';
 import ExcelHeader from '../../../interfaces/ExcelHeader';
 import ExcelData from '../../../interfaces/ExcelData';
 import getExcelData from '../logics/getExcelData';
-import useCheckRole from '../../Admin/logics/useCheckRole';
+import getStatRole from '../../../services/getStatRole';
 
 const clusters = [
 	{ id: 0, name: '전체' },
@@ -22,7 +22,7 @@ const clusters = [
 ];
 
 function Stat() {
-	useCheckRole('Stat', 1);
+	getStatRole();
 
 	const [currentTab, setCurrentTab] = useState(1);
 	const [startDate, setStartDate] = useState(new Date('2023-09-01'));

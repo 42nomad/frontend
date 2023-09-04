@@ -8,8 +8,8 @@ import handleMemberDelete from '../logics/handleMemberDelete';
 import handleInCluster from '../logics/handleInCluster';
 import handleAmdinLogin from '../logics/handleAdminLogin';
 import handleSlackAddress from '../logics/handleSlackAddress';
-import useCheckRole from '../logics/useCheckRole';
 import Loading from '../../../components/Loading/Loading';
+import getAdminRole from '../../../services/getAdminRole';
 
 const input = css`
 	${tw`px-4 m-1 rounded-xl border-2 border-nomad-green focus:outline-none`}
@@ -20,7 +20,7 @@ const button = css`
 `;
 
 function Admin() {
-	useCheckRole('Admin', 2);
+	getAdminRole();
 
 	const [secret, setSecret] = useState('');
 	const [user, setUser] = useState('');
