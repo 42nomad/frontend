@@ -14,7 +14,7 @@ function C1Map() {
 			{mapInfo && (
 				<div
 					id="MeetingMap"
-					className="grid grid-cols-6 gird-rows-[repeat(12, minmax(0, 1fr))] h-2/3 w-3/4 mt-5"
+					className="grid grid-cols-6 grid-rows-[repeat(12,_minmax(0,_1fr))] h-2/3 w-3/4 mt-5"
 					css={mapBorder}
 				>
 					<div className="col-span-2 row-span-1" css={leftTopBorder}>

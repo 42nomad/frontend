@@ -29,7 +29,9 @@ function AbleRoom({ mapInfo, cluster, roomName }: AbleRoomProps) {
 		>
 			{isLoading && (
 				<div
-					className="rounded-full animate-spin border-4 border-solid border-nomad-green border-t-transparent bg-transparent"
+					className={`rounded-full animate-spin border-4 border-solid ${
+						isAvailable ? 'border-nomad-green' : 'border-white'
+					} border-t-transparent bg-transparent`}
 					css={bellIcon}
 				/>
 			)}
