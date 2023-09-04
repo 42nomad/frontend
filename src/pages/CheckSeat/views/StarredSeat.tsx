@@ -23,7 +23,7 @@ function StarredSeat({ seat }: { seat: StarredData }) {
 			<div className="flex justify-between items-center">
 				<div>{location.toUpperCase()}</div>
 				{isLoading && (
-					<div className="w-5 h-5 rounded-full animate-spin border-[12px] border-solid border-nomad-green border-t-transparent bg-transparent" />
+					<div className="w-5 h-5 rounded-full animate-spin border-4 border-solid border-nomad-green border-t-transparent bg-transparent" />
 				)}
 				{!isLoading && (
 					<button

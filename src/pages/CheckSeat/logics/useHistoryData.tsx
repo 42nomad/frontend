@@ -3,7 +3,7 @@ import HistoryData from '../../../interfaces/HistoryData';
 import getHistory from '../../../services/getHistory';
 
 function useHistoryData() {
-	const [History, setHistory] = useState<HistoryData[]>([]);
+	const [History, setHistory] = useState<HistoryData[] | null>(null);
 	useEffect(() => {
 		getHistory().then((res) => {
 			setHistory(res.data);
