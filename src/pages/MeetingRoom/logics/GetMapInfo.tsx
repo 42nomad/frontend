@@ -4,7 +4,7 @@ import getMeeting from '../../../services/getMeeting';
 import swalAlert from '../../../utils/swalAlert';
 
 function GetMapInfo(cluster: string) {
-	const [mapInfo, setMapInfo] = useState<RoomData[]>([]);
+	const [mapInfo, setMapInfo] = useState<RoomData[] | null>(null);
 
 	useEffect(() => {
 		getMeeting(cluster)

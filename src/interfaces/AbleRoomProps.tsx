@@ -1,7 +1,7 @@
 import RoomData from './RoomData';
 
 interface AbleRoomProps {
-	mapInfo: RoomData[];
+	mapInfo: RoomData[] | null;
 	cluster: string;
 	roomName: string;
 }

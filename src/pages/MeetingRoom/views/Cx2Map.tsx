@@ -2,11 +2,9 @@ import React from 'react';
 import { mapBorder, leftTopBorder } from './MapStyle';
 import DisableRoom from './DisableRoom';
 import AbleRoom from './AbleRoom';
-import GetMapInfo from '../logics/GetMapInfo';
+import RoomData from '../../../interfaces/RoomData';
 
-function Cx2Map() {
-	const mapInfo = GetMapInfo('CX2');
-
+function Cx2Map({ mapInfo }: { mapInfo: null | RoomData[] }) {
 	return (
 		<div id="MeetingMap" className="grid grid-cols-6 grid-rows-6 h-2/3 w-3/4 mt-5" css={mapBorder}>
 			<div className="col-span-1 row-span-1" css={leftTopBorder}>
