@@ -5,15 +5,16 @@ import SeatTabProps from '../../../interfaces/SeatTabProps';
 function SeatTab({ buttonName, currentTab, tabNumber, setCurrentTab }: SeatTabProps) {
 	return buttonName === '자리검색' ? (
 		<div
-			className={`flex border-collapse rounded-2xl w-8 h-8 shadow-full shadow-zinc-900/10 items-center justify-center ${
+			aria-hidden="true"
+			className={`flex border-collapse rounded-2xl w-8 h-8 shadow-full shadow-zinc-900/10 items-center justify-center cursor-pointer ${
 				currentTab === tabNumber ? 'bg-nomad-green' : 'bg-white'
 			}`}
+			onClick={() => {
+				setCurrentTab(tabNumber);
+			}}
 		>
 			<MagnifyingGlassIcon
 				className={`w-6 h-6 ${currentTab === tabNumber ? 'text-nomad-sand' : 'stroke-1 text-gray-700'}`}
-				onClick={() => {
-					setCurrentTab(tabNumber);
-				}}
 			/>
 		</div>
 	) : (
