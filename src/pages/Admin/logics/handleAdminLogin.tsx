@@ -1,9 +1,9 @@
 import getAdminLoginUrl from '../../../services/getAdminLoginUrl';
 
-const handleAmdinToken = () => {
+const handleAmdinLogin = () => {
 	getAdminLoginUrl().then((res) => {
 		window.location.href = res.data;
 	});
 };
 
-export default handleAmdinToken;
+export default handleAmdinLogin;

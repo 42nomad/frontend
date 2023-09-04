@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import { contentsCenter } from '../../MeetingRoom/views/MapStyle';
 import SeatTab from './SeatTab';
-import SearchSeat from '../../../components/SearchSeat/SearchSeat';
+import SearchSeat from '../../../components/SearchSeat/views/SearchSeat';
 import StarredSeat from './StarredSeat';
 import HistorySeat from './HistorySeat';
 import useStarredData from '../logics/useStarredData';
@@ -35,16 +35,15 @@ function CheckSeat() {
 				<div className="flex flex-col mt-32 justify-center items-center space-y-2 pb-10">
 					{starredInfo?.map((seat) => <StarredSeat key={seat.starredId} seat={seat} />)}
 					<div
+						aria-hidden="true"
 						id="AddStarredSeat"
-						className="bg-nomad-green text-nomad-sand shadow-sm shadow-zinc-900/5 rounded-3xl text-md w-5/6 h-14 pt-3 pl-5 pr-5 pb-3"
+						className="bg-nomad-green text-nomad-sand shadow-sm shadow-zinc-900/5 rounded-3xl text-md w-5/6 h-14 pt-3 pl-5 pr-5 pb-3 cursor-pointer"
 						css={contentsCenter}
+						onClick={() => {
+							setIsModalOpen(true);
+						}}
 					>
-						<PlusCircleIcon
-							className="w-10 h-10"
-							onClick={() => {
-								setIsModalOpen(true);
-							}}
-						/>
+						<PlusCircleIcon className="w-10 h-10" />
 					</div>
 					{isModalOpen && (
 						<div

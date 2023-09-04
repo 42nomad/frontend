@@ -22,7 +22,7 @@ function C3Map() {
 				<AbleRoom mapInfo={mapInfo} cluster="C3" roomName="회의실 A" />
 			</div>
 			<div className="col-span-3 row-span-3">
-				<AbleRoom mapInfo={mapInfo} cluster="C3" roomName="회의실 A" />
+				<AbleRoom mapInfo={mapInfo} cluster="C3" roomName="회의실 B" />
 			</div>
 			<div className="col-span-3 row-span-2">
 				<AbleRoom mapInfo={mapInfo} cluster="C3" roomName="TABLE B" />

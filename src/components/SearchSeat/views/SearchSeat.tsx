@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import ComboBox from './ComboBox';
-import nomadAxios from '../../utils/nomadAxios';
-import seatInfo from '../../pages/CheckSeat/logics/seatInfo';
-import { useAppDispatch } from '../../store/hooks';
-import { addStarred } from '../../store/starredReducer';
-import SearchSeatData from '../../interfaces/SearchSeatData';
-import getSearchSeatData from '../../services/getSearchSeatData';
+import { useAppDispatch } from '../../../store/hooks';
+import SearchSeatData from '../../../interfaces/SearchSeatData';
+import seatInfo from '../../../pages/CheckSeat/logics/seatInfo';
+import handleSearchClick from '../logics/handleSearchClick';
+import handleAddStarred from '../logics/handleAddStarred';
 
 const clusters = [
 	{ id: 1, name: '1' },
@@ -34,36 +33,17 @@ const rows = [
 
 function SearchSeat() {
 	const [isStarred, setIsStarred] = useState<boolean>(false);
-	const [searchResult, setSearchResult] = useState<string>('');
 	const [cluster, setCluster] = useState(clusters[0]);
 	const [row, setRow] = useState(rows[0]);
 	const [seat, setSeat] = useState(rows[0]);
-	const dispatch = useAppDispatch();
 	const [info, setInfo] = useState<SearchSeatData>();
-
+	const dispatch = useAppDispatch();
 	const location = `C${cluster.name}R${row.name}S${seat.name}`;
 
-	const handleSearchClick = () => {
-		getSearchSeatData(location).then((res) => {
-			setInfo(res.data);
-			if (info) {
-				setSearchResult(seatInfo(info.isAvailable, info.cadet, info.elapsedTime));
-				setIsStarred(info.isStarred);
-			}
-		});
-	};
-
-	const handleAddStarred = async () => {
-		if (isStarred) return;
-
-		const res = await nomadAxios.post(`/member/favorite/${location}`);
-		setIsStarred(true);
-		dispatch(addStarred({ ...info, isNoti: false, notificationId: 0, starredId: res.data }));
-	};
 	return (
 		<div
 			className={`mt-2 shadow-full shadow-zinc-300 bg-white text-black rounded-3xl flex flex-col space-y-1 justify-center w-72 ${
-				searchResult ? 'h-36' : 'h-20'
+				info ? 'h-36' : 'h-20'
 			}`}
 		>
 			<div className="flex flex-row justify-center items-center space-x-1">
@@ -76,22 +56,22 @@ function SearchSeat() {
 				<button
 					type="button"
 					className="rounded-3xl bg-nomad-green text-nomad-sand w-12 h-6"
-					onClick={handleSearchClick}
+					onClick={() => handleSearchClick({ location, setInfo, setIsStarred })}
 				>
 					검색
 				</button>
 			</div>
-			{searchResult && (
+			{info && (
 				<div className="flex flex-col justify-center items-center space-y-2">
-					<div className="flex justify-center items-center">{searchResult}</div>
+					<div className="flex justify-center items-center">
+						{seatInfo(info.isAvailable, info.cadet, info.elapsedTime)}
+					</div>
 					<button
 						type="button"
 						className={`rounded-3xl text-sm  text-nomad-sand w-28 h-6 ${
 							isStarred ? 'bg-meeting-disable' : 'bg-nomad-green'
 						}`}
-						onClick={() => {
-							handleAddStarred();
-						}}
+						onClick={() => handleAddStarred({ location, isStarred, setIsStarred, dispatch, info })}
 					>
 						{isStarred ? '즐겨찾기 완료' : '즐겨찾기 추가'}
 					</button>

@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import swalAlert from '../../../utils/swalAlert';
 import postAdminToken from '../../../services/postAdminToken';
+import Loading from '../../../components/Loading/Loading';
 
 function AdminOauth() {
 	const nav = useNavigate();
@@ -16,7 +17,7 @@ function AdminOauth() {
 		nav('/Admin', { state: true });
 	}
 
-	return <div>loading</div>;
+	return <Loading />;
 }
 
 export default AdminOauth;
