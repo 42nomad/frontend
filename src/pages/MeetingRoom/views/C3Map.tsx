@@ -12,7 +12,11 @@ function C3Map() {
 		<>
 			{mapInfo === null && <Loading />}
 			{mapInfo && (
-				<div id="MeetingMap" className="grid grid-cols-5  h-2/3 w-3/4 mt-5" css={mapBorder}>
+				<div
+					id="MeetingMap"
+					className="grid grid-cols-5 grid-rows-[repeat(12,_minmax(0,_1fr))] h-2/3 w-3/4 mt-5"
+					css={mapBorder}
+				>
 					<div className="col-span-2 row-span-full" css={leftTopBorder}>
 						<DisableRoom roomName="C3 Cluster" />
 					</div>
