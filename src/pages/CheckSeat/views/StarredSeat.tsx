@@ -21,7 +21,7 @@ function StarredSeat({ seat }: { seat: StarredData }) {
 			${seatBackground(isAvailable, elapsedTime)}`}
 		>
 			<div className="flex justify-between items-center">
-				<div>{location.toUpperCase()}</div>
+				<div>{location}</div>
 				{isLoading && (
 					<div className="w-5 h-5 rounded-full animate-spin border-4 border-solid border-nomad-green border-t-transparent bg-transparent" />
 				)}
