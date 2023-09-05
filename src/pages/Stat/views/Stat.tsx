@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { CSVLink } from 'react-csv';
-import { Link } from 'react-router-dom';
 import 'react-datepicker/dist/react-datepicker.css';
 import StatStarred from './StatStarred';
 import StatMeeting from './StatMeeting';
@@ -8,6 +7,7 @@ import ExcelHeader from '../../../interfaces/ExcelHeader';
 import ExcelData from '../../../interfaces/ExcelData';
 import getExcelData from '../logics/getExcelData';
 import getStatRole from '../../../services/getStatRole';
+import Logo from '../../../components/Header/Logo';
 
 const clusters = [
 	{ id: 0, name: '전체' },
@@ -43,12 +43,10 @@ function Stat() {
 
 	return (
 		<>
-			<Link to="/staff" className="w-full max-w-max-wid bg-nomad-sand fixed">
-				<div id="Logo" className="flex h-15 mt-4 ml-4 font-fugazRegular text-2xl text-nomad-green cursor-pointer">
-					42NOMAD
-				</div>
-			</Link>
-			<div className="bg-nomad-sand h-full">
+			<div id="Header" className="z-40 w-full max-w-max-wid bg-nomad-sand fixed">
+				<Logo />
+			</div>
+			<div className="bg-nomad-sand min-h-full">
 				<div className="pt-16 pl-10 mb-4">
 					<div className="flex items-center text-3xl mr-2">ㄴ통계</div>
 				</div>
@@ -118,7 +116,7 @@ function Stat() {
 					</CSVLink>
 				</div>
 				{excelData.length !== 0 && (
-					<div className="flex justify-center items-center mt-6">
+					<div className="bg-nomad-sand flex justify-center items-center mt-6">
 						<table className="table-fixed border-2 border-collapse">
 							<thead className="bg-zinc-200">
 								<tr>

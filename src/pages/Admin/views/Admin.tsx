@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { css } from '@emotion/react';
 import tw from 'twin.macro';
 import handleSecretUpdate from '../logics/handleSecretUpdate';
@@ -10,6 +9,7 @@ import handleAmdinLogin from '../logics/handleAdminLogin';
 import handleSlackAddress from '../logics/handleSlackAddress';
 import Loading from '../../../components/Loading/Loading';
 import getAdminRole from '../../../services/getAdminRole';
+import Logo from '../../../components/Header/Logo';
 
 const input = css`
 	${tw`px-4 m-1 rounded-xl border-2 border-nomad-green focus:outline-none`}
@@ -31,11 +31,7 @@ function Admin() {
 
 	return (
 		<div className="flex flex-col items-center text-xl w-full h-full bg-nomad-sand space-y-10">
-			<Link to="/staff" className="flex self-start bg-nomad-sand fixed">
-				<div id="Logo" className="flex h-15 mt-4 ml-4 font-fugazRegular text-2xl text-nomad-green cursor-pointer">
-					42NOMAD
-				</div>
-			</Link>
+			<Logo />
 			<div className="mt-32 font-nexonBold">Admin Page</div>
 			{isLoading ? <Loading /> : null}
 			<div className="w-80">
